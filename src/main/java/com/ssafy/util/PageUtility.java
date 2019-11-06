@@ -34,7 +34,7 @@ public class PageUtility {
         this.displayrowcount = displayrowcount;
         this.totalrowcount = totalrowcount;
         this.currentpagecount = currentpagecount;
-        this.imagepath = imagepath	;
+        this.imagepath = imagepath;
         this.totalpagecount=totalrowcount/displayrowcount;
         if(totalrowcount%displayrowcount!=0){
           this.totalpagecount++;

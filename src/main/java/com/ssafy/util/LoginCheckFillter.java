@@ -39,10 +39,10 @@ public class LoginCheckFillter implements Filter {
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
 		if(id==null) {
-			request.setAttribute("referer", req.getServletPath()+"?action="+request.getParameter("action"));
-			request.setAttribute("msg", "로그인 하세요");
-			request.getRequestDispatcher("main.do?action=loginform.do").forward(req, res);
-		} else {
+			request.setAttribute("referer", req.getServletPath()+"?action"+request.getParameter("action"));
+	//		request.setAttribute("msg", "로그인 하세요");
+			request.getRequestDispatcher("main.do?action=login.do").forward(req, res);
+		}else {
 			chain.doFilter(request, response);
 		}
 	}

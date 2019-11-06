@@ -3,17 +3,16 @@
       "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
-  		<typeAlias type="com.ssafy.model.dto.Food" 	alias="food"/>
-  		<typeAlias type="com.ssafy.model.dto.User"	alias="user"/>
-  		<typeAlias type="com.ssafy.model.dto.UserFood" alias="userfood"/>  		
-  		<typeAlias type="com.ssafy.model.dto.PageBean" alias="pagebean"/>
-  		
+  		<typeAlias type="com.ssafy.vo.Member" alias="member" />
+		<typeAlias type="com.ssafy.vo.FoodPageBean" alias="pagebean" />
+		<typeAlias type="com.ssafy.vo.Food" alias="food" />
+		<typeAlias type="com.ssafy.vo.Consume" alias="consume" />
   </typeAliases>
   
   <mappers>
-  		<mapper resource="spring/User_query.xml"/>
-        <mapper resource="spring/Food_query.xml"/>
-        <mapper resource="spring/Eatfood_query.xml"/>
+  		<mapper resource="com/ssafy/config/Food_query.xml" />
+		<mapper resource="com/ssafy/config/Member_query.xml" />
+		<mapper resource="com/ssafy/config/Consume_query.xml" />
   </mappers>
 </configuration>
 
