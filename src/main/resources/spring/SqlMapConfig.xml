@@ -9,21 +9,11 @@
   		<typeAlias type="com.ssafy.model.dto.PageBean" alias="pagebean"/>
   		
   </typeAliases>
-  <environments default="development">
-     <environment id="development">
-        <transactionManager type="JDBC"/>
-        <dataSource type="POOLED">
-              <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-          <property name="url" value="jdbc:mysql://70.12.108.91:3306/ssafydb?serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
-          <property name="username" value="ssafy"/>
-          <property name="password" value="ssafy"/>
-        </dataSource>
-     </environment>
-  </environments>
+  
   <mappers>
-  		<mapper resource="com/ssafy/config/User_query.xml"/>
-        <mapper resource="com/ssafy/config/Food_query.xml"/>
-        <mapper resource="com/ssafy/config/Eatfood_query.xml"/>
+  		<mapper resource="spring/User_query.xml"/>
+        <mapper resource="spring/Food_query.xml"/>
+        <mapper resource="spring/Eatfood_query.xml"/>
   </mappers>
 </configuration>
 

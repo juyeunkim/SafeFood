@@ -2,8 +2,8 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
-<mapper namespace="food" >
-  <insert id="insert"		parameterType="food">
+<mapper namespace="com.ssafy.model.dao.FoodDao" >
+  <insert id="insertFood"		parameterType="food">
    		insert into food (code, name, supportpereat, calory, carbo,protein
    		,fat,sugar,natrium,chole,fattyacid,transfat,maker,material,img,allergy)
    		values ( #{code:INTEGER} ,#{name:VARCHAR}
@@ -24,11 +24,11 @@
    		        ,#{allergy:VARCHAR})
    </insert>
    
-   <delete id="delete" 		parameterType="int">
+   <delete id="deleteFood" 		parameterType="int">
    		delete from food where code=#{code}
    </delete>
    
-   <update id="update"		parameterType="food">
+   <update id="updateFood"		parameterType="food">
    		update food set name = #{name:VARCHAR}, supportpereat = #{supportpereat:DOUBLE}
    		, calory = #{calory:DOUBLE}, carbo = #{carbo:DOUBLE},protein = #{protein:DOUBLE}
    		,fat = #{fat:DOUBLE},sugar = #{sugar:DOUBLE},natrium = #{natrium:DOUBLE},chole = #{chole:DOUBLE}
@@ -68,7 +68,7 @@
    		</where>
    		order by code desc 
    </select>
-   <select id="count"	resultType="int"	parameterType="pagebean">
+   <select id="foodCount"	resultType="int"	parameterType="pagebean">
    		select count(*) as cnt from food
    		<where>
    			<if test='key != null and key!="all"'>

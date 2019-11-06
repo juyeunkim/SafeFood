@@ -2,8 +2,8 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
-<mapper namespace="userfood" >
-   <insert id="insert"		parameterType="userfood">
+<mapper namespace="com.ssafy.model.dao.UserFoodDao" >
+   <insert id="add"		parameterType="userfood">
    		insert into usereat (no, id, code)
    		values ( #{no:INTEGER}
    		        ,#{id:VARCHAR}

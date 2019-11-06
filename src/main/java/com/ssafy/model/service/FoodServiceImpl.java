@@ -1,22 +1,20 @@
 package com.ssafy.model.service;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.ssafy.config.MyBatis;
 import com.ssafy.model.dao.FoodDao;
-import com.ssafy.model.dao.FoodDaoImpl;
 import com.ssafy.model.dto.Food;
 import com.ssafy.model.dto.FoodException;
 import com.ssafy.model.dto.PageBean;
-import com.ssafy.util.DBUtil;
 import com.ssafy.util.PageUtility;
 
+@Service
 public class FoodServiceImpl implements FoodService{
-	private FoodDao dao = new FoodDaoImpl();
+	@Autowired
+	private FoodDao dao;
 	private String[] allergys={"대두","땅콩","우유","게","새우","참치","연어","쑥","소고기","닭고기","돼지고기","복숭아","민들레","계란흰자"};
 	
 

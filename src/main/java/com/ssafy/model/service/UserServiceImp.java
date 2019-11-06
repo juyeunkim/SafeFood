@@ -3,14 +3,18 @@ package com.ssafy.model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.ssafy.model.dao.UserDAO;
-import com.ssafy.model.dao.UserDAOImp;
 import com.ssafy.model.dto.PageBean;
 import com.ssafy.model.dto.User;
 import com.ssafy.model.dto.UserException;
 
+@Service
 public class UserServiceImp implements UserService {
-	UserDAO dao = new UserDAOImp();
+	@Autowired
+	UserDAO dao;
 	
 	public UserServiceImp() {
 		super();
@@ -37,7 +41,7 @@ public class UserServiceImp implements UserService {
 			}else {
 			   return user;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UserException();
 		}
@@ -46,7 +50,7 @@ public class UserServiceImp implements UserService {
 	public List<User> searchAll(PageBean bean) {
 		try {
 			return dao.searchAll(bean);
-		}catch (SQLException e) {
+		}catch (Exception e) {
 			throw new UserException();
 		}
 	}
@@ -63,7 +67,7 @@ public class UserServiceImp implements UserService {
 					throw new UserException("비밀 번호 오류");
 				}
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new UserException();
 		}
@@ -77,7 +81,7 @@ public class UserServiceImp implements UserService {
 			}else {
 				return true;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			throw new UserException();
 		}
 	}
@@ -89,7 +93,7 @@ public class UserServiceImp implements UserService {
 			}else {
 				dao.add(user);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			throw new UserException();
 		}
 	}
@@ -101,7 +105,7 @@ public class UserServiceImp implements UserService {
 			}else {
 				dao.update(user);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			throw new UserException();
 		}
 	}
@@ -114,7 +118,7 @@ public class UserServiceImp implements UserService {
 			}else {
 				dao.remove(id);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			throw new UserException();
 		}
 	}
@@ -123,7 +127,7 @@ public class UserServiceImp implements UserService {
 		try {
 			String allergy = dao.search(id).getAllergy();
 			return allergy;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			throw new UserException();
 		}
 	}

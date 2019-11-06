@@ -2,9 +2,12 @@ package com.ssafy.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.ssafy.model.dto.Food;
 import com.ssafy.model.dto.PageBean;
 
+@Mapper
 public interface FoodDao {	
 	
 	public Food search(int code);

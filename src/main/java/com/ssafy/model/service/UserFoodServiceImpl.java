@@ -3,16 +3,17 @@ package com.ssafy.model.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.ssafy.config.MyBatis;
 import com.ssafy.model.dao.UserFoodDAO;
-import com.ssafy.model.dao.UserFoodDAOImpl;
 import com.ssafy.model.dto.Food;
 import com.ssafy.model.dto.UserFood;
 
+@Service
 public class UserFoodServiceImpl implements UserFoodService {
-	UserFoodDAO dao = new UserFoodDAOImpl();
+	@Autowired
+	UserFoodDAO dao;
 	
 	public UserFoodDAO getDao() {
 		return dao;
