@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="user" >
+   <insert id="insert"		parameterType="user">
+   <!-- private String id        ;
+	private String password  ;
+	private String name      ;
+	private String address   ;
+	private String phone     ;
+	private String allergy	 ; -->
+   		insert into user (id, password, name, address, phone, allergy)
+   		values ( #{id:VARCHAR}
+   		        ,#{password:VARCHAR}
+   		        ,#{name:VARCHAR}
+   		        ,#{address:VARCHAR}
+   		        ,#{phone:VARCHAR}
+   		        ,#{allergy:VARCHAR})
+   </insert>
+   <delete id="delete" 		parameterType="string">
+   		delete from user where id=#{id}
+   </delete>
+   <update id="update"		parameterType="user">
+   		update user set password=#{password:VARCHAR}
+   		                , name = #{name:VARCHAR}
+   		                , address=#{address:VARCHAR}
+   		                , phone=#{phone:VARCHAR}
+   		                , allergy=#{allergy:VARCHAR}
+   		where  id = #{id:VARCHAR}
+   </update>
+   
+   <select id="search"		 parameterType="string"    resultType="user">
+   		select * from user  where id=#{id}
+   </select>
+   
+   <select id="searchAll"	parameterType="pagebean"	resultType="user">
+   		select * from user 
+   		<!-- 동적 쿼리시 조건에 의해 where 나 and를 붙여주는 태그  -->
+   		<where>
+   			<if test='key != null and key!="all"'>
+   				<if test=" word != null">
+   					<choose>
+   						<when test="key == 'id'">
+   							id = #{word}
+   						</when>
+   						<when test="key == 'address'">
+   							address like concat('%',#{word},'%')
+   						</when>
+   					</choose>
+   				</if>
+   			</if>
+   		</where>
+   		order by id
+   </select>
+   <select id="count"	resultType="int"	parameterType="pagebean">
+   		select count(*) as cnt from user
+   		<where>
+   			<if test=' key != null and key!="all" '>
+   				<if test=" word != null ">
+   					<choose>
+   						<when test=" key == 'id' ">
+   							id = #{word}
+   						</when>
+   						<when test=" key == 'address' ">
+   							address like  concat('%',#{word},'%')
+   						</when>
+   					</choose>
+   				</if>
+   			</if>
+   		</where>
+   </select>
+</mapper>
