@@ -97,7 +97,7 @@ Top Bar
 						</c:if>
 						<div class="form-group">
 							<form id="loginForm" method="post"
-								action="logcheck.do?action=login.do">
+								action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -159,7 +159,7 @@ Top Bar
 						<div class="form-group">
 
 							<form id="memberinsert" method="post"
-								action="main.do?action=memberinsert.do">
+								action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -248,7 +248,7 @@ Top Bar
 						<div class="form-group">
 
 							<form id="findPw" method="post"
-								action="main.do?action=findPassword.do">
+								action="findPassword.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -289,9 +289,9 @@ Header
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
-					<li><a href="#about">공지 사항</a></li>
-					<li><a href="main.do?action=list.do">상품 정보</a></li>
-					<li><a href="main.do?action=consumeList.do">내 섭취 정보</a></li>
+					<li><a href="mainform.do">공지 사항</a></li>
+					<li><a href="list.do">상품 정보</a></li>
+					<li><a href="consumeList.do">내 섭취 정보</a></li>
 
 				</ul>
 			</nav>
@@ -331,7 +331,7 @@ Search Section
 		<div class="container" class="text-center">
 			<br />
 
-			<form action="main.do?action=foodList.do" method="post">
+			<form action="foodList.do" method="post">
 				<div class="row">
 					<div class="searchCondition col-lg-3"></div>
 					<div class="searchCondition col-lg-2">
@@ -467,7 +467,7 @@ All the links in the footer should remain intact.
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="main.do?action=itemInfor.do&code="+foodno;
+		window.location.href="itemInfor.do&code="+foodno;
 	} 
 	
 	</script>

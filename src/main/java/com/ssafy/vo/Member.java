@@ -9,7 +9,7 @@ public class Member implements Serializable {
 	private String email     ;
 	private String phone     ;
 	private String address   ;
-	private String alergy   ;
+	private String allergy   ;
 	public Member() {}
 	public Member(String id, String name, String email, String phone) {
 		super();
@@ -26,7 +26,7 @@ public class Member implements Serializable {
 		this.email = email;
 		this.phone = phone;
 		this.address = address;
-		this.alergy = allergy;
+		this.allergy = allergy;
 	}
 	public String getId() {
 		return id;
@@ -65,16 +65,16 @@ public class Member implements Serializable {
 		this.address = address;
 	}
 	public String getAllergy() {
-		return alergy;
+		return allergy;
 	}
 	public void setAllergy(String allergy) {
-		this.alergy = allergy;
+		this.allergy = allergy;
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Member [id=").append(id).append(", password=").append(password).append(", name=").append(name)
-				.append(", email=").append(email).append(", phone=").append(phone).append(", address=").append(address).append(", allergy=").append(alergy)
+				.append(", email=").append(email).append(", phone=").append(phone).append(", address=").append(address).append(", allergy=").append(allergy)
 				.append("]");
 		return builder.toString();
 	}

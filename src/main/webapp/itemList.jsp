@@ -64,8 +64,8 @@
 
 				<c:choose>
 					<c:when test="${sessionScope.id !=null}">
-						<a href="logcheck.do?action=logout.do" id="logout">로그아웃</a>
-						<a href="main.do?action=memberinfo.do" id="memberinfo">회원정보</a>
+						<a href="logout.do" id="logout">로그아웃</a>
+						<a href="memberinfo.do" id="memberinfo">회원정보</a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
@@ -87,7 +87,7 @@
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="main.do"><img
+				<a href="mainform.do"><img
 					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"
 					alt="" title="" /></a>
 			</div>
@@ -98,7 +98,7 @@
 					<li><a href="#about">공지 사항</a></li>
 					<li><a href="">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
-					<li><a href="main.do?action=consumeList.do">내 섭취 정보</a></li>
+					<li><a href="consumeList.do">내 섭취 정보</a></li>
 					<li><a href="#contact">예상 섭취 정보</a></li>
 				</ul>
 			</nav>
@@ -123,7 +123,7 @@
 						</c:if>
 						<div class="form-group">
 							<form id="loginForm" method="post"
-								action="logcheck.do?action=login.do">
+								action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -183,7 +183,7 @@
 						<div class="form-group">
 
 							<form id="memberinsert" method="post"
-								action="main.do?action=memberinsert.do">
+								action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -263,7 +263,7 @@
 				<h2>상품정보</h2>
 			</div>
 
-			<form action="main.do?action=foodList2.do" method="post">
+			<form action="foodList2.do" method="post">
 				<div class="row">
 
 					<div class="searchCondition col-lg-3"></div>
@@ -319,7 +319,7 @@
 
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
-						<form action="main.do?action=insertcart.do" method='post'>
+						<form action="insertcart.do" method='post'>
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'>
 
@@ -397,7 +397,7 @@
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="main.do?action=itemInfor.do&code="+foodno;
+		window.location.href="itemInfor.do&code="+foodno;
 	} 
 	
 	</script>

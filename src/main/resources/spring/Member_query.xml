@@ -19,14 +19,14 @@
       실수   DOUBLE
 	-->
    <insert id="add"		parameterType="member">
-   		insert into member (id,password,name,email,phone,address,alergy)
+   		insert into member (id,password,name,email,phone,address,allergy)
    		values ( #{id:VARCHAR}
    		        ,#{password:VARCHAR}
    		        ,#{name:VARCHAR}
    		        ,#{email:VARCHAR}
    		        ,#{phone:VARCHAR}
    		        ,#{address:VARCHAR}
-   		        ,#{alergy:VARCHAR})
+   		        ,#{allergy})
    </insert>
    
    <delete id="remove" 		parameterType="string">
@@ -39,7 +39,7 @@
    		       			 ,email= #{email:VARCHAR}
    		      			 ,phone = #{phone:VARCHAR}
    		        		 ,address = #{address:VARCHAR}
-   		                 ,alergy = #{alergy:VARCHAR}
+   		                 ,allergy = #{allergy:VARCHAR}
    		where  id = #{id:VARCHAR}
    </update>
    

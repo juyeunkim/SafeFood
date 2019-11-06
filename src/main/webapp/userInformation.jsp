@@ -59,8 +59,8 @@
 				
 			</div>
 			<div class="social-links float-right">
-				<a href="logcheck.do?action=logout.do" id="logout">로그아웃</a> 
-				<a href="main.do?action=memberinfo.do" id="memberinfo">회원정보</a>
+				<a href="logout.do" id="logout">로그아웃</a> 
+				<a href="memberinfo.do" id="memberinfo">회원정보</a>
 			</div>
 		</div>
 	</section>
@@ -71,13 +71,13 @@
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				 <a href="main.do"><img src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"  alt="" title="" /></a>
+				 <a href="mainform.do"><img src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"  alt="" title="" /></a>
 			</div>
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<li><a href="#about">공지 사항</a></li>
-					<li><a href="main.do?action=list.do">상품 정보</a></li>
+					<li><a href="list.do">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
 					<li><a href="#team">내 섭취 정보</a></li>
 					<li><a href="#contact">예상 섭취 정보</a></li>
@@ -101,7 +101,7 @@
 				<h2>내 정보 보기</h2>
 			</div>
 
-			<form id="memberupdate" method="post" action="main.do?action=userUpdate.do">
+			<form id="memberupdate" method="post" action="userUpdate.do">
 
 				<div class="row marginbox">
 					<h4 class="col-lg-4" align="center">아이디</h4>
@@ -205,7 +205,7 @@
 	<script src="js/main.js"></script>
 	<script type="text/javascript">
 	function userdelete(){
-		window.location.href="main.do?action=userDelete.do"
+		window.location.href="userDelete.do"
 	}
 	</script>
 </body>

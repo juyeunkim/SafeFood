@@ -47,7 +47,7 @@
 		<div class="container clearfix">
 			<div class="contact-info float-left"></div>
 			<div class="social-links float-right">
-				<a href="logcheck.do?action=logout.do" id="logout">로그아웃</a> <a href="main.do?action=memberinfo.do" id="memberinfo">회원정보</a>
+				<a href="logout.do" id="logout">로그아웃</a> <a href="memberinfo.do" id="memberinfo">회원정보</a>
 			</div>
 		</div>
 	</section>
@@ -55,7 +55,7 @@
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="main.do"><img
+				<a href="mainform.do"><img
 					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"
 					alt="" title="" /></a>
 			</div>
@@ -64,7 +64,7 @@
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
 					<li><a href="#about">공지 사항</a></li>
-					<li><a href="main.do?action=list.do">상품 정보</a></li>
+					<li><a href="list.do">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
 					<li><a href="#team">내 섭취 정보</a></li>
 					<li><a href="#contact">예상 섭취 정보</a></li>

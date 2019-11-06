@@ -65,8 +65,8 @@
        
 	      </div>
 			<div class="social-links float-right">
-				<a href="logcheck.do?action=logout.do" id="logout" >로그아웃</a>
-				 <a href="main.do?action=memberinfo.do" id="memberinfo">회원정보</a>
+				<a href="logout.do" id="logout" >로그아웃</a>
+				 <a href="memberinfo.do" id="memberinfo">회원정보</a>
 
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
 					<li><a href="#about">공지 사항</a></li>
-					<li><a href="main.do?action=list.do">상품 정보</a></li>
+					<li><a href="list.do">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
 					<li><a href="#team">내 섭취 정보</a></li>
 					<li><a href="#contact">예상 섭취 정보</a></li>
@@ -131,7 +131,7 @@
 		<div class="container" class="text-center">
 			<br/>
 
-			<form action="main.do?action=foodList.do" method="post">
+			<form action="foodList.do" method="post">
 				<div class="row">
 
 					<div class="searchCondition col-lg-3"></div>
