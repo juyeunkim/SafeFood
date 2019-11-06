@@ -8,7 +8,7 @@ import com.ssafy.vo.Member;
 
 @Mapper
 public interface MemberDAO {
-	public Member search( String id);
+	public Member search(String id);
 	public List<Member> searchAll( );
 	public void add(Member member);
 	public void update(Member member);

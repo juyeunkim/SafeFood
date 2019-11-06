@@ -42,6 +42,12 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+  <script type="text/javascript">
+	function userdelete(){
+		window.location.href="userdelete.do"
+	}
+	
+	</script>
 </head>
 <c:if test="${not empty msg}">
 	<script>
@@ -59,8 +65,17 @@
 				
 			</div>
 			<div class="social-links float-right">
-				<a href="logout.do" id="logout">로그아웃</a> 
-				<a href="memberinfo.do" id="memberinfo">회원정보</a>
+				<c:choose>
+					<c:when test="${not empty id}">
+						${id}님 로그인되었습니다.
+						<a href="memberinfo.do" id="memberinfo">회원정보</a>
+						<a href="logout.do" id="logout">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+					</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 	</section>
@@ -101,7 +116,7 @@
 				<h2>내 정보 보기</h2>
 			</div>
 
-			<form id="memberupdate" method="post" action="userUpdate.do">
+			<form id="memberupdate" method="post" action="userupdate.do">
 
 				<div class="row marginbox">
 					<h4 class="col-lg-4" align="center">아이디</h4>
@@ -129,7 +144,7 @@
 				<hr>
 				<div class="row marginbox">
 					<h4 class="col-lg-4" align="center">전화번호</h4>
-					<input type="text" class="form-control col-lg-8" name="phoneNumber"
+					<input type="text" class="form-control col-lg-8" name="phone"
 						placeholder="phoneNumber" value="${member.phone}">
 				</div>
 				<hr>
@@ -148,12 +163,13 @@
 				<div class="row marginbox">
 					<h4 class="col-lg-9"></h4>
 					<input type="submit"  class="form-control col-lg-1 btn btn-primary" id="editButton"
-						value="수정">
+						value="수정" >
 			</form>
 					<input type="button" class="form-control col-lg-1 btn btn-default"
-						id="submitButton" value="탈퇴" onclick="userdelete();">
-						
+						id="submitButton" value="탈퇴" onclick="userdelete()">
+				
 				</div>
+						
 
 
 		</div>
@@ -203,10 +219,6 @@
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-	<script type="text/javascript">
-	function userdelete(){
-		window.location.href="userDelete.do"
-	}
-	</script>
+	
 </body>
 </html>

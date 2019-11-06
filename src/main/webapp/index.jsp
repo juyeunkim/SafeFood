@@ -73,8 +73,17 @@ Top Bar
 		<div class="container clearfix">
 			<div class="contact-info float-left"></div>
 			<div class="social-links float-right">
-				<a href="#" data-target="#login" data-toggle="modal">로그인</a> <a
-					href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+			<c:choose>
+					<c:when test="${not empty id}">
+						${id}님 로그인되었습니다.
+						<a href="memberinfo.do" id="memberinfo">회원정보</a>
+						<a href="logout.do" id="logout">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+					</c:otherwise>
+			</c:choose>
 
 			</div>
 		</div>
@@ -281,7 +290,7 @@ Header
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="#body"><img
+				<a href="mainform.do"><img
 					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"
 					alt="" title="" /></a>
 			</div>

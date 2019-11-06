@@ -63,9 +63,10 @@
 			<div class="social-links float-right">
 
 				<c:choose>
-					<c:when test="${sessionScope.id !=null}">
-						<a href="logout.do" id="logout">로그아웃</a>
+					<c:when test="${not empty id}">
+						${id}님 로그인되었습니다.
 						<a href="memberinfo.do" id="memberinfo">회원정보</a>
+						<a href="logout.do" id="logout">로그아웃</a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>

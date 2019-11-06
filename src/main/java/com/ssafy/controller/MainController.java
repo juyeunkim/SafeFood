@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssafy.service.ConsumeService;
@@ -57,16 +58,18 @@ public class MainController {
 		return "redirect:mainform.do";
 	}
 	@PostMapping("memberinsert.do")
-	public String memberinsert(Member mem) {
-		System.out.println("meminsert---------"+mem.getAllergy());
+	public String memberinsert(Member mem, HttpSession session) {
+		session.setAttribute("id", mem.getId());
 		mservice.add(mem);
 		return "redirect:mainform.do";
 	}
 	
 	@GetMapping("memberinfo.do")
-	public String memberinfo(String id, Model model) {
-		model.addAttribute("member", mservice.search(id));
-		return "main.do?action=userinfoForm.do";
+	public String memberinfo(Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		Member mem = mservice.search(id);
+		model.addAttribute("member", mem);
+		return "userInformation";
 	}
 	
 	@GetMapping("userinfoForm.do")
@@ -74,16 +77,21 @@ public class MainController {
 		return "userInformation";
 	}
 	
-	@DeleteMapping("userDelete.do")
-	public String userDelete(String id) {
+	@GetMapping("userdelete.do")
+	public String userdelete(HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		session.invalidate();
 		mservice.remove(id);
 		return "redirect:mainform.do";
 	}
 	
-	@PostMapping("userUpdate.do")
-	public String userUpdate(Member member) {
+	@PostMapping("userupdate.do")
+	public String userupdate(Member member) {
+		System.out.println("UPDATE BEFO-----"+member);
 		mservice.update(member);
-		return "main.do?action=memberinfo.do";
+		
+		System.out.println("UPDATE AFO-----"+member);
+		return "userInformation";
 	}
 	
 	@GetMapping("foodList.do")
@@ -120,7 +128,7 @@ public class MainController {
 		return "mainform.do";
 	}
 	@GetMapping("itemInfor.do")
-	public String itemInfor(String code, Model model) {
+	public String itemInfor(@RequestParam String code, Model model) {
 		Food food = fservice.search(Integer.parseInt(code));
 		model.addAttribute("item",food);
 		return "itemInformation";
@@ -142,7 +150,7 @@ public class MainController {
 		return "itemList";
 	}
 	@GetMapping("findPassword.do")
-	public String findPassword(String id,String phone, Model model) {
+	public String findPassword(String id, String phone, Model model) {
 		Member member = mservice.search(id);
 		String password="";
 		if (member.getPhone().equals(phone)) {
@@ -151,7 +159,7 @@ public class MainController {
 			model.addAttribute("password", password);
 
 			model.addAttribute("member", member);
-			return "main.do?action=userinfoForm.do";
+			return "userinfoForm.do";
 		}
 		return "mainform.do";
 	}
@@ -175,7 +183,7 @@ public class MainController {
 			consumelist.add(food);
 		session.setAttribute("consumelist", consumelist);
 		
-		return "main.do?action=list.do";
+		return "list.do";
 	}
 	@GetMapping("consumeList.do")
 	public String consumeList(Model model, HttpSession session) {
