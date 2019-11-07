@@ -276,7 +276,7 @@
 								<a href="">검색조건 &nbsp;&nbsp;&nbsp; </a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
-								name='key'>
+								name='key' value='asdfasdfasdf'>
 								<option value='all' selected>검색조건</option>
 								<option value='name'>상품명</option>
 								<option value='maker'>제조사</option>
@@ -291,7 +291,7 @@
 								<a href="">검색단어 &nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
-								name="word" onKeyPress="if (event.keyCode==13){searchItem();}">
+								name="word" value="${word }"onKeyPress="if (event.keyCode==13){searchItem();}">
 						</div>
 					</div>
 

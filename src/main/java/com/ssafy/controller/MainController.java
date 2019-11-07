@@ -146,6 +146,8 @@ public class MainController {
 	public String foodList2(String key,String word, Model model) {
 		FoodPageBean bean = new FoodPageBean(key, word, "", 0);
 		model.addAttribute("bean", bean);
+		model.addAttribute("key",key);
+		model.addAttribute("word",word);
 		List<Food> list = new ArrayList<>();
 		list = fservice.searchAll(bean);
 		model.addAttribute("foodList", list);
