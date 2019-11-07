@@ -277,10 +277,10 @@
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
-								<option value='all' selected>검색조건</option>
-								<option value='name'>상품명</option>
-								<option value='maker'>제조사</option>
-								<option value='material'>첨가물</option>
+								<option value='all' <c:if test="${key.equals('all')}">selected</c:if>>검색조건</option>
+								<option value='name' <c:if test="${key.equals('name')}">selected</c:if>>상품명</option>
+								<option value='maker'<c:if test="${key.equals('maker')}">selected</c:if>>제조사</option>
+								<option value='material'<c:if test="${key.equals('material')}">selected</c:if>>첨가물</option>
 							</select>
 						</div>
 					</div>
