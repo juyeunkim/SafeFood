@@ -270,7 +270,7 @@ Top Bar
 								</div>
 								<div class="row"></div>
 								<div class="col-lg-12">
-									<button type="submit" class="btn btn-green btn-block btn-flat">비밀번호 수정</button>
+									<button type="submit" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
 								</div>
 							</form>
 						</div>

@@ -149,7 +149,7 @@ public class MainController {
 		model.addAttribute("foodList", list);
 		return "itemList";
 	}
-	@GetMapping("findPassword.do")
+	@PostMapping("findPassword.do")
 	public String findPassword(String id, String phone, Model model) {
 		Member member = mservice.search(id);
 		String password="";
