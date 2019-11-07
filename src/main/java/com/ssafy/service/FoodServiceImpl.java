@@ -32,13 +32,15 @@ public class FoodServiceImpl implements FoodService{
 		try {
 			Food f = dao.search(code);
 			String metarial = f.getMaterial();
+			System.out.println("metarial  "+metarial);
 			String alle = "";
 			for (int i = 0; i < allergys.length; i++) {
 				if (metarial.contains(allergys[i])) {
 					alle += allergys[i] + " ";
 				}
 			}
-			f.setAllergy(alle);
+			if(alle.equals("")) f.setAllergy("없습니다.");
+			else				f.setAllergy(alle);
 			return f;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
