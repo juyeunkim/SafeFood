@@ -97,7 +97,7 @@
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
 					<li><a href="#about">공지 사항</a></li>
-					<li><a href="">상품 정보</a></li>
+					<li><a href="list.do">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
@@ -327,7 +327,8 @@
 								<div class=' box2 wow fadeInLeft row'>
 
 									<div class='col-lg-3'>
-										<img src='${food.img}' width='200px' style='cursor: pointer'
+										<img src='${food.img}' width='200px' 
+										style= 'cursor: pointer'
 											onclick="itemInfor(${food.code});">
 									</div>
 
@@ -341,9 +342,11 @@
 											<input type='hidden' name='code' value="${food.code}">
 											<input type="button"
 												class="form-control col-lg-2 btn btn-default"
-												id="submitButton" value="추가"> <input type="submit"
+												id="submitButton" value="추가"> 
+											<input type="button"
 												class="form-control col-lg-2 btn btn-primary"
-												id="editButton" value=섭취하기>
+												id="editButton" value=섭취하기 
+												onclick="insertcart(${food.code});">
 										</div>
 									</div>
 								</div>
@@ -401,7 +404,12 @@
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
 		window.location.href="itemInfor.do?code="+foodno;
-	} 
+	}
+	 function insertcart(foodno) {
+		window.location.href="insertcart.do?code="+foodno;
+	}
+
+	 
 	
 	</script>
 </body>
