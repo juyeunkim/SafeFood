@@ -140,7 +140,9 @@ public class MainController {
 		model.addAttribute("foodList", list);
 		return "itemList";
 	}
-	@GetMapping("foodList2.do")
+	
+	// 검색어를 받아서 리스트에 보여주기
+	@PostMapping("foodList2.do")
 	public String foodList2(String key,String word, Model model) {
 		FoodPageBean bean = new FoodPageBean(key, word, "", 0);
 		model.addAttribute("bean", bean);

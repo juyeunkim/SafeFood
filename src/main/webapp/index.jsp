@@ -53,6 +53,8 @@
 	$("#login").modal();
 	})
 	</c:if>
+	
+	
 	</script>
 
 <!-- =======================================================
@@ -75,7 +77,7 @@ Top Bar
 			<div class="social-links float-right">
 			<c:choose>
 					<c:when test="${not empty id}">
-						${id}님 로그인되었습니다.
+						${id}
 						<a href="memberinfo.do" id="memberinfo">회원정보</a>
 						<a href="logout.do" id="logout">로그아웃</a>
 					</c:when>
@@ -270,7 +272,7 @@ Top Bar
 								</div>
 								<div class="row"></div>
 								<div class="col-lg-12">
-									<button type="submit" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+									<button type="submit" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
 								</div>
 							</form>
 						</div>
@@ -300,7 +302,9 @@ Header
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
 					<li><a href="mainform.do">공지 사항</a></li>
 					<li><a href="list.do">상품 정보</a></li>
-					<li><a href="consumeList.do">내 섭취 정보</a></li>
+					<c:if test="${not empty id}">
+						<li><a href="consumeList.do">내 섭취 정보</a></li>
+					</c:if>
 
 				</ul>
 			</nav>

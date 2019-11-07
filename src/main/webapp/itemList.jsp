@@ -64,7 +64,7 @@
 
 				<c:choose>
 					<c:when test="${not empty id}">
-						${id}님 로그인되었습니다.
+						${id}
 						<a href="memberinfo.do" id="memberinfo">회원정보</a>
 						<a href="logout.do" id="logout">로그아웃</a>
 					</c:when>
@@ -99,7 +99,9 @@
 					<li><a href="#about">공지 사항</a></li>
 					<li><a href="">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
-					<li><a href="consumeList.do">내 섭취 정보</a></li>
+					<c:if test="${not empty id}">
+						<li><a href="consumeList.do">내 섭취 정보</a></li>
+					</c:if>
 					<li><a href="#contact">예상 섭취 정보</a></li>
 				</ul>
 			</nav>
@@ -398,7 +400,7 @@
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do&code="+foodno;
+		window.location.href="itemInfor.do?code="+foodno;
 	} 
 	
 	</script>

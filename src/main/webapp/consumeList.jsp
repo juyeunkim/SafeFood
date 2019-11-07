@@ -63,9 +63,10 @@
 			<div class="social-links float-right">
 
 				<c:choose>
-					<c:when test="${sessionScope.id !=null}">
-						<a href="logout.do" id="logout">로그아웃</a>
+					<c:when test="${not empty id}">
+						${id}
 						<a href="memberinfo.do" id="memberinfo">회원정보</a>
+						<a href="logout.do" id="logout">로그아웃</a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
@@ -98,7 +99,9 @@
 					<li><a href="#about">공지 사항</a></li>
 					<li><a href="">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
-					<li><a href="#team">내 섭취 정보</a></li>
+					<c:if test="${not empty id}">
+						<li><a href="consumeList.do">내 섭취 정보</a></li>
+					</c:if>
 					<li><a href="#contact">예상 섭취 정보</a></li>
 				</ul>
 			</nav>
