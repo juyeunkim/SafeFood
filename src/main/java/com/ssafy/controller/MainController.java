@@ -165,8 +165,10 @@ public class MainController {
 		}
 		return "mainform.do";
 	}
+	
 	@GetMapping("insertcart.do")
-	public String insertcart(String code,String phone, HttpSession session) {
+	public String insertcart(@RequestParam String code,HttpSession session) {
+		System.out.println("=======insert=======");
 		Food food = fservice.search(Integer.parseInt(code));
 		
 		ArrayList<Food> consumelist = (ArrayList<Food>) session.getAttribute("consumelist");
@@ -185,7 +187,10 @@ public class MainController {
 			consumelist.add(food);
 		session.setAttribute("consumelist", consumelist);
 		
-		return "list.do";
+		for (Food food2 : consumelist) {
+			System.out.println(food2);
+		}
+		return "redirect:list.do";
 	}
 	@GetMapping("consumeList.do")
 	public String consumeList(Model model, HttpSession session) {
