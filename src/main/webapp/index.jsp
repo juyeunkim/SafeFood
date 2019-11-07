@@ -344,7 +344,7 @@ Search Section
 		<div class="container" class="text-center">
 			<br />
 
-			<form action="foodList.do" method="post">
+			<form action="foodList2.do" method="post">
 				<div class="row">
 					<div class="searchCondition col-lg-3"></div>
 					<div class="searchCondition col-lg-2">
