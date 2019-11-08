@@ -195,13 +195,14 @@ public class MainController {
 		// id가 먹은 foodlist 가져오기
 		List<Consume> list = cservice.searchAll(id);
 		
-		List<Food> flist = new ArrayList<>();
-		for(int i=0; i<list.size(); i++) {
-			Food f = fservice.search(list.get(i).getCode());
-			flist.add(f);
-		}
-		
-		model.addAttribute("consumeList", flist);
+//		List<Food> flist = new ArrayList<>();
+//		for(int i=0; i<list.size(); i++) {
+//			Food f = fservice.search(list.get(i).getCode());
+//			flist.add(f);
+//		}
+//		
+//		model.addAttribute("consumeList", flist);
+		model.addAttribute("myList", list);
 
 		return "consumeList";
 	}

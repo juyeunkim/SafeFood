@@ -16,6 +16,7 @@
 		join food f
 		using(code)
 		where id = #{id} 
+		
 	</select>
 
 	<insert id="insert" parameterType="consume">

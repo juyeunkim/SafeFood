@@ -53,10 +53,6 @@
 </head>
 
 <body id="body">
-
-	<!--==========================
-    Top Bar
-  ============================-->
 	<section id="topbar" class="d-none d-lg-block">
 		<div class="container clearfix">
 			<div class="contact-info float-left"></div>
@@ -73,18 +69,10 @@
 						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
 					</c:otherwise>
 				</c:choose>
-
-
-
-
-
 			</div>
 		</div>
 	</section>
 
-	<!--==========================
-    Header
-  ============================-->
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
@@ -108,157 +96,8 @@
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
-	<!-- #header -->
-	<!--Modal box-->
-	<div class="modal fade" id="login" role="dialog" data-backdrop="static">
-		<div class="modal-dialog modal-sm">
-			<!-- Modal content no 1-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title text-center form-title">로그인</h4>
-					<button type="button" class="close" data-dismiss="modal">×</button>
-				</div>
-				<div class="modal-body padtrbl">
-					<div class="login-box-body">
-						<p class="login-box-msg">아이디와 비밀번호를 입력하세요.</p>
-						<c:if test="${msg !=null}">
-							<p class="login-box-msg">${msg}</p>
-						</c:if>
-						<div class="form-group">
-							<form id="loginForm" method="post"
-								action="login.do">
 
-								<div class="form-group has-feedback">
-									<!----- username -------------->
-									<input class="form-control" placeholder="Username" id="loginid"
-										type="text" autocomplete="off" name="id" /> <span
-										style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
-										id="span_loginid"></span>
-									<!---Alredy exists ! -->
-									<span class="glyphicon glyphicon-user form-control-feedback"></span>
-								</div>
-								<div class="form-group has-feedback">
-									<!----- password -------------->
-									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="pw" />
-									<span
-										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
-										id="span_loginpsw"></span>
-									<!---Alredy exists ! -->
-									<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-								</div>
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="checkbox icheck">
-											<label> <input type="checkbox" id="loginrem">
-												Remember Me
-											</label>
-										</div>
-									</div>
-									<div class="col-lg-12">
-										<button type="submit" class="btn btn-green btn-block btn-flat">로그인</button>
-										<button type="button" class="btn btn-green btn-block btn-flat"
-											data-target="#signup" data-toggle="modal">회원가입</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	<!--Modal box-->
-	<div class="modal fade" id="signup" role="dialog">
-		<div class="modal-dialog modal-sm">
-
-			<!-- Modal content no 2-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title text-center form-title">회원 가입</h4>
-					<button type="button" class="close" data-dismiss="modal">×</button>
-				</div>
-
-				<div class="modal-body padtrbl">
-
-					<div class="signup-box-body">
-						<div class="form-group">
-
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" name="id" placeholder="id">
-								</div>
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 비밀번호 </a> <input
-										type="text" class="form-control col-lg-6" name="password"
-										placeholder="Password">
-								</div>
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이름 </a> <input type="text"
-										class="form-control col-lg-6" name="name" placeholder="Name">
-								</div>
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" name="email" placeholder="Email">
-								</div>
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 전화번호 </a> <input
-										type="text" class="form-control col-lg-6" name="phone"
-										placeholder="phoneNumber">
-								</div>
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 주소 </a> <input type="text"
-										class="form-control col-lg-6" name="address"
-										placeholder="Address">
-								</div>
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 알레르기 </a>
-									<fieldset class="col-lg-8" id="innerFiledSet">
-										<input class="from-control marginbox" type="checkbox"
-											name="allergy" value="대두"> 대두 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="땅콩"> 땅콩 <input class="from-control marginbox"
-											type="checkbox" name="allergy" value="우유"> 우유 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="새우"> 새우 <input class="from-control marginbox"
-											type="checkbox" name="allergy" value="참치"> 참치 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="연어"> 연어 <input class="from-control marginbox"
-											type="checkbox" name="allergy" value="쑥"> 쑥 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="소고기"> 소고기 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="닭고기"> 닭고기 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="돼지고기"> 돼지고기 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="복숭아"> 복숭아 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="민들레"> 민들레 <input
-											class="from-control marginbox" type="checkbox" name="allergy"
-											value="계란"> 계란
-									</fieldset>
-								</div>
-								<div class="row"></div>
-								<div class="col-lg-12">
-									<button type="submit" class="btn btn-green btn-block btn-flat">가입</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-	</div>
-	<!--/ Modal box-->
-	<main id="main"> <!--==========================
-      Search Section
-    ============================-->
+	<main id="main"> 
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
