@@ -343,10 +343,7 @@
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
 												id="countInput" name = "count"> 
-											<input type="button"
-												class="form-control col-lg-2 btn btn-primary"
-												id="editButton" value=섭취하기 
-												onclick="insertcart(${food.code},$('#countInput').val());">
+											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="editButton" value="섭취하기">  
 										</div>
 									</div>
 								</div>
@@ -404,9 +401,6 @@
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
 		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#countInput').val();
-	}
-	 function insertcart(foodno) {
-		window.location.href="insertcart.do?code="+foodno+"&count="+$('#countInput').val();
 	}
 
 	 

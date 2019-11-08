@@ -11,12 +11,6 @@ public class Consume {
 	public Consume() {
 	}
 	
-	public Consume(String id, int code, int count) {
-		super();
-		this.id = id;
-		this.code = code;
-		this.count = count;
-	}
 	public Consume(String id, int code,String date, int count) {
 		super();
 		this.id = id;
