@@ -26,7 +26,7 @@
 * **제품 상세 페이지**
  
 ![img](src/main/webapp/img/상품_정보_상세_페이지.PNG)
-![img](img/상품_정보_상세_페이지2.PNG)
+![img](src/main/webapp/img/상품_정보_상세_페이지2.PNG)
 
 * **상품 정보 페이지**
  
@@ -34,31 +34,31 @@
 
 * **개인 섭취 목록 페이지**
  - "상품정보"탭에서 원하는 상품의 "섭취하기" 버튼을 클릭하면 상품코드를 리스트에 담고, 원하는 만큼 담은 후 "내 섭취 정보"탭에 들어가면면 지금까지 섭취한 리스트를 확인할 수 있음.
-![img](img/insertcart.PNG)
-![img](img/consumelist.PNG)
+![img](src/main/webapp/img/insertcart.PNG)
+![img](src/main/webapp/img/consumelist.PNG)
 
 
 
 * **로그인 페이지**
  
-![img](img/로그인.PNG)
+![img](src/main/webapp/img/로그인.PNG)
 
 * **비밀번호 찾기 페이지**
  
-![img](img/비밀번호찾기.JPG)
-![img](img/비밀번호찾기2.JPG)
+![img](src/main/webapp/img/비밀번호찾기.JPG)
+![img](src/main/webapp/img/비밀번호찾기2.JPG)
 
 * **회원가입 페이지**
  
-![img](img/회원_가입_페이지.PNG)
+![img](src/main/webapp/img/회원_가입_페이지.PNG)
 
 * **회원정보 페이지**
  
-![img](img/회원정보.jpg)
+![img](src/main/webapp/img/회원정보.jpg)
 
 * **회원별 섭취 목록 관리를 위한 DB**
  
-![img](img/consumeDB.PNG)
-![img](img/consumeDB2.PNG)
+![img](src/main/webapp/img/consumeDB.PNG)
+![img](src/main/webapp/img/consumeDB2.PNG)
 
-![img](img/MyBatis.JPG)
+![img](src/main/webapp/img/MyBatis.JPG)
