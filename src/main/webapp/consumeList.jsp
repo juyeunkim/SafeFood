@@ -141,6 +141,7 @@
 							</div>
 						</c:forEach>
 					</table>
+					<canvas class="col-lg-6" id="myChart"></canvas>
 				</div>
 			</div>
 		</div>

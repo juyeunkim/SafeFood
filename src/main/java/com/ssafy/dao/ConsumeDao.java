@@ -13,4 +13,5 @@ public interface ConsumeDao {
 	public void delete(int num);
 	public List<Consume> searchAll(String id);
 	public void update(Consume consume);
+	public Consume count(String id);
 }
