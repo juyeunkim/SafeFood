@@ -11,7 +11,19 @@ public class Consume {
 	public Consume() {
 	}
 	
-
+	public Consume(String id, int code, int count) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.count = count;
+	}
+	public Consume(String id, int code,String date, int count) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.eatdate = date;
+		this.count = count;
+	}
 
 	public Consume(int num, String id, int code, String fname, String eatdate, int count) {
 		super();
@@ -22,16 +34,6 @@ public class Consume {
 		this.eatdate = eatdate;
 		this.count = count;
 	}
-
-	public Consume(String id, int code, int count) {
-		super();
-		this.id = id;
-		this.code = code;
-		this.count = count;
-	}
-
-
-
 	public String getFname() {
 		return fname;
 	}

@@ -176,7 +176,7 @@ public class MainController {
 		// session에서 id 가져오기
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
-		Consume eat = new Consume(count, id, Integer.parseInt(code),date.toString(),id, count); 
+		Consume eat = new Consume(id,Integer.parseInt(code),date.toString(), count); 
 		
 		System.out.println(count+" "+ id+" "+code);
 		cservice.insert(eat);
