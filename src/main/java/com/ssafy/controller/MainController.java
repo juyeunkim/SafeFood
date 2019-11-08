@@ -194,7 +194,7 @@ public class MainController {
 		String id = (String) session.getAttribute("id");
 		// id가 먹은 foodlist 가져오기
 		List<Consume> list = cservice.searchAll(id);
-		
+		Consume c = cservice.se
 //		List<Food> flist = new ArrayList<>();
 //		for(int i=0; i<list.size(); i++) {
 //			Food f = fservice.search(list.get(i).getCode());

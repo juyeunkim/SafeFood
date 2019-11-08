@@ -5,19 +5,23 @@
 <mapper namespace="com.ssafy.dao.ConsumeDao">
 
 	<select id="search" parameterType="consume" resultType="consume">
-		select num, id, code, date_format(eatdate, '%y-%m-%d') as eatdate,count
-		from consume
+		select
+		num, id, code, date_format(eatdate, '%y-%m-%d') as eatdate,count
+		from
+		consume
 		where id = #{id:VARCHAR} and code= #{code:INTEGER}
 	</select>
 
 	<select id="searchAll" parameterType="string"
 		resultType="consume">
-		select num,id, f.code,f.name as fname, date_format(eatdate, '%y-%m-%d') as eatdate,count
+		select num,id, f.code,f.name as fname, date_format(eatdate,
+		'%y-%m-%d') as eatdate,count
 		from
 		consume c
 		join food f
 		using(code)
-		where id = #{id} 
+		where
+		id = #{id}
 
 	</select>
 
@@ -31,25 +35,29 @@
 	</insert>
 
 	<delete id="delete" parameterType="int">
-		delete from consume where num=#{num}
+		delete from consume where
+		num=#{num}
 	</delete>
 
 	<update id="update" parameterType="consume">
-		update consume set id = #{id:VARCHAR}
+		update consume set id =
+		#{id:VARCHAR}
 		,code = #{code:INTEGER}
 		,eatdate= now()
-		,count = #{count:INTEGER}
+		,count =
+		#{count:INTEGER}
 		where num = #{num:INTEGER}
 	</update>
 
 	<select id="count" parameterType="string" resultType="consume">
-		select
-		c.code, f.name as fname, count(count) as count
+		select c.code, f.name as fname, sum(count) as count
 		from consume c
 		join food f
 		using(code)
-		where id = #{id}
+		where id =#{id}
 		group by c.code
+		order by sum(count) desc
+		limit 5
 	</select>
 
 
