@@ -1,7 +1,6 @@
 package com.ssafy.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,7 +24,7 @@ import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
 
-@Controller
+//@Controller
 public class MainController {
 	@Autowired
 	private ConsumeService cservice;
@@ -101,7 +100,7 @@ public class MainController {
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
-		
+
 		list = fservice.searchAll(new FoodPageBean());
 		switch (key) {
 		case "name":
@@ -122,7 +121,7 @@ public class MainController {
 					result.add(food);
 			}
 			break;
-		case "all":
+		default:
 			result = list;
 			break;
 		}
@@ -174,20 +173,16 @@ public class MainController {
 	public String insertcart(@RequestParam String code,@RequestParam int count,HttpSession session) {
 		System.out.println("=======insert=======");
 		// session에서 id 가져오기
-		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
-		Consume eat = new Consume(count, id, Integer.parseInt(code),date.toString(),id, count); 
 		
-		System.out.println(count+" "+ id+" "+code);
+		Consume eat = new Consume(id, Integer.parseInt(code),count);
+		
 		cservice.insert(eat);
 		
 		return "redirect:list.do";
 	}
 	@GetMapping("consumeList.do")
 	public String consumeList(Model model, HttpSession session) {
-		String id = (String) session.getAttribute("id");
-		List<Consume> list = cservice.searchAll(id);
-		model.addAttribute("consumeList", list);
 		
 		return "consumeList";
 	}
