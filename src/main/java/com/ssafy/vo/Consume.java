@@ -23,6 +23,13 @@ public class Consume {
 		this.count = count;
 	}
 
+	public Consume(String id, int code, int count) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.count = count;
+	}
+
 
 
 	public String getFname() {

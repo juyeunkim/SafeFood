@@ -4,6 +4,12 @@
 
 <mapper namespace="com.ssafy.dao.ConsumeDao">
 	
+	<select id="search" parameterType="consume" resultType="consume">
+		select *
+		from consume
+		where id = #{id:VARCHAR} and code= #{code:INTEGER} 
+	</select>
+	
 	<select id="searchAll" parameterType="string" resultType="consume">
 		select num,id, f.code,f.name as fname, eatdate,count
 		from consume c

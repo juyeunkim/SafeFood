@@ -19,11 +19,12 @@ import com.ssafy.service.ConsumeService;
 import com.ssafy.service.FoodService;
 import com.ssafy.service.MemberService;
 import com.ssafy.util.KMPFunction;
+import com.ssafy.vo.Consume;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
 
-@Controller
+//@Controller
 public class MainController {
 	@Autowired
 	private ConsumeService cservice;
@@ -169,35 +170,21 @@ public class MainController {
 	}
 	
 	@GetMapping("insertcart.do")
-	public String insertcart(@RequestParam String code,HttpSession session) {
+	public String insertcart(@RequestParam String code,@RequestParam int count,HttpSession session) {
 		System.out.println("=======insert=======");
-		Food food = fservice.search(Integer.parseInt(code));
+		// session에서 id 가져오기
+		String id = (String) session.getAttribute("id");
 		
-		ArrayList<Food> consumelist = (ArrayList<Food>) session.getAttribute("consumelist");
-		if (consumelist == null) {
-			consumelist = new ArrayList<Food>();
-		}
-		boolean flag = false;
-		for (int i = 0; i < consumelist.size(); i++) {
-			Food cur = consumelist.get(i);
-			if (cur.getCode() == Integer.parseInt(code)) {
-				flag = true;
-				break;
-			}
-		}
-		if (flag != true)
-			consumelist.add(food);
-		session.setAttribute("consumelist", consumelist);
+		Consume eat = new Consume(id, Integer.parseInt(code),count);
 		
-		for (Food food2 : consumelist) {
-			System.out.println(food2);
-		}
+		cservice.insert(eat);
+		
 		return "redirect:list.do";
 	}
 	@GetMapping("consumeList.do")
 	public String consumeList(Model model, HttpSession session) {
-		List<Food> list = new ArrayList<>();
-		list = (List<Food>) session.getAttribute("consumelist");
+		String id = (String) session.getAttribute("id");
+		List<Consume> list = cservice.searchAll(id);
 		model.addAttribute("consumeList", list);
 		
 		return "consumeList";
