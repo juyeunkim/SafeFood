@@ -480,7 +480,7 @@ All the links in the footer should remain intact.
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do&code="+foodno;
+		window.location.href="itemInfor.do&code="+foodno+"&count="+$('#countInput').val();
 	} 
 	
 	</script>

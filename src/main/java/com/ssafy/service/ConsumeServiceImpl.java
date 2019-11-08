@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ssafy.dao.ConsumeDao;
 import com.ssafy.vo.Consume;
 import com.ssafy.vo.ConsumeException;
 
 @Service
 public class ConsumeServiceImpl implements ConsumeService{
 	@Autowired
-	private ConsumeServiceImpl cao;
+	private ConsumeDao cao;
 	
 	public List<Consume> searchAll(String id) {
 		try{

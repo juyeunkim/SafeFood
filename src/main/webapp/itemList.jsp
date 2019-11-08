@@ -342,7 +342,7 @@
 											<input type='hidden' name='code' value="${food.code}">
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
-												id="count" name = "count" value="0"> 
+												id="countInput" name = "count"> 
 											<input type="button"
 												class="form-control col-lg-2 btn btn-primary"
 												id="editButton" value=섭취하기 
@@ -403,10 +403,10 @@
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#count').val();
+		window.location.href="itemInfor.do?code="+foodno;
 	}
 	 function insertcart(foodno) {
-		window.location.href="insertcart.do?code="+foodno;
+		window.location.href="insertcart.do?code="+foodno+"&count="+$('#countInput').val();
 	}
 
 	 
