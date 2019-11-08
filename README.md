@@ -47,6 +47,7 @@
  
 ![img](src/main/webapp/img/비밀번호찾기.JPG)
 ![img](src/main/webapp/img/비밀번호찾기2.JPG)
+![img](src/main/webapp/img/비밀번호찾기3.JPG)
 
 * **회원가입 페이지**
  
