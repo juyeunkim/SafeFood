@@ -30,7 +30,7 @@ public class Consume {
 		this.num = num;
 		this.id = id;
 		this.code = code;
-		this.fname = fname;
+		this.fname = fname; 
 		this.eatdate = eatdate;
 		this.count = count;
 	}
