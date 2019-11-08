@@ -340,9 +340,9 @@
 										<div class="row ">
 											<h4 class="col-lg-7"></h4>
 											<input type='hidden' name='code' value="${food.code}">
-											<input type="button"
+											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
-												id="submitButton" value="추가"> 
+												id="count" name = "count" value="0"> 
 											<input type="button"
 												class="form-control col-lg-2 btn btn-primary"
 												id="editButton" value=섭취하기 
@@ -403,7 +403,7 @@
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do?code="+foodno;
+		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#count').val();
 	}
 	 function insertcart(foodno) {
 		window.location.href="insertcart.do?code="+foodno;
