@@ -24,7 +24,7 @@ import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
 
-//@Controller
+@Controller
 public class MainController {
 	@Autowired
 	private ConsumeService cservice;
