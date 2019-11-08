@@ -5,14 +5,14 @@
 <mapper namespace="com.ssafy.dao.ConsumeDao">
 
 	<select id="search" parameterType="consume" resultType="consume">
-		select *
+		select num, id, code, date_format(eatdate, '%y-%m-%d') as eatdate,count
 		from consume
 		where id = #{id:VARCHAR} and code= #{code:INTEGER}
 	</select>
 
 	<select id="searchAll" parameterType="string"
 		resultType="consume">
-		select num,id, f.code,f.name as fname, eatdate,count
+		select num,id, f.code,f.name as fname, date_format(eatdate, '%y-%m-%d') as eatdate,count
 		from
 		consume c
 		join food f
