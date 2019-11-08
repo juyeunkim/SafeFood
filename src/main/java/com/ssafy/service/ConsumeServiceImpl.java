@@ -51,5 +51,14 @@ public class ConsumeServiceImpl implements ConsumeService{
 		}
 		
 	}
+	@Override
+	public Consume count(String id) {
+		try {
+			return cao.count(id);			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ConsumeException("섭취 count 중 에러 발생");
+		}
+	}
 }
   

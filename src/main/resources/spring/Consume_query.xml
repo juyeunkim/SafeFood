@@ -3,41 +3,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ssafy.dao.ConsumeDao">
-	
+
 	<select id="search" parameterType="consume" resultType="consume">
 		select *
 		from consume
-		where id = #{id:VARCHAR} and code= #{code:INTEGER} 
+		where id = #{id:VARCHAR} and code= #{code:INTEGER}
 	</select>
-	
-	<select id="searchAll" parameterType="string" resultType="consume">
+
+	<select id="searchAll" parameterType="string"
+		resultType="consume">
 		select num,id, f.code,f.name as fname, eatdate,count
-		from consume c
+		from
+		consume c
 		join food f
 		using(code)
-		where id = #{id} 
+		where id = #{id}
 	</select>
 
 	<insert id="insert" parameterType="consume">
-		insert into consume (id, code, eatdate, count)
+		insert into consume (id, code,
+		eatdate, count)
 		values (#{id:VARCHAR}
 		,#{code:INTEGER}
 		,now()
 		,#{count:INTEGER})
 	</insert>
-   
-   <delete id="delete" 		parameterType="int">
-   		delete from consume where num=#{num}
-   </delete>
-   
-   <update id="update"		parameterType="consume">
-   		update consume set id = #{id:VARCHAR}
-   		        		 ,code = #{code:INTEGER}
-   		       			 ,eatdate= now()
-   		      			 ,count = #{count:INTEGER}
-   		where  num = #{num:INTEGER}
-   </update>
-   
+
+	<delete id="delete" parameterType="int">
+		delete from consume where num=#{num}
+	</delete>
+
+	<update id="update" parameterType="consume">
+		update consume set id = #{id:VARCHAR}
+		,code = #{code:INTEGER}
+		,eatdate= now()
+		,count = #{count:INTEGER}
+		where num = #{num:INTEGER}
+	</update>
+
+	<select id="count" parameterType="string" resultType="consume">
+		select
+		c.code, f.name as fname, count(count) as count
+		from consume c
+		join food f
+		using(code)
+		where id = #{id}
+		group by c.code
+	</select>
+
+
+
 </mapper>
 
 
