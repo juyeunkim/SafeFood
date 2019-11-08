@@ -61,4 +61,9 @@
 ![img](src/main/webapp/img/consumeDB.PNG)
 ![img](src/main/webapp/img/consumeDB2.PNG)
 
+* **회원별 섭취 목록 관리를 위한 페이지**
+* 회원별 가장 많이 섭취한 식품 top 5 차트로 표시
+* ![img](src/main/webapp/img/consumelist.JPG)
+
+
 ![img](src/main/webapp/img/MyBatis.JPG)
