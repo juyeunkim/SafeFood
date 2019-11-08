@@ -5,19 +5,36 @@ public class Consume {
 	protected int num;
 	protected String id;
 	protected int code;
+	protected String fname;
 	protected String eatdate;
 	protected int count;
 	public Consume() {
 	}
 	
-	
-	public Consume(int num, String id, int code, String eatdate, int count) {
+
+
+	public Consume(int num, String id, int code, String fname, String eatdate, int count) {
+		super();
 		this.num = num;
 		this.id = id;
 		this.code = code;
+		this.fname = fname;
 		this.eatdate = eatdate;
 		this.count = count;
 	}
+
+
+
+	public String getFname() {
+		return fname;
+	}
+
+
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
 
 
 	public int getNum() {
@@ -50,13 +67,14 @@ public class Consume {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
+
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Consume [num=").append(num).append(", id=").append(id).append(", code=").append(code)
-				.append(", eatdate=").append(eatdate).append(", count=").append(count).append("]");
-		return builder.toString();
+		return "Consume [num=" + num + ", id=" + id + ", code=" + code + ", fname=" + fname + ", eatdate=" + eatdate
+				+ ", count=" + count + "]";
 	}
-	
+
 
 }

@@ -4,15 +4,19 @@
 
 <mapper namespace="com.ssafy.dao.ConsumeDao">
 	
-	<select id="search" parameterType="string" resultType="consume">
-		select * from consume where id= #{id}
+	<select id="searchAll" parameterType="string" resultType="consume">
+		select num,id, f.code,f.name as fname, eatdate,count
+		from consume c
+		join food f
+		using(code)
+		where id = #{id} 
 	</select>
 
 	<insert id="insert" parameterType="consume">
 		insert into consume (id, code, eatdate, count)
 		values (#{id:VARCHAR}
 		,#{code:INTEGER}
-		,#{eatdate:VARCHAR}
+		,now()
 		,#{count:INTEGER})
 	</insert>
    
@@ -23,7 +27,7 @@
    <update id="update"		parameterType="consume">
    		update consume set id = #{id:VARCHAR}
    		        		 ,code = #{code:INTEGER}
-   		       			 ,eatdate= #{eatdate:VARCHAR}
+   		       			 ,eatdate= now()
    		      			 ,count = #{count:INTEGER}
    		where  num = #{num:INTEGER}
    </update>
