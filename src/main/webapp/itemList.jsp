@@ -346,7 +346,7 @@
 											<input type="button"
 												class="form-control col-lg-2 btn btn-primary"
 												id="editButton" value=섭취하기 
-												onclick="insertcart(${food.code});">
+												onclick="insertcart(${food.code},$('#countInput').val());">
 										</div>
 									</div>
 								</div>
@@ -403,7 +403,7 @@
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do?code="+foodno;
+		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#countInput').val();
 	}
 	 function insertcart(foodno) {
 		window.location.href="insertcart.do?code="+foodno+"&count="+$('#countInput').val();
