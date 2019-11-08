@@ -21,7 +21,7 @@
 
 * **메인 페이지**
  
-![img](img/메인_페이지.PNG)
+![img](src/main/webapp/img/메인_페이지.PNG)
 
 * **제품 상세 페이지**
  
