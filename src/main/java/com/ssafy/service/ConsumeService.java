@@ -9,5 +9,5 @@ public interface ConsumeService {
 	public void insert(Consume consume);
 	public void delete(int num);
 	public void update(Consume consume);
-	public Consume count(String id);
+	public List<Consume> count(String id);
 }

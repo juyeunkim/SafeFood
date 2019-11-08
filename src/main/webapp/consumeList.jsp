@@ -50,10 +50,38 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-</head>
+  <style>
+  .row{
+  float :right;}
+  </style>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['${topList[0].fname}',    ${topList[0].count}],
+          ['${topList[1].fname}',     ${topList[1].count}],
+          ['${topList[2].fname}',     ${topList[2].count}],
+          ['${topList[3].fname}',     ${topList[3].count}],
+          ['${topList[4].fname}',     ${topList[4].count}]
+        ]);
 
+        var options = {
+          title: '가장 많이 섭취한 식품 Top 5'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
 <body id="body">
 
+	
 	<!--==========================
     Top Bar
   ============================-->
@@ -109,13 +137,13 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의섭취정보</h2>
+			<h2>${id }님의 섭취정보</h2>
 		</div>
 	</div>
 
 	<section id="services">
-		<div class="container">
-			<div class="row" id="serviceSection">
+		<div class="container" >
+			<div class="row" id="serviceSection" style="float:left;" >
 
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
@@ -126,25 +154,24 @@
 						</tr>
 						<c:forEach items='${myList}' var='consume'>
 							<div class='col-lg-12'>
-								<div class=' box2 wow fadeInLeft row'>
+								<div class=' box2 wow fadeInLeft row'></div>
+							</div>
+
 							<tr>
-								<td width=100 align=center height="22">
-									${consume.fname}</td>
-								<td width=100 align=center height="22">
-									${consume.eatdate}</td>
-								<td width=100 align=center height="22">
-									${consume.count}</td>
+								<td width=100 align=center height="22">${consume.fname}</td>
+								<td width=100 align=center height="22">${consume.eatdate}</td>
+								<td width=100 align=center height="22">${consume.count}</td>
 							</tr>
 
 
-							</div>
-							</div>
 						</c:forEach>
 					</table>
-					<canvas class="col-lg-6" id="myChart"></canvas>
 				</div>
+				
 			</div>
+				<div id="piechart" style="width: 900px; height: 500px; float:left;"></div>
 		</div>
+	
 	</section>
 
 	<!-- #services --> </main>
@@ -195,37 +222,7 @@
 			window.location.href = "itemInfor.do&code=" + foodno;
 		}
 		
-		$(function(){
-			var ctx = document.getElementById("myChart");
-				
-				var myChart = new Chart(ctx,
-						{
-							type : "pie",
-							data : {
-								labels : [ "Carbo", "Protein", "Fat",  "Chole",
-										"TransFat" ],
-								datasets : [{
-									label : "#pieChart",
-									data : [ ${item.carbo}, ${item.protein}, ${item.fat},  ${item.chole}, ${item.transfat} ],
-									backgroundColor : [ "rgba(255, 99, 132, 0.2)",
-											"rgba(54, 162, 235, 0.2)",
-											"rgba(255, 206, 86, 0.2)",
-											"rgba(75, 192, 192, 0.2)",
-											"rgba(153, 102, 255, 0.2)"],
-									borderColor : [ "rgba(255, 99, 132, 1)",
-											"rgba(54, 162, 235, 1)",
-											"rgba(255, 206, 86, 1)",
-											"rgba(75, 192, 192, 1)",
-											"rgba(153, 102, 255, 1)"],
-									borderWidth : 1
-								}]
-							},
-							options : {
-
-							}
-						});
-
-			})
+	
 	</script>
 </body>
 </html>
