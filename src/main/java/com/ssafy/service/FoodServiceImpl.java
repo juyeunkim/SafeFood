@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ssafy.dao.FoodDao;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
+import com.ssafy.vo.SafeFoodException;
 
 @Service
 public class FoodServiceImpl implements FoodService{
@@ -23,7 +24,7 @@ public class FoodServiceImpl implements FoodService{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			throw new SafeFoodException("전체 목록 조회 중 오류 발생");
 		}
 		
 	}
@@ -45,7 +46,7 @@ public class FoodServiceImpl implements FoodService{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			throw new SafeFoodException("상품 조회 중 오류 발생");
 		}
 		
 	}
