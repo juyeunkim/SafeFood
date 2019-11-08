@@ -50,7 +50,9 @@
 	</update>
 
 	<select id="count" parameterType="string" resultType="consume">
+
 		select c.code, f.name as fname, sum(count) as count
+
 		from consume c
 		join food f
 		using(code)
@@ -60,7 +62,6 @@
 		limit 5
 	</select>
 	
-
 
 </mapper>
 

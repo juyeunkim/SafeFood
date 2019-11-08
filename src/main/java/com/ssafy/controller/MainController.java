@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.ssafy.service.ConsumeService;
 import com.ssafy.service.FoodService;
 import com.ssafy.service.MemberService;
@@ -160,23 +162,21 @@ public class MainController {
 	}
 
 	@PostMapping("findPassword.do")
-	public String findPassword(String id, String phone, Model model) {
+	@ResponseBody
+	public String findPassword(String id, String phone) {
+		System.out.println("=======findPassword=======");
+		System.out.println(id+" "+phone);
+		
+		
 		Member member = mservice.search(id);
-		String password = "";
-		if (member.getPhone().equals(phone)) {
-			password = member.getPassword();
-			model.addAttribute("id", id);
-			model.addAttribute("password", password);
-
-			model.addAttribute("member", member);
-			return "userinfoForm.do";
-		}
-		return "mainform.do";
+		
+		Gson gson = new Gson();
+		return gson.toJson(member);
+		
 	}
 
 	@PostMapping("insertcart.do")
 	public String insertcart(String code,int count, HttpSession session) {
-		System.out.println("=======insert=======");
 		// session에서 id 가져오기
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");

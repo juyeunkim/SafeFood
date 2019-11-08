@@ -47,12 +47,26 @@
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
- <c:if test="${msg !=null}">
-	console.log("msg");
-	$(function(){
-	$("#login").modal();
-	})
-	</c:if>
+
+function findPW() {
+	console.log($('#ffid').text());
+	$.ajax({
+		url : 'findPassword.do',
+			type : 'POST',
+			data : {
+				id : $('#ffid').val(),
+				phone : $('#ffphone').val()
+			},
+			dataType : 'json', 
+			success : function(data, status, xhr){
+				console.log(data)
+				alert(data.id+'님의 비밀번호는 '+data.password+'입니다');
+			},
+			error : function(err){
+				console.log(err);
+			}
+		})
+}
 	
 	
 	</script>
@@ -258,23 +272,25 @@ Top Bar
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							<form id="findPw" method="post"
-								action="findPassword.do">
+							
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" name="id" placeholder="id">
+										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
 								</div>
 								
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 전화번호 </a> <input
-										type="text" class="form-control col-lg-6" name="phone"
+										type="text" class="form-control col-lg-6" id = "ffphone" name="phone"
 										placeholder="phoneNumber">
 								</div>
-								<div class="row"></div>
-								<div class="col-lg-12">
-									<button type="submit" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+								<div class="row">
+									<input type="hidden" id = "ffpw" name = "ffpw" value = "${ffpw}">
 								</div>
-							</form>
+								<div class="col-lg-12">
+									<button 
+									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+								</div>
+							
 						</div>
 					</div>
 				</div>
@@ -480,7 +496,7 @@ All the links in the footer should remain intact.
 
 	<script type="text/javascript">
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do&code="+foodno+"&count="+$('#countInput').val();
+		window.location.href="itemInfor.do&code="+foodno;
 	} 
 	
 	</script>
