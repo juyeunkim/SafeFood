@@ -92,6 +92,7 @@
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<li><a href="#about">공지 사항</a></li>
+					<li><a href="#">FAQ</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<li><a href="#portfolio">베스트 섭취 정보</a></li>
 					<c:if test="${not empty id}">

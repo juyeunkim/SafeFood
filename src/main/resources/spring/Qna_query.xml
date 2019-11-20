@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	
+<mapper namespace="com.ssafy.model.dao.QnADao">
+	<select id="getQnANo"   	resultType="int" >
+		select max(no)+1 from qna
+	</select>
+	<!-- result Map
+		1. 컬럼명과 객체의 속성명이 다를때 매핑시키기 위해 
+		2. join할 정보를 객체에 매핑시키기 위해 
+	 -->
+
+	<select id="search"			parameterType="int" 			resultType="qna">
+		 select no, id, title, contents                     
+		 					, date_format(regdate, '%y-%m-%d') as regdate
+		 			 from   qna                                        
+		 			 where  no = #{no}                                               
+	</select>
+	
+	<select id="searchComments"			parameterType="int" 			resultType="comment">
+		 select c.regdate as cregdate, comment, c.no as cno               
+		 from   comment c                                              
+		 right join  (select no, id, title, contents                     
+		 					, date_format(regdate, '%y-%m-%d') as regdate
+		 			 from   qna                                        
+		 			 where  no = #{no}) a                                   
+		 on   a.no = qno                                               
+	</select>
+	<select id="searchAll"		parameterType="bean"	resultType="qna">
+		select no, id, title, contents
+			  , date_format(regdate, '%Y-%m-%d') as regdate 
+		from qna
+		<where>
+			<if test=" word != null">
+				<choose>
+					<when test=" key == 'id' ">
+						id = #{word}
+					</when>
+					<when test=" key == 'title' ">
+						title like concat('%',#{word},'%')
+					</when>
+					<when test=" key == 'contents' ">
+						contents like concat('%',#{word},'%')
+					</when>
+				</choose>
+			</if>
+		</where>
+		order by no desc limit #{start} , #{interval}
+	</select>
+	<select id="count"			parameterType="bean"	resultType="int">
+		select count(*) as cnt from qna
+		<where>
+			<if test=" word != null">
+				<choose>
+					<when test=" key == 'id' ">
+						id = #{word}
+					</when>
+					<when test=" key == 'title' ">
+						title like concat('%',#{word},'%')
+					</when>
+					<when test=" key == 'contents' ">
+						contents like concat('%',#{word},'%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	<insert id="insert"			parameterType="qna">
+		insert into qna(id, title, contents)
+		values(#{id:VARCHAR},#{title:VARCHAR},#{contents:VARCHAR} )
+	</insert>
+	
+	<insert id="insertComment"			parameterType="comment">
+		insert into comment(qno,id, comment)
+		values( #{qno},#{id},#{comment} );
+	</insert>
+	
+	<update id="update" 		parameterType="qna">
+		update qna set regdate=now(), title=#{title}
+						 , contents=#{contents}
+		where no = #{no}				 
+	</update>
+	<delete id="delete"			parameterType="int">
+		delete from qna where no = #{no}
+	</delete>
+	<delete id="deleteComment"		parameterType="int">
+		delete from comment where no = #{cno}
+	</delete>
+	
+	<select id="getQno" parameterType="int" resultType="int">
+		select no from qna where no=#{qno}
+	</select>
+</mapper>
+
+
+
+
+
+

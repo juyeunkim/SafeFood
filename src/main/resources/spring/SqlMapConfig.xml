@@ -7,12 +7,16 @@
 		<typeAlias type="com.ssafy.vo.FoodPageBean" alias="pagebean" />
 		<typeAlias type="com.ssafy.vo.Food" alias="food" />
 		<typeAlias type="com.ssafy.vo.Consume" alias="consume" />
+		<typeAlias type="com.ssafy.vo.QnA"   		alias="qna"/>
+		<typeAlias type="com.ssafy.vo.Comment"   		alias="comment"/>
+		<typeAlias type="com.ssafy.vo.PageBean" alias="bean" />
   </typeAliases>
   
   <mappers>
   		<mapper resource="spring/Food_query.xml" />
 		<mapper resource="spring/Member_query.xml" />
 		<mapper resource="spring/Consume_query.xml" />
+		<mapper resource="spring/Qna_query.xml" />
   </mappers>
 </configuration>
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
 
+@CrossOrigin(origins = {"*"}, maxAge = 6000)
 @Controller
 public class MainController {
 	@Autowired
