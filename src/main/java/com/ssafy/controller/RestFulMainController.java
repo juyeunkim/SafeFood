@@ -64,25 +64,29 @@ public class RestFulMainController {
 	
 	@ApiOperation("모든 Qna 정보 가져오기")
 	@GetMapping("/qna")
-	public ResponseEntity<Map<String, Object>> searchAllQnA(PageBean bean) { 
+	public ResponseEntity<Map<String, Object>> searchAllQnA() { 
 		System.out.println("searchAll..........................");
-		List<QnA> list = qservice.searchAll(bean);
+		List<QnA> list = qservice.searchAll();
+		for (QnA qnA : list) {
+			System.out.println(qnA);
+		}
 		return handleSuccess(list);
 	}
 	
 	@ApiOperation("QnA 번호로 QnA 정보 가져오기")
 	@GetMapping("/qna/{no}")
 	public ResponseEntity<Map<String, Object>> searchQnAById(@PathVariable int no) { 
-		System.out.println("searchAll..........................");
+		System.out.println("searchQnAById.........................."+no);
 		QnA board = qservice.search(no);
 		return handleSuccess(board);
 	}
 	
 	@ApiOperation("댓글 추가하기")
-	@PostMapping("/qna/commnet")
+	@PostMapping("/qna/comment")
 	public ResponseEntity<Map<String, Object>> addComment(@RequestBody Comment com) { 
 		System.out.println("addComment.........................."+com);
 		qservice.insertComment(com);
+		System.out.println("ADQSD");
 		return handleSuccess("댓글 등록 성공");
 	}
 	
@@ -96,9 +100,12 @@ public class RestFulMainController {
 	
 	@ApiOperation("모든 댓글 정보 가져오기")
 	@GetMapping("/qna/comment/{qno}")
-	public ResponseEntity<Map<String, Object>> searchComments(@PathVariable int qno) { 
+	public ResponseEntity<Map<String, Object>> searchComments(@PathVariable int qno) {
+		System.out.println(qno);
 		System.out.println("searchComments..........................");
+		System.out.println(111111111);
 		List<Comment> list = qservice.searchComments(qno);
+		
 		return handleSuccess(list);
 	}
 	

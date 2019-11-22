@@ -9,7 +9,6 @@
 		<typeAlias type="com.ssafy.vo.Consume" alias="consume" />
 		<typeAlias type="com.ssafy.vo.QnA"   		alias="qna"/>
 		<typeAlias type="com.ssafy.vo.Comment"   		alias="comment"/>
-		<typeAlias type="com.ssafy.vo.PageBean" alias="bean" />
   </typeAliases>
   
   <mappers>

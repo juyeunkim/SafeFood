@@ -3,7 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 	
-<mapper namespace="com.ssafy.model.dao.QnADao">
+<mapper namespace="com.ssafy.dao.QnADao">
 	<select id="getQnANo"   	resultType="int" >
 		select max(no)+1 from qna
 	</select>
@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="searchComments"			parameterType="int" 			resultType="comment">
-		 select c.regdate as cregdate, comment, c.no as cno               
+		 select c.regdate as cregdate, comment, c.no as cno, c.id              
 		 from   comment c                                              
 		 right join  (select no, id, title, contents                     
 		 					, date_format(regdate, '%y-%m-%d') as regdate
@@ -28,45 +28,12 @@
 		 			 where  no = #{no}) a                                   
 		 on   a.no = qno                                               
 	</select>
-	<select id="searchAll"		parameterType="bean"	resultType="qna">
+	<select id="searchAll"			resultType="qna">
 		select no, id, title, contents
 			  , date_format(regdate, '%Y-%m-%d') as regdate 
 		from qna
-		<where>
-			<if test=" word != null">
-				<choose>
-					<when test=" key == 'id' ">
-						id = #{word}
-					</when>
-					<when test=" key == 'title' ">
-						title like concat('%',#{word},'%')
-					</when>
-					<when test=" key == 'contents' ">
-						contents like concat('%',#{word},'%')
-					</when>
-				</choose>
-			</if>
-		</where>
-		order by no desc limit #{start} , #{interval}
 	</select>
-	<select id="count"			parameterType="bean"	resultType="int">
-		select count(*) as cnt from qna
-		<where>
-			<if test=" word != null">
-				<choose>
-					<when test=" key == 'id' ">
-						id = #{word}
-					</when>
-					<when test=" key == 'title' ">
-						title like concat('%',#{word},'%')
-					</when>
-					<when test=" key == 'contents' ">
-						contents like concat('%',#{word},'%')
-					</when>
-				</choose>
-			</if>
-		</where>
-	</select>
+	
 	<insert id="insert"			parameterType="qna">
 		insert into qna(id, title, contents)
 		values(#{id:VARCHAR},#{title:VARCHAR},#{contents:VARCHAR} )
