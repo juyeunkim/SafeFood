@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ssafy.vo.PageBean;
 import com.ssafy.vo.Comment;
+import com.ssafy.vo.PageBean;
 import com.ssafy.vo.QnA;
 
 @Mapper
@@ -14,7 +14,9 @@ public interface QnADao {
 	public void insert(QnA board);
 	public void insertComment(Comment com);
 	public QnA search(int no);
-	public List<QnA> searchAll(PageBean bean);
+	public List<QnA> searchAll();
+	public List<QnA> searchKeyWord(PageBean bean);
+	public int searchCount(PageBean bean);
 	public void update(QnA board);
 	public void delete(int no) ;
 	public void deleteComment(int cno);

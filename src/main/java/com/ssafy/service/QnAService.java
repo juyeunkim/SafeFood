@@ -11,7 +11,8 @@ public interface QnAService {
 	public void update(QnA board);
 	public void delete(int no);
 	public QnA search(int no);
-	public List<QnA> searchAll(PageBean bean);
+	public List<QnA> searchAll();
+	public int searchCount(PageBean bean);
 	public void insertComment(Comment com);
 	public void deleteComment(int cno);
 	public int  getQno(int qno);

@@ -48,14 +48,14 @@ public class QnAServiceImpl implements QnAService {
 			throw new QnAException("no로 조회 중 에러발생");
 		}
 	}
-	public List<QnA> searchAll(PageBean bean) {
+	public List<QnA> searchAll() {
 		try {
-//			int total = dao.count(bean);
+//			int total = searchCount(bean);
 //			System.out.println("++++"+total);
 //			PageUtility bar = new PageUtility(bean.getInterval()
 //					, total, bean.getPageNo(), "images/");
 //			bean.setPageLink(bar.getPageBar());
-			return dao.searchAll(bean);
+			return dao.searchAll();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new QnAException("검색 중 오류 발생");
@@ -97,6 +97,10 @@ public class QnAServiceImpl implements QnAService {
 			e.printStackTrace();
 			throw new QnAException("댓글 조회 중 오류 발생");
 		}
+	}
+	@Override
+	public int searchCount(PageBean bean) {
+		return dao.searchCount(bean);
 	}
 	
 	
