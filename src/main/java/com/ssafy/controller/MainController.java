@@ -181,14 +181,50 @@ public class MainController {
 		
 	}
 
-	@PostMapping("insertcart.do")
-	public String insertcart(String code,int count, HttpSession session, Model model) {
+	@PostMapping("insertfood.do")
+	public String insertfood(String code,int count, HttpSession session, Model model) {
 		// session에서 id 가져오기
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
-		List<String> id_alergy = mservice.searchAllergy(id);
-		List<String> food_alergy = fservice.searchAllergy(Integer.parseInt(code));
+		String id_alergy[]= mservice.searchAllergy(id).split(" ");
+		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
+		for(int i=0; i<id_alergy.length; i++) {
+			for(int j=0; j<food_alergy.length; j++) {
+				if(id_alergy[i].equals(food_alergy[j])) {
+					danger_alergy.add(food_alergy[j]);
+				}
+			}
+		}
+		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), count);
+		
+		System.out.println(count + " " + id + " " + code);
+		if(danger_alergy.size() >0 ) {
+			model.addAttribute("msg",danger_alergy);
+			return "redirect:list.do";
+		}
+		else {
+			cservice.insert(eat);
+			return "redirect:list.do";
+		}
+
+		
+	}
+	@PostMapping("preferfood.do")
+	public String preferfood(String code,int count, HttpSession session, Model model) {
+		// session에서 id 가져오기
+		Date date = new Date(System.currentTimeMillis());
+		String id = (String) session.getAttribute("id");
+		String id_alergy[]= mservice.searchAllergy(id).split(" ");
+		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
+		List<String> danger_alergy = new ArrayList<String>();
+		for(int i=0; i<id_alergy.length; i++) {
+			for(int j=0; j<food_alergy.length; j++) {
+				if(id_alergy[i].equals(food_alergy[j])) {
+					danger_alergy.add(food_alergy[j]);
+				}
+			}
+		}
 		
 		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), count);
 		
@@ -200,6 +236,7 @@ public class MainController {
 			cservice.insert(eat);
 			return "redirect:list.do";
 		}
+		return id;
 
 		
 	}
@@ -217,7 +254,7 @@ public class MainController {
 
 		return "consumeList";
 	}
-	@GetMapping("PreferList.do")
+	@GetMapping("preferList.do")
 	public String likeList(Model model, HttpSession session) {
 		
 		String id = (String) session.getAttribute("id");

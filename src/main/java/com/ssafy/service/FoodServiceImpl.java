@@ -57,7 +57,7 @@ public class FoodServiceImpl implements FoodService{
 		return dao.searchBestIndex();
 	}
 	@Override
-	public List<String> searchAllergy(int code) {
+	public String searchAllergy(int code) {
 		return dao.searchAllergy(code);
 	}
 }

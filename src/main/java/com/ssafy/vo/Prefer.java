@@ -11,21 +11,21 @@ public class Prefer {
 	public Prefer() {
 	}
 	
-	public Prefer(String id, int code,String date, int count) {
+	public Prefer(String id, int code,String preferdate, int count) {
 		super();
 		this.id = id;
 		this.code = code;
-		this.preferdate = date;
+		this.preferdate = preferdate;
 		this.count = count;
 	}
 
-	public Prefer(int num, String id, int code, String fname, String eatdate, int count) {
+	public Prefer(int num, String id, int code, String fname, String preferdate, int count) {
 		super();
 		this.num = num;
 		this.id = id;
 		this.code = code;
 		this.fname = fname; 
-		this.preferdate = eatdate;
+		this.preferdate = preferdate;
 		this.count = count;
 	}
 	public String getFname() {

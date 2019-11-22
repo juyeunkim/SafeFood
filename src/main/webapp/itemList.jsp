@@ -162,7 +162,7 @@
 
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
-						<form action="insertcart.do" method='post'>
+						<form  method='post' name = 'userinput' onSubmit="goData()">
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'>
 
@@ -183,8 +183,8 @@
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
 												id="countInput" name = "count"> 
-											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기">  
-											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기">  
+											<button class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기">  찜하기</button>
+											<button class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기">  섭취하기</button>
 										</div>
 									</div>
 								</div>
@@ -243,6 +243,12 @@
 	 function itemInfor(foodno) {
 		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#countInput').val();
 	}
+	 function goData(){
+		 var form = document.userinput;
+		 if($this.value.equals("섭취하기") form.action ="insertfood.do";
+		 else form.action ="likefood.do";
+		 form.submit();
+	 }
 
 	 
 	

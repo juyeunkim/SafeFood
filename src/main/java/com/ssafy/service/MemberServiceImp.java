@@ -110,7 +110,7 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	@Override
-	public List<String> searchAllergy(String id) {
+	public String searchAllergy(String id) {
 		try {
 			return dao.searchAllergy(id);
 			
