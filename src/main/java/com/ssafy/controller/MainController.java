@@ -182,16 +182,26 @@ public class MainController {
 	}
 
 	@PostMapping("insertcart.do")
-	public String insertcart(String code,int count, HttpSession session) {
+	public String insertcart(String code,int count, HttpSession session, Model model) {
 		// session에서 id 가져오기
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
+		List<String> id_alergy = mservice.searchAllergy(id);
+		List<String> food_alergy = fservice.searchAllergy(Integer.parseInt(code));
+		List<String> danger_alergy = new ArrayList<String>();
+		
 		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), count);
-
+		
 		System.out.println(count + " " + id + " " + code);
-		cservice.insert(eat);
+		if(danger_alergy.size() >0 ) {
+			model.addAttribute("msg",danger_alergy);
+		}
+		else {
+			cservice.insert(eat);
+			return "redirect:list.do";
+		}
 
-		return "redirect:list.do";
+		
 	}
 
 	@GetMapping("consumeList.do")
@@ -202,13 +212,6 @@ public class MainController {
 		List<Consume> list = cservice.searchAll(id);
 		List<Consume> toplist = cservice.count(id);
 		
-//		List<Food> flist = new ArrayList<>();
-//		for(int i=0; i<list.size(); i++) {
-//			Food f = fservice.search(list.get(i).getCode());
-//			flist.add(f);
-//		}
-//		
-//		model.addAttribute("consumeList", flist);
 		model.addAttribute("myList", list);
 		model.addAttribute("topList", toplist);
 

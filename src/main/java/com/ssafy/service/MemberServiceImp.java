@@ -109,4 +109,15 @@ public class MemberServiceImp implements MemberService {
 		}
 	}
 
+	@Override
+	public List<String> searchAllergy(String id) {
+		try {
+			return dao.searchAllergy(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new MemberException("회원 알러지 리스트 조회 중 오류 발생");
+		}
+	}
+
 }

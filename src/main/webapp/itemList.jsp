@@ -183,7 +183,8 @@
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
 												id="countInput" name = "count"> 
-											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="editButton" value="섭취하기">  
+											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기">  
+											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기">  
 										</div>
 									</div>
 								</div>

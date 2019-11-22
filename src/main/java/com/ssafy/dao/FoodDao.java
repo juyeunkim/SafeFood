@@ -42,4 +42,5 @@ public interface FoodDao {
 	public List<Food> searchBest();
 	
 	public List<Food> searchBestIndex();
+	public List<String> searchAllergy(int code);
 }

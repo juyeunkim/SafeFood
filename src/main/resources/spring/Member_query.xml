@@ -51,6 +51,10 @@
    		select * from user 
    		order by id 
    </select>
+   <select id="searchAllergy"	parameterType="string">
+   		select allergy from user where  id = #{id:VARCHAR}
+   		
+   </select>
    
 </mapper>
 
