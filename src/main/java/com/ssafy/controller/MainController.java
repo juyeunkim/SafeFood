@@ -184,6 +184,7 @@ public class MainController {
 	@PostMapping("insertfood.do")
 	public String insertfood(String code,int count, HttpSession session, Model model) {
 		// session에서 id 가져오기
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
 		String id_alergy[]= mservice.searchAllergy(id).split(" ");
@@ -223,17 +224,21 @@ public class MainController {
 				if(id_alergy[i].equals(food_alergy[j])) {
 					danger_alergy.add(food_alergy[j]);
 				}
-			}
+			} 
 		}
 		
-		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), count);
+		Prefer eat = new Prefer(id, Integer.parseInt(code), date.toString(), count);
 		
 		System.out.println(count + " " + id + " " + code);
 		if(danger_alergy.size() >0 ) {
+			System.out.println("###");
+			for(int i=0; i<danger_alergy.size(); i++) {
+				System.out.printf(danger_alergy.get(i)+" ");
+			}
 			model.addAttribute("msg",danger_alergy);
 		}
 		else {
-			cservice.insert(eat);
+			pservice.insert(eat);
 			return "redirect:list.do";
 		}
 		return id;
@@ -258,10 +263,11 @@ public class MainController {
 	public String likeList(Model model, HttpSession session) {
 		
 		String id = (String) session.getAttribute("id");
-		// id가 찜한 preferlist 가져오기
 		List<Prefer> preferlist = pservice.searchAll(id);
 		List<Prefer> toplist = pservice.count(id);
-		
+		for(int i=0; i<toplist.size(); i++) {
+			System.out.println(toplist.get(i));
+		}
 
 		model.addAttribute("myPreferList", preferlist);
 		model.addAttribute("toppreferList", toplist);

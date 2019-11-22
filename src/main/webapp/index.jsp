@@ -403,9 +403,7 @@ Search Section
 					</div>
 
 				</div>
-					<div>
-					<%@include file="index2.html"%>
-					</div>
+				
 
 
 

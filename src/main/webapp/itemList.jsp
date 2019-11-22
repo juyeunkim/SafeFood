@@ -162,7 +162,7 @@
 
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
-						<form  method='post' name = 'userinput' onSubmit="goData()">
+						<form  method='post' name = "userinput">
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'>
 
@@ -180,11 +180,11 @@
 										<div class="row ">
 											<h4 class="col-lg-7"></h4>
 											<input type='hidden' name='code' value="${food.code}">
+											<button class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기" onClick="goData('prefer')">찜하기</button>
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
 												id="countInput" name = "count"> 
-											<button class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기">  찜하기</button>
-											<button class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기">  섭취하기</button>
+											<button class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기" onClick="goData('eat')">섭취하기</button>
 										</div>
 									</div>
 								</div>
@@ -243,11 +243,14 @@
 	 function itemInfor(foodno) {
 		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#countInput').val();
 	}
-	 function goData(){
+	 function goData(mode){
 		 var form = document.userinput;
-		 if($this.value.equals("섭취하기") form.action ="insertfood.do";
-		 else form.action ="likefood.do";
-		 form.submit();
+		 console.log(mode);
+		//if(mode=="섭취하기") {
+			// form.action ="insertfood.do";
+		 //}
+		 //else //form.action ="likefood.do";
+		// form.submit();
 	 }
 
 	 
