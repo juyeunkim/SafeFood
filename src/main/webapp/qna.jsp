@@ -70,7 +70,8 @@ function findPW() {
 	
 	
 	</script>
-
+ <link href=/js/app.36b9f09f.js rel=preload as=script>
+        <link href=/js/chunk-vendors.fda157b2.js rel=preload as=script>
 <!-- =======================================================
 Theme Name: Reveal
  Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -92,8 +93,8 @@ Top Bar
 			<c:choose>
 					<c:when test="${not empty id}">
 						${id}
-						<a href="memberinfo.do" id="memberinfo">회원정보</a>
-						<a href="logout.do" id="logout">로그아웃</a>
+						<a href="${pageContext.request.contextPath}/memberinfo.do" id="memberinfo">회원정보</a>
+						<a href="${pageContext.request.contextPath}/logout.do" id="logout">로그아웃</a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
@@ -308,7 +309,7 @@ Header
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="mainform.do"><img
+				<a href="${pageContext.request.contextPath}/mainform.do"><img
 					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"
 					alt="" title="" /></a>
 			</div>
@@ -316,13 +317,13 @@ Header
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
-					<li><a href="./qna.jsp">QnA</a></li>
-					<li><a href="list.do">상품 정보</a></li>
+					<li><a href="${pageContext.request.contextPath}/qna.jsp">QnA</a></li>
+					<li><a href="${pageContext.request.contextPath}/list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="preferList.do">내가 찜한 정보</a></li>
+						<li><a href="${pageContext.request.contextPath}/preferList.do">내가 찜한 정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
-						<li><a href="consumeList.do">내 섭취 정보</a></li>
+						<li><a href="${pageContext.request.contextPath}/consumeList.do">내 섭취 정보</a></li>
 					</c:if>
 
 				</ul>
@@ -332,127 +333,12 @@ Header
 	</header>
 	<!-- #header -->
 
+	
+	<main id="main"> 
 	<!--==========================
-Intro Section
- ============================-->
-	<section id="intro">
-
-		<div class="intro-content">
-			<h2>SafeFood</h2>
-			<h4>자연의 맛 그대로 바른먹거리를 전하다.</h4>
-		</div>
-
-		<div id="intro-carousel" class="owl-carousel">
-			<div class="item"
-				style="background-image: url('http://image.chosun.com/sitedata/image/201903/06/2019030601012_0.jpg');"></div>
-			<div class="item"
-				style="background-image: url('http://static.myletter.net/20181102/6c59105b-1ea9-4e6d-bdd2-e5deafe499e3.jpg');"></div>
-			<div class="item"
-				style="background-image: url('https://www.skyscanner.co.kr/wp-content/uploads/2018/05/GettyImages-473146354.jpg?fit=1048,696');"></div>
-			<div class="item"
-				style="background-image: url('https://image.winudf.com/v2/image/Y29tLmVsZmFtLmFuZHJvaWQuYmVzdC5mb29kX3NjcmVlbnNob3RzXzE4Xzg2ZmUyNQ/screen-18.jpg?fakeurl=1&type=.jpg');"></div>
-		</div>
-
-	</section>
-	<!-- #intro -->
-
-	<main id="main"> <!--==========================
 Search Section
  ============================-->
-	<section id="search">
-		<div class="container" class="text-center">
-			<br />
-
-			<form action="foodList2.do" method="post">
-				<div class="row">
-					<div class="searchCondition col-lg-3"></div>
-					<div class="searchCondition col-lg-2">
-						<div align="center">
-							<h4 class="title">
-								<a>검색조건 &nbsp;&nbsp;&nbsp;</a>
-							</h4>
-							<select id='searchCondition' size='1' class="form-control"
-								name='key'>
-								<option value='all' selected>검색조건</option>
-								<option value='name'>상품명</option>
-								<option value='maker'>제조사</option>
-								<option value='material'>첨가물</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="searchWords col-lg-2">
-						<div align="center">
-							<h4 class="title">
-								<a>검색단어 &nbsp;&nbsp;</a>
-							</h4>
-							<input type="text" class="form-control" id="searchWord"
-								name="word" onKeyPress="if (event.keyCode==13){searchItem();}">
-						</div>
-					</div>
-
-					<div class="searchButton col-lg-0.3">
-						<div align="center">
-							<h4 class="title">
-								<a> &nbsp;&nbsp;&nbsp;</a>
-							</h4>
-							<input type='submit' id='searchButton' value='검색하기'
-								class="btn btn-primary"></input>
-						</div>
-					</div>
-
-				</div>
-				
-
-
-
-			</form>
-
-
-		</div>
-		<br /> <br />
-	</section>
-	<!--==========================
-Services Section
- ============================-->
-	<section id="services">
-		<div class="container">
-			<div class="row" id="serviceSection">
-
-				<div class='col-lg-12'>
-				
-					<c:forEach items='${foodList}' var='food'>
-						<div class='col-lg-12'>
-							<div class=' box2 wow fadeInLeft row'>
-
-								<div class='col-lg-3'>
-									<img src='${food.img}' width='200px' style='cursor: pointer'
-										onclick="itemInfor(${food.code});">
-								</div>
-
-								<div class='col-lg-8'>
-									<h4 style='cursor: pointer'>
-										<a> ${food.name} </a>
-									</h4>
-									<p>${food.material}</p>
-									<div class="row ">
-										<h4 class="col-lg-7"></h4>
-										<input type="submit"
-											class="form-control col-lg-2 btn btn-default"
-											id="submitButton" value="추가"> <input type="button"
-											class="form-control col-lg-2 btn btn-primary" id="editButton"
-											value="찜">
-									</div>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</div>
-	</section>
-
+<div id =app></div>
 	</main>
 	</br>
 	<!--==========================
@@ -503,7 +389,8 @@ All the links in the footer should remain intact.
 	} 
 	
 	</script>
-
+ <script src=/js/chunk-vendors.fda157b2.js></script>
+        <script src=/js/app.36b9f09f.js></script>
 
 </body>
 </html>

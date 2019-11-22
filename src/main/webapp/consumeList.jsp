@@ -119,7 +119,7 @@
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
-					<li><a href="../index.html">QnA</a></li>
+					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
 						<li><a href="preferList.do">내가 찜한 정보</a></li>
