@@ -5,6 +5,7 @@
   <typeAliases>
   		<typeAlias type="com.ssafy.vo.Member" alias="member" />
 		<typeAlias type="com.ssafy.vo.FoodPageBean" alias="pagebean" />
+		<typeAlias type="com.ssafy.vo.PageBean" alias="qnabean" />
 		<typeAlias type="com.ssafy.vo.Food" alias="food" />
 		<typeAlias type="com.ssafy.vo.Consume" alias="consume" />
 		<typeAlias type="com.ssafy.vo.QnA"   		alias="qna"/>

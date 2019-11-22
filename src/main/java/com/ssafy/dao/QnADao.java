@@ -14,7 +14,7 @@ public interface QnADao {
 	public void insert(QnA board);
 	public void insertComment(Comment com);
 	public QnA search(int no);
-	public List<QnA> searchAll();
+	public List<QnA> searchAll(PageBean bean);
 	public void update(QnA board);
 	public void delete(int no) ;
 	public void deleteComment(int cno);

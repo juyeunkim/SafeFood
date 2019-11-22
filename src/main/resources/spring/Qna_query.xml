@@ -28,10 +28,28 @@
 		 			 where  no = #{no}) a                                   
 		 on   a.no = qno                                               
 	</select>
-	<select id="searchAll"			resultType="qna">
+	<select id="searchAll"	parameterType="qnabean"	resultType="qna">
 		select no, id, title, contents
 			  , date_format(regdate, '%Y-%m-%d') as regdate 
 		from qna
+		<where>
+			<if test="key!=null and key!='all'">
+				<if test="word!=null">
+					<choose> 
+						<when test="key=='id'">
+							name like concat('%',#{word},'%')
+						</when>
+						<when test="key=='title'">
+							maker like concat('%',#{word},'%')
+						</when>
+						<when test="key=='contents'">
+							material like concat('%',#{word},'%')
+						</when>
+
+					</choose>
+				</if>
+			</if>
+		</where>
 	</select>
 	
 	<insert id="insert"			parameterType="qna">
@@ -59,6 +77,8 @@
 	<select id="getQno" parameterType="int" resultType="int">
 		select no from qna where no=#{qno}
 	</select>
+	
+	
 </mapper>
 
 
