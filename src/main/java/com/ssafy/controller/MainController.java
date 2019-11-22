@@ -21,11 +21,13 @@ import com.google.gson.Gson;
 import com.ssafy.service.ConsumeService;
 import com.ssafy.service.FoodService;
 import com.ssafy.service.MemberService;
+import com.ssafy.service.PreferService;
 import com.ssafy.util.KMPFunction;
 import com.ssafy.vo.Consume;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
+import com.ssafy.vo.Prefer;
 
 @CrossOrigin(origins = {"*"}, maxAge = 6000)
 @Controller
@@ -36,6 +38,8 @@ public class MainController {
 	private FoodService fservice;
 	@Autowired
 	private MemberService mservice;
+	@Autowired
+	private PreferService pservice;
 
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
@@ -210,18 +214,18 @@ public class MainController {
 
 		return "consumeList";
 	}
-	@GetMapping("likeList.do")
+	@GetMapping("PreferList.do")
 	public String likeList(Model model, HttpSession session) {
 		
 		String id = (String) session.getAttribute("id");
-		// id가 먹은 likelist 가져오기
-		List<Consume> list = cservice.searchAll(id);
-		List<Consume> toplist = cservice.count(id);
+		// id가 찜한 preferlist 가져오기
+		List<Prefer> preferlist = pservice.searchAll(id);
+		List<Prefer> toplist = pservice.count(id);
 		
 
-		model.addAttribute("myList", list);
-		model.addAttribute("topList", toplist);
+		model.addAttribute("myPreferList", preferlist);
+		model.addAttribute("toppreferList", toplist);
 
-		return "consumeList";
+		return "preferList";
 	}
 }
