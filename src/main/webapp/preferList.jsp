@@ -61,21 +61,21 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['${topList[0].fname}',    ${topList[0].count}],
-          ['${topList[1].fname}',     ${topList[1].count}],
-          ['${topList[2].fname}',     ${topList[2].count}],
-          ['${topList[3].fname}',     ${topList[3].count}],
-          ['${topList[4].fname}',     ${topList[4].count}]
+          ['Date', 'Fname', 'Count'],
+          [${toppreferList[0].preferdate}, '${toppreferList[0].fname}',    ${toppreferList[0].count}],
+          [${toppreferList[1].preferdate},'${toppreferList[1].fname}',     ${toppreferList[1].count}],
+          [${toppreferList[2].preferdate},'${toppreferList[2].fname}',     ${toppreferList[2].count}],
+          [${toppreferList[3].preferdate},'${toppreferList[3].fname}',     ${toppreferList[3].count}],
+          [${toppreferList[4].preferdate},'${toppreferList[4].fname}',     ${toppreferList[4].count}]
         ]);
 
         var options = {
-          title: '가장 많이 섭취한 식품 Top 5'
+          title: '가장 많이 찜한 식품 Top 5'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
+
       }
     </script>
 </head>
@@ -139,7 +139,7 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의 섭취정보</h2>
+			<h2>${id }님이 찜한 식품 정보</h2>
 		</div>
 	</div>
 
@@ -154,15 +154,15 @@
 							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취날짜</td>
 							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취수량</td>
 						</tr>
-						<c:forEach items='${myList}' var='consume'>
+						<c:forEach items='${mypreferList}' var='preferfood'>
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'></div>
 							</div>
 
 							<tr>
-								<td width=100 align=center height="22">${consume.fname}</td>
-								<td width=100 align=center height="22">${consume.eatdate}</td>
-								<td width=100 align=center height="22">${consume.count}</td>
+								<td width=100 align=center height="22">${preferfood.fname}</td>
+								<td width=100 align=center height="22">${preferfood.preferdate}</td>
+								<td width=100 align=center height="22">${preferfood.count}</td>
 							</tr>
 
 
