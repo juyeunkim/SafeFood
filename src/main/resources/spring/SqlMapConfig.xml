@@ -10,6 +10,7 @@
 		<typeAlias type="com.ssafy.vo.Consume" alias="consume" />
 		<typeAlias type="com.ssafy.vo.QnA"   		alias="qna"/>
 		<typeAlias type="com.ssafy.vo.Comment"   		alias="comment"/>
+		<typeAlias type="com.ssafy.vo.Prefer"   		alias="prefer"/>
   </typeAliases>
   
   <mappers>
@@ -17,6 +18,7 @@
 		<mapper resource="spring/Member_query.xml" />
 		<mapper resource="spring/Consume_query.xml" />
 		<mapper resource="spring/Qna_query.xml" />
+		<mapper resource="spring/Prefer_query.xml" />
   </mappers>
 </configuration>
 
