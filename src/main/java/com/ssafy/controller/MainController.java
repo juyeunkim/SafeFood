@@ -107,6 +107,7 @@ public class MainController {
 
 	@GetMapping("foodList.do")
 	public String foodList(String key, String word, Model model) {
+		System.out.println("foodList.do.......................");
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
@@ -141,6 +142,7 @@ public class MainController {
 
 	@GetMapping("itemInfor.do")
 	public String itemInfor(@RequestParam String code, Model model) {
+		System.out.println("itemInfor.do.......................");
 		Food food = fservice.search(Integer.parseInt(code));
 		model.addAttribute("item", food);
 		return "itemInformation";
@@ -157,6 +159,7 @@ public class MainController {
 // 검색어를 받아서 리스트에 보여주기
 	@PostMapping("foodList2.do")
 	public String foodList2(String key, String word, Model model) {
+		System.out.println("foodlist2.do.......................");
 		FoodPageBean bean = new FoodPageBean(key, word, "", 0);
 		model.addAttribute("bean", bean);
 		model.addAttribute("key", key);
@@ -183,8 +186,7 @@ public class MainController {
 
 	@PostMapping("insertfood.do")
 	public String insertfood(String code,int count, HttpSession session, Model model) {
-		// session에서 id 가져오기
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println("insertfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
 		String id_alergy[]= mservice.searchAllergy(id).split(" ");
@@ -214,6 +216,7 @@ public class MainController {
 	@PostMapping("preferfood.do")
 	public String preferfood(String code,int count, HttpSession session, Model model) {
 		// session에서 id 가져오기
+		System.out.println("preferfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
 		String id_alergy[]= mservice.searchAllergy(id).split(" ");
@@ -248,7 +251,7 @@ public class MainController {
 
 	@GetMapping("consumeList.do")
 	public String consumeList(Model model, HttpSession session) {
-		
+		System.out.println("consumeList.do.......................");
 		String id = (String) session.getAttribute("id");
 		// id가 먹은 foodlist 가져오기
 		List<Consume> list = cservice.searchAll(id);
@@ -260,9 +263,10 @@ public class MainController {
 		return "consumeList";
 	}
 	@GetMapping("preferList.do")
-	public String likeList(Model model, HttpSession session) {
-		
+	public String preferList(Model model, HttpSession session) {
+		System.out.println("preferList.do.......................");
 		String id = (String) session.getAttribute("id");
+		System.out.println("id= "+id);
 		List<Prefer> preferlist = pservice.searchAll(id);
 		List<Prefer> toplist = pservice.count(id);
 		for(int i=0; i<toplist.size(); i++) {

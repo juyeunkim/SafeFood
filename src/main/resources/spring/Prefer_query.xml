@@ -5,7 +5,8 @@
 	<select id="searchAll" parameterType="string"
 		resultType="prefer">
 		select num, id, f.code,f.name as fname,
-		preferdate,count
+		date_format(preferdate,
+		'%y-%m-%d') as preferdate,count
 		from
 		prefer p
 		join food f
@@ -24,7 +25,8 @@
 	</insert>
 	
 	<select id="count" parameterType="string" resultType="prefer">
-		select p.code, f.name as fname, sum(count) as count
+		select p.num, p.id, date_format(p.preferdate,
+		'%y-%m-%d') as preferdate, p.code, f.name as fname, sum(count) as count
 		from prefer p
 		join food f
 		using(code)

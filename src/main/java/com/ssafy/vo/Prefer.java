@@ -72,7 +72,7 @@ public class Prefer {
 
 	@Override
 	public String toString() {
-		return "Consume [num=" + num + ", id=" + id + ", code=" + code + ", fname=" + fname + ", preferdate=" + preferdate
+		return "Prefer [num=" + num + ", id=" + id + ", code=" + code + ", fname=" + fname + ", preferdate=" + preferdate
 				+ ", count=" + count + "]";
 	}
 

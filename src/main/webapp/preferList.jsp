@@ -61,19 +61,21 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Date', 'Fname', 'Count'],
-          [${toppreferList[0].preferdate}, '${toppreferList[0].fname}',    ${toppreferList[0].count}],
-          [${toppreferList[1].preferdate},'${toppreferList[1].fname}',     ${toppreferList[1].count}],
-          [${toppreferList[2].preferdate},'${toppreferList[2].fname}',     ${toppreferList[2].count}],
-          [${toppreferList[3].preferdate},'${toppreferList[3].fname}',     ${toppreferList[3].count}],
-          [${toppreferList[4].preferdate},'${toppreferList[4].fname}',     ${toppreferList[4].count}]
+      	['Name','Count'],
+          [ '${toppreferList[0].fname}',    ${toppreferList[0].count}],
+          ['${toppreferList[1].fname}',     ${toppreferList[1].count}],
+          ['${toppreferList[2].fname}',     ${toppreferList[2].count}],
+          ['${toppreferList[3].fname}',     ${toppreferList[3].count}],
+          ['${toppreferList[4].fname}',     ${toppreferList[4].count}]
         ]);
 
         var options = {
-          title: '가장 많이 찜한 식품 Top 5'
+          title: '가장 많이 찜한 식품 Top 5',
+          hAxis : {title : 'Code'},
+         
         };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
 
       }
@@ -122,7 +124,7 @@
 					<li><a href="../index.html">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="likeList.do">내가 찜한 정보</a></li>
+						<li><a href="preferList.do">내가 찜한 정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
@@ -150,11 +152,11 @@
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취식품</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취날짜</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취수량</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 식품</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 날짜</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 수량</td>
 						</tr>
-						<c:forEach items='${mypreferList}' var='preferfood'>
+						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'></div>
 							</div>

@@ -84,10 +84,8 @@
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
-					<li><a href="#about">공지 사항</a></li>
 					<li><a href="../index.html">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
-					<li><a href="#portfolio">베스트 섭취 정보</a></li>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
@@ -162,7 +160,7 @@
 
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
-						<form  method='post' name = "userinput">
+						<form  method='post' name ="userinput">
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'>
 
@@ -180,11 +178,11 @@
 										<div class="row ">
 											<h4 class="col-lg-7"></h4>
 											<input type='hidden' name='code' value="${food.code}">
-											<button class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기" onClick="goData('prefer')">찜하기</button>
+											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기" onClick="goData('prefer')"/>
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
 												id="countInput" name = "count"> 
-											<button class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기" onClick="goData('eat')">섭취하기</button>
+											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기" onClick="goData('eat')"/>
 										</div>
 									</div>
 								</div>
@@ -245,16 +243,12 @@
 	}
 	 function goData(mode){
 		 var form = document.userinput;
-		 console.log(mode);
-		//if(mode=="섭취하기") {
-			// form.action ="insertfood.do";
-		 //}
-		 //else //form.action ="likefood.do";
-		// form.submit();
+		if(mode=="섭취하기") {
+			 userinput.action ="insertfood.do";
+		 }
+		 else userinput.action ="preferfood.do";
+		
 	 }
-
-	 
-	
 	</script>
 </body>
 </html>
