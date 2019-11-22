@@ -316,9 +316,11 @@ Header
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<!-- <li class="menu-active"><a href="#body">Home</a></li> -->
-					<li><a href="mainform.do">공지 사항</a></li>
 					<li><a href="../index.html">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
+					<c:if test="${not empty id}">
+						<li><a href="likeList.do">내가 찜한 정보</a></li>
+					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>

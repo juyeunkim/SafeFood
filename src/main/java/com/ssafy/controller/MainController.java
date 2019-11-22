@@ -210,5 +210,18 @@ public class MainController {
 
 		return "consumeList";
 	}
+	@GetMapping("likeList.do")
+	public String likeList(Model model, HttpSession session) {
+		
+		String id = (String) session.getAttribute("id");
+		// id가 먹은 foodlist 가져오기
+		List<Consume> list = cservice.searchAll(id);
+		List<Consume> toplist = cservice.count(id);
+		
 
+		model.addAttribute("myList", list);
+		model.addAttribute("topList", toplist);
+
+		return "consumeList";
+	}
 }
