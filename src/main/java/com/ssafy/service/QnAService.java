@@ -12,6 +12,7 @@ public interface QnAService {
 	public void delete(int no);
 	public QnA search(int no);
 	public List<QnA> searchAll();
+	public List<QnA> searchKeyWord(PageBean bean);
 	public int searchCount(PageBean bean);
 	public void insertComment(Comment com);
 	public void deleteComment(int cno);

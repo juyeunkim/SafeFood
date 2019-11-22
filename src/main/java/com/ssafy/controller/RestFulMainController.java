@@ -62,6 +62,20 @@ public class RestFulMainController {
 		return handleSuccess("삭제 성공");
 	}
 	
+	@ApiOperation("검색 Qna 정보 가져오기")
+	@GetMapping("/qna/list/{key}_{word}")
+	public ResponseEntity<Map<String, Object>> searchKeyWord(@PathVariable String key, @PathVariable String word) { 
+		System.out.println("dsaaaaaaaaaaaa");
+		System.out.println("searchKeyWord.........................."+key+" "+word);
+		
+//		List<QnA> list = qservice.searchAll();
+		List<QnA> list = qservice.searchKeyWord(new PageBean(key, word, 1));
+		for (QnA qnA : list) {
+			System.out.println(qnA);
+		}
+		return handleSuccess(list);
+	}
+	
 	@ApiOperation("모든 Qna 정보 가져오기")
 	@GetMapping("/qna")
 	public ResponseEntity<Map<String, Object>> searchAllQnA() { 

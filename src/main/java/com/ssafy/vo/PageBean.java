@@ -19,6 +19,11 @@ public class PageBean implements Serializable{
 	public PageBean() {	}
 	
 	
+	public PageBean(String key, String word) {
+		setKey(key);
+		setWord(word);
+		setPageNo(1);
+	}
 	public PageBean(String key, String word, int pageNo) {
 		setKey(key);
 		setWord(word);

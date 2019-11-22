@@ -61,13 +61,13 @@
 				<if test="word!=null">
 					<choose> 
 						<when test="key=='id'">
-							name like concat('%',#{word},'%')
+							id like concat('%',#{word},'%')
 						</when>
 						<when test="key=='title'">
-							maker like concat('%',#{word},'%')
+							title like concat('%',#{word},'%')
 						</when>
 						<when test="key=='contents'">
-							material like concat('%',#{word},'%')
+							contents like concat('%',#{word},'%')
 						</when>
 
 					</choose>
@@ -84,13 +84,13 @@
 				<if test="word!=null">
 					<choose> 
 						<when test="key=='id'">
-							name like concat('%',#{word},'%')
+							id like concat('%',#{word},'%')
 						</when>
 						<when test="key=='title'">
-							maker like concat('%',#{word},'%')
+							title like concat('%',#{word},'%')
 						</when>
 						<when test="key=='contents'">
-							material like concat('%',#{word},'%')
+							contents like concat('%',#{word},'%')
 						</when>
 
 					</choose>

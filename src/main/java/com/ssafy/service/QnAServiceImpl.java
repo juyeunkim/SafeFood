@@ -61,6 +61,19 @@ public class QnAServiceImpl implements QnAService {
 			throw new QnAException("검색 중 오류 발생");
 		}
 	}
+	public List<QnA> searchKeyWord(PageBean bean){
+		try {
+			int total = searchCount(bean);
+			System.out.println("++++"+total);
+			PageUtility bar = new PageUtility(bean.getInterval()
+					, total, bean.getPageNo(), "images/");
+			bean.setPageLink(bar.getPageBar());
+			return dao.searchKeyWord(bean);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new QnAException("조건 검색 중 오류 발생");
+		}
+	}
 	
 	@Override
 	public void deleteComment(int cno) {
