@@ -214,7 +214,7 @@ public class MainController {
 	public String likeList(Model model, HttpSession session) {
 		
 		String id = (String) session.getAttribute("id");
-		// id가 먹은 foodlist 가져오기
+		// id가 먹은 likelist 가져오기
 		List<Consume> list = cservice.searchAll(id);
 		List<Consume> toplist = cservice.count(id);
 		
