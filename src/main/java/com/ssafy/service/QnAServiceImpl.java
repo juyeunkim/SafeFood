@@ -48,14 +48,14 @@ public class QnAServiceImpl implements QnAService {
 			throw new QnAException("no로 조회 중 에러발생");
 		}
 	}
-	public List<QnA> searchAll() {
+	public List<QnA> searchAll(PageBean bean) {
 		try {
 //			int total = dao.count(bean);
 //			System.out.println("++++"+total);
 //			PageUtility bar = new PageUtility(bean.getInterval()
 //					, total, bean.getPageNo(), "images/");
 //			bean.setPageLink(bar.getPageBar());
-			return dao.searchAll();
+			return dao.searchAll(bean);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new QnAException("검색 중 오류 발생");

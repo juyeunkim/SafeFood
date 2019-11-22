@@ -63,8 +63,8 @@ public class RestFulMainController {
 	}
 	
 	@ApiOperation("모든 Qna 정보 가져오기")
-	@GetMapping("/qna")
-	public ResponseEntity<Map<String, Object>> searchAllQnA() { 
+	@GetMapping("/qna/{key}_{}")
+	public ResponseEntity<Map<String, Object>> searchAllQnA(String key, String word) { 
 		System.out.println("searchAll..........................");
 		List<QnA> list = qservice.searchAll();
 		for (QnA qnA : list) {
