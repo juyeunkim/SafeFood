@@ -112,6 +112,7 @@ public class MemberServiceImp implements MemberService {
 	@Override
 	public String searchAllergy(String id) {
 		try {
+//			System.out.println(dao.searchAllergy(id));
 			return dao.searchAllergy(id);
 			
 		} catch (Exception e) {
