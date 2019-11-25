@@ -35,4 +35,8 @@
 		order by sum(count) desc
 		limit 5
 	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from prefer where no=#{no}
+	</delete>
 </mapper>
