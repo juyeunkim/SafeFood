@@ -316,5 +316,5 @@ public class MainController {
 		pservice.delete(num);
 
 		return "redirect:preferList.do";
-	}
+	}  
 }
