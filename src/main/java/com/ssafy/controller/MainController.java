@@ -2,7 +2,9 @@ package com.ssafy.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -60,6 +62,25 @@ public class MainController {
 			session.setAttribute("id", id);
 		}
 		return "redirect:mainform.do";
+	}
+
+
+	@GetMapping("getLoginInfo.do")
+	@ResponseBody
+	public Map getLoginInfo(HttpSession session) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+//		String id = (String) session.getAttribute("id");
+//		if (id != null) {
+//			map.put("status", true);
+//			map.put("id", id);
+//		} else {
+//			map.put("status", false);
+//		}
+		
+		map.put("id", "ssafy");
+		map.put("status", true);
+		System.out.println("Session가져오기 ======="+map);
+		return map;
 	}
 
 	@GetMapping("logout.do")
