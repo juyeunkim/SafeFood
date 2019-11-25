@@ -287,7 +287,7 @@ public class MainController {
 
 		model.addAttribute("searchList", list);
 
-		return "consumeList";
+		return "searchengineList";
 	}
 	@GetMapping("preferList.do")
 	public String preferList(Model model, HttpSession session) {
