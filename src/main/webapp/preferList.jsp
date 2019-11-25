@@ -225,8 +225,8 @@
 
 	<script type="text/javascript">
 		function deleteFood(num) {
-			console.log(num)
-			window.location.href = "deletePrefer.do&num=" + num;
+			/* console.log(num) */
+			window.location.href = "deletePrefer.do?num=" + num;
 		}
 		
 	

@@ -304,7 +304,7 @@ public class MainController {
 		return "preferList";
 	}
 	
-	@DeleteMapping("deletePrefer.do")
+	@GetMapping("deletePrefer.do")
 	public String deletePrefer(@RequestParam int num) {
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>");
 		System.out.println("deletePrefer.do......................."+num);
