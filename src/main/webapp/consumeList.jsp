@@ -61,12 +61,12 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Name','Count'],
-          ['${topList[0].fname}',    ${topList[0].count}],
-          ['${topList[1].fname}',     ${topList[1].count}],
-          ['${topList[2].fname}',     ${topList[2].count}],
-          ['${topList[3].fname}',     ${topList[3].count}],
-          ['${topList[4].fname}',     ${topList[4].count}]
+          ['Name','Count',{ role: 'style' }],
+          ['${topList[0].fname}',    ${topList[0].count},'#8c9bc2'],
+          ['${topList[1].fname}',     ${topList[1].count},'#8c9bc2'],
+          ['${topList[2].fname}',     ${topList[2].count},'#8c9bc2'],
+          ['${topList[3].fname}',     ${topList[3].count},'#8c9bc2'],
+          ['${topList[4].fname}',     ${topList[4].count},'#8c9bc2']
         ]);
 
         var options = {
@@ -151,9 +151,9 @@
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취식품</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취날짜</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취수량</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취식품</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취날짜</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취수량</td>
 						</tr>
 						<c:forEach items='${myList}' var='consume'>
 							<div class='col-lg-12'>

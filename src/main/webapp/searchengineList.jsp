@@ -53,6 +53,19 @@
   <style>
   .row{
   float :right;}
+  table{
+  	border-collapse:collapse;
+  }
+   tr {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  td {
+  	bgcolor :"E6ECDE";
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
   </style>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
@@ -61,10 +74,10 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Name','Count'],
-          ['${searchList[0].search_value}',    ${searchList[0].cnt}],
-          ['${searchList[1].search_value}',     ${searchList[1].cnt}],
-          ['${searchList[2].search_value}',     ${searchList[2].cnt}],
+          ['Name','Count',{ role: 'style' } ],
+          ['${searchList[0].search_value}',    ${searchList[0].cnt},'#8c9bc2'],
+          ['${searchList[1].search_value}',     ${searchList[1].cnt},'#af91c9'],
+          ['${searchList[2].search_value}',     ${searchList[2].cnt},'#c286b5'],
          
         ]);
         var view = new google.visualization.DataView(data);
@@ -159,9 +172,9 @@
 				<h2>검색 히스토리 Top 10</h2>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">검색 조건 </td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">검색어 </td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">검색 횟수</td>
+							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색 조건 </td>
+							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색어 </td>
+							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색 횟수</td>
 						</tr>
 							<c:forEach items='${topsearchList}' var='search'>
 							<div class='col-lg-12'>
@@ -170,8 +183,8 @@
 
 							<tr>
 								<td width=100 align=center height="22">${search.search_key}</td>
-								<td width=100 align=center height="22">${search.search_value}</td>
-								<td width=100 align=center height="22">${search.cnt}</td>
+								<td width=100 align=center  height="22">${search.search_value}</td>
+								<td  width=100 align=center  height="22">${search.cnt}</td>
 							</tr>
 						</c:forEach>
 
