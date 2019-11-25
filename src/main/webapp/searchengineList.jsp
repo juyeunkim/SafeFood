@@ -62,19 +62,27 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Name','Count'],
-          ['${topList[0].fname}',    ${topList[0].count}],
-          ['${topList[1].fname}',     ${topList[1].count}],
-          ['${topList[2].fname}',     ${topList[2].count}],
-          ['${topList[3].fname}',     ${topList[3].count}],
-          ['${topList[4].fname}',     ${topList[4].count}]
+          ['${searchList[0].search_value}',    ${searchList[0].cnt}],
+          ['${searchList[1].search_value}',     ${searchList[1].cnt}],
+          ['${searchList[2].search_value}',     ${searchList[2].cnt}],
+         
         ]);
-
+        var view = new google.visualization.DataView(data);
+    /*     view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]); */
         var options = {
-          title: '가장 많이 섭취한 식품 Top 5'
+          title: '검색 조건 별 가장 많이 검색한 단어 Top 3',
+          width: 600,
+          height: 400,
+          bar: {groupWidth: "95%"},
+          legend: { position: "none" },
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
+        var chart = new google.visualization.BarChart(document.getElementById('piechart'));
         chart.draw(data, options);
       }
     </script>
@@ -139,7 +147,7 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의 섭취정보</h2>
+			<h2>검색 히스토리</h2>
 		</div>
 	</div>
 
@@ -148,25 +156,25 @@
 			<div class="row" id="serviceSection" style="float:left;" >
 
 				<div class='col-lg-12'>
+				<h2>검색 히스토리 Top 10</h2>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취식품</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취날짜</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취수량</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">검색 조건 </td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">검색어 </td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">검색 횟수</td>
 						</tr>
-						<c:forEach items='${myList}' var='consume'>
+							<c:forEach items='${topsearchList}' var='search'>
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'></div>
 							</div>
 
 							<tr>
-								<td width=100 align=center height="22">${consume.fname}</td>
-								<td width=100 align=center height="22">${consume.eatdate}</td>
-								<td width=100 align=center height="22">${consume.count}</td>
+								<td width=100 align=center height="22">${search.search_key}</td>
+								<td width=100 align=center height="22">${search.search_value}</td>
+								<td width=100 align=center height="22">${search.cnt}</td>
 							</tr>
-
-
 						</c:forEach>
+
 					</table>
 				</div>
 				

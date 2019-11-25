@@ -10,5 +10,5 @@ import com.ssafy.vo.SearchEngine;
 public interface SearchEngineDao {
 	public List<SearchEngine> searchAll();
 	public int getSearchNo();
-	 
+	public List<SearchEngine> count();
 }

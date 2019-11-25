@@ -83,7 +83,7 @@
 
 	
 	<!--==========================
-    Top Bar
+    Top Bar 
   ============================-->
 	<section id="topbar" class="d-none d-lg-block">
 		<div class="container clearfix">
@@ -127,6 +127,7 @@
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
+					<li><a href="searchengine.do">검색 히스토리</a></li>
 					
 				</ul>
 			</nav>
