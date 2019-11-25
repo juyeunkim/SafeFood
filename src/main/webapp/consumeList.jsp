@@ -151,16 +151,11 @@
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-<<<<<<< HEAD
+
 							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취식품</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취날짜</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취수량</td>
-=======
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취식품</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취날짜</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취수량</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">삭제</td>
->>>>>>> branch 'master' of https://lab.ssafy.com/juyeon/springsafefood.git
+							<td width=100 align=center bgcolor="#d5dae6" height="22">삭제</td>
 						</tr>
 						<c:forEach items='${myList}' var='consume'>
 							<div class='col-lg-12'>
