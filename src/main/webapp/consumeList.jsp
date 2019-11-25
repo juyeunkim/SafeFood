@@ -83,7 +83,7 @@
 
 	
 	<!--==========================
-    Top Bar
+    Top Bar 
   ============================-->
 	<section id="topbar" class="d-none d-lg-block">
 		<div class="container clearfix">
