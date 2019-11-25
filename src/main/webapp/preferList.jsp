@@ -152,10 +152,10 @@
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">식품명</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">날짜</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">수량</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">삭제</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">식품명</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">날짜</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">수량</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">삭제</td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>

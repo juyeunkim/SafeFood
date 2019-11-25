@@ -30,7 +30,16 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+   tr {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  td {
+  	bgcolor :"E6ECDE";
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
 .section-padding {
 	padding: 60px 0px;
 }
