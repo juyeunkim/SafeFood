@@ -68,16 +68,16 @@ public class MainController {
 	@ResponseBody
 	public Map getLoginInfo(HttpSession session) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-//		String id = (String) session.getAttribute("id");
-//		if (id != null) {
-//			map.put("status", true);
-//			map.put("id", id);
-//		} else {
-//			map.put("status", false);
-//		}
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			map.put("status", true);
+			map.put("id", id);
+		} else {
+			map.put("status", false);
+		}
 
-		map.put("id", "ssafy");
-		map.put("status", true);
+//		map.put("id", "ssafy");
+//		map.put("status", true);
 		System.out.println("Session가져오기 =======" + map);
 		return map;
 	}
