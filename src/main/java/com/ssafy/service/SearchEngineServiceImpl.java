@@ -19,4 +19,4 @@ public class SearchEngineServiceImpl implements SearchEngineService {
 	public int getSearchNo() {
 		return sao.getSearchNo();
 	}
-}
+} 
