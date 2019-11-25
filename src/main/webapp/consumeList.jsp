@@ -151,9 +151,16 @@
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
+<<<<<<< HEAD
 							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취식품</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취날짜</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취수량</td>
+=======
+							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취식품</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취날짜</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">섭취수량</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">삭제</td>
+>>>>>>> branch 'master' of https://lab.ssafy.com/juyeon/springsafefood.git
 						</tr>
 						<c:forEach items='${myList}' var='consume'>
 							<div class='col-lg-12'>
@@ -164,6 +171,7 @@
 								<td width=100 align=center height="22">${consume.fname}</td>
 								<td width=100 align=center height="22">${consume.eatdate}</td>
 								<td width=100 align=center height="22">${consume.count}</td>
+								<td width=100 align=center height="22"><button onclick="deleteFood(${consume.num})">삭제</button></td>
 							</tr>
 
 
@@ -221,9 +229,10 @@
 	<script src="js/main.js"></script>
 
 	<script type="text/javascript">
-		function itemInfor(foodno) {
-			window.location.href = "itemInfor.do&code=" + foodno;
-		}
+	function deleteFood(num) {
+		/* console.log(num) */
+		window.location.href = "deleteConsume.do?num=" + num;
+	}
 		
 	
 	</script>

@@ -144,10 +144,9 @@
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
 						<li><a href="preferList.do">예상 섭취 정보</a></li>
-					</c:if>
-					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
+					<li><a href="searchengine.do">검색 히스토리</a></li>
 					
 				</ul>
 			</nav>
@@ -160,7 +159,7 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>검색 히스토리</h2>
+			<h2>검색 히스토리 Top 10</h2>
 		</div>
 	</div>
 
@@ -169,7 +168,6 @@
 			<div class="row" id="serviceSection" style="float:left;" >
 
 				<div class='col-lg-12'>
-				<h2>검색 히스토리 Top 10</h2>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
 							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색 조건 </td>
