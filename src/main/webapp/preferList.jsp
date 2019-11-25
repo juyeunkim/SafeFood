@@ -43,7 +43,6 @@
 <!-- Main Stylesheet File -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/taemin.css" rel="stylesheet">
-
 <!-- =======================================================
     Theme Name: Reveal
     Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -79,6 +78,7 @@
 
       }
     </script>
+ 
 </head>
 <body id="body">
 
@@ -155,6 +155,7 @@
 							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 식품</td>
 							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 날짜</td>
 							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 수량</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">삭제</td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>
@@ -165,6 +166,7 @@
 								<td width=100 align=center height="22">${preferfood.fname}</td>
 								<td width=100 align=center height="22">${preferfood.preferdate}</td>
 								<td width=100 align=center height="22">${preferfood.count}</td>
+								<td width=100 align=center height="22"><button onclick="deleteFood(${preferfood.num})">삭제</button></td>
 							</tr>
 
 
@@ -222,8 +224,9 @@
 	<script src="js/main.js"></script>
 
 	<script type="text/javascript">
-		function itemInfor(foodno) {
-			window.location.href = "itemInfor.do&code=" + foodno;
+		function deleteFood(num) {
+			console.log(num)
+			window.location.href = "deletePrefer.do&num=" + num;
 		}
 		
 	

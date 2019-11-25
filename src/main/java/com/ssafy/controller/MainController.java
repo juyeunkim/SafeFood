@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -294,11 +295,21 @@ public class MainController {
 		System.out.println("preferList.do.......................");
 		String id = (String) session.getAttribute("id");
 		List<Prefer> preferlist = pservice.searchAll(id);
+		System.out.println(preferlist.toString());
 		List<Prefer> toplist = pservice.count(id);
 
 		model.addAttribute("myPreferList", preferlist);
 		model.addAttribute("toppreferList", toplist);
 
 		return "preferList";
+	}
+	
+	@DeleteMapping("deletePrefer.do")
+	public String deletePrefer(@RequestParam int num) {
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>");
+		System.out.println("deletePrefer.do......................."+num);
+		pservice.delete(num);
+
+		return "redirect:preferList.do";
 	}
 }
