@@ -61,7 +61,7 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-      	['Name','Count'],
+      	  ['Name','Count'],
           [ '${toppreferList[0].fname}',    ${toppreferList[0].count}],
           ['${toppreferList[1].fname}',     ${toppreferList[1].count}],
           ['${toppreferList[2].fname}',     ${toppreferList[2].count}],
@@ -71,7 +71,6 @@
 
         var options = {
           title: '가장 많이 찜한 식품 Top 5',
-          hAxis : {title : 'Code'},
          
         };
         

@@ -317,7 +317,8 @@
 	}
 	 
 	 function goData(mode,foodno,obj){
-		if(mode=="섭취하기") {
+		if(mode=="eat") {
+			console.log(mode);
 			 window.location.href = "insertfood.do?code="+foodno+"&count="+obj;
 			//userinput.action ="insertfood.do";
 		 }

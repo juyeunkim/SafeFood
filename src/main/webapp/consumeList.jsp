@@ -61,7 +61,7 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
+          ['Name','Count'],
           ['${topList[0].fname}',    ${topList[0].count}],
           ['${topList[1].fname}',     ${topList[1].count}],
           ['${topList[2].fname}',     ${topList[2].count}],
