@@ -279,13 +279,17 @@ public class MainController {
 
 		return "consumeList";
 	}
-	@GetMapping("searchengineList.do")
+	@GetMapping("searchengine.do")
 	public String searchengineList(Model model, HttpSession session) {
 		System.out.println("searchengineList.do.......................");
 		List<SearchEngine> list = sservice.searchAll();
+		List<SearchEngine> topsearchlist = sservice.searchAll();
 		
-
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getSearch_key()+" " +list.get(i).getSearch_value()+" "+list.get(i).getCnt());
+		}
 		model.addAttribute("searchList", list);
+		model.addAttribute("topsearchList", topsearchlist);
 
 		return "searchengineList";
 	}

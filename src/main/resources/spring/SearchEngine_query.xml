@@ -8,10 +8,13 @@
 	</select>
 	
 	<select id = "searchAll" resultType = "searchengine" >
-		select g1.search_key,(select search_value from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as val,(select count(search_value) from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as cnt from search_engine g1
+		select g1.search_key,(select search_value from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as search_value,(select count(search_value) from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as cnt from search_engine g1
 		group by search_key;
 	</select>
 	
+	<select id="count" resultType = "searchengine">
+		select *, count(*) as cnt from search_engine group by search_value order by cnt desc limit 10;
+	</select>
 	
 	
 </mapper>

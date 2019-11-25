@@ -20,4 +20,9 @@ public class SearchEngineServiceImpl implements SearchEngineService {
 	public int getSearchNo() {
 		return sao.getSearchNo();
 	}
+
+	@Override
+	public SearchEngine count() {
+		return sao.count();
+	}
 } 

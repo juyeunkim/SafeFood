@@ -4,15 +4,22 @@ public class SearchEngine {
 	private int sno;
 	private String search_key;
 	private String search_value;
-	
+	int cnt;
 	public SearchEngine() {
 		super();
 	}
-	public SearchEngine(int sno, String search_key, String search_value) {
+	public SearchEngine(int sno, String search_key, String search_value, int cnt) {
 		super();
 		this.sno = sno;
 		this.search_key = search_key;
 		this.search_value = search_value;
+		this.cnt = cnt;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 	public int getSno() {
 		return sno;
@@ -34,7 +41,9 @@ public class SearchEngine {
 	}
 	@Override
 	public String toString() {
-		return "Search_engine [sno=" + sno + ", search_key=" + search_key + ", search_value=" + search_value + "]";
+		return "SearchEngine [sno=" + sno + ", search_key=" + search_key + ", search_value=" + search_value + ", cnt="
+				+ cnt + "]";
 	}
+
 	
 }
