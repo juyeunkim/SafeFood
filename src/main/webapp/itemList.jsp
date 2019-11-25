@@ -22,7 +22,8 @@
 
 <!-- Bootstrap CSS File -->
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <!-- Libraries CSS Files -->
 <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -51,6 +52,31 @@
     License: https://bootstrapmade.com/license/
   ======================================================= -->
 </head>
+<style>
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 100%; /* Could be more or less, depending on screen size */
+}
+</style>
+
 
 <body id="body">
 	<section id="topbar" class="d-none d-lg-block">
@@ -87,9 +113,11 @@
 					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
+						<li><a href="preferList.do">내가 찜한 정보</a></li>
+					</c:if>
+					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
-					<li><a href="#contact">예상 섭취 정보</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -163,42 +191,69 @@
 		<div class="container">
 			<div class="row" id="serviceSection">
 
+				
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
-							<div class='col-lg-12'>
-								<div class=' box2 wow fadeInLeft row'>
+						<div class='col-lg-12'>
+							<div class=' box2 wow fadeInLeft row'>
 
-									<div class='col-lg-3'>
-										<img src='${food.img}' width='200px' style='cursor: pointer'
-											onclick="itemInfor(${food.code});">
-									</div>
+								<div class='col-lg-3'>
+									<img src='${food.img}' width='200px' style='cursor: pointer'
+										onclick="itemInfor(${food.code});">
+								</div>
 
-									<div class='col-lg-8'>
-										<h4 style='cursor: pointer'>
-											<a> ${food.name} </a>
-										</h4>
-										<p>${food.material}</p>
-										<div class="row ">
-											<h4 class="col-lg-7"></h4>
-											<input type='hidden' name='code' value="${food.code}">
-											<input type="submit"
-												class="form-control col-lg-2 btn btn-primary"
-												id="preferButton" value="찜하기" onClick="goData('prefer',${food.code})" />
-											<input type="number"
-												class="form-control col-lg-2 btn btn-default"
-												id="countInput" name="count"> <input type="submit"
-												class="form-control col-lg-2 btn btn-primary" id="eatButton"
-												value="섭취하기" onClick="goData('eat',${food.code})" />
-										</div>
+								<div class='col-lg-8'>
+									<h4 style='cursor: pointer'>
+										<a> ${food.name} </a>
+									</h4>
+									<p>${food.material}</p>
+									<div class="row ">
+										<h4 class="col-lg-5"></h4>
+										<input type='hidden' name='code' value="${food.code}" />
+										<input type="number"
+											class="form-control col-lg-2 btn btn-default" id="countInput"
+											placeholder="수량 : " name="count_btn" />
+										<button class="form-control col-lg-2 btn btn-primary"
+											id="preferButton" value="찜하기"
+											onClick="goData('prefer',${food.code},this.parentNode.children[3].value)">찜하기</button>
+										<button class="form-control col-lg-2 btn btn-primary"
+											id="eatButton" value="섭취하기"
+											onClick="goData('eat',${food.code},this.parentNode.children[3].value)">섭취하기</button>
 									</div>
 								</div>
 							</div>
+						</div>
 					</c:forEach>
+					<c:if test="${not empty dangermsg}">
+					<div id="myModal" class="modal">
+						
+						<!-- Modal content -->
+						<div class="modal-content">
+							<p style="text-align: center;">
+								<span style="font-size: 14pt;"><b><span
+										style="font-size: 24pt;">주의 성분 안내</span></b></span>
+							</p>
+							<p style="text-align: center; line-height: 1.5;">
+								<br />${dangermsg }  :: 주의성분 때문에 섭취할 수 없습니다.
+							</p>
+							<p>
+								<br />
+							</p>
+							<div
+								style="cursor: pointer; background-color: #DDDDDD; text-align: center; padding-bottom: 10px; padding-top: 10px;"
+								onClick="close_pop();">
+								<span class="pop_bt" style="font-size: 13pt;"> 닫기 </span>
+							</div>
+						</div>
+
+					</div>
+
+
+				</c:if>
 				</div>
 			</div>
 		</div>
 	</section>
-
 	<!-- #services --> </main>
 	<br />
 	<!--==========================
@@ -241,22 +296,34 @@
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
+    
+    jQuery(document).ready(function() {
+          $('#myModal').show();
+          //alert({dangermsg})
+    });
+    function open(flag) {
+        $('#myModal').show();
+   };
+    //팝업 Close 기능
+    function close_pop(flag) {
+         $('#myModal').hide();
+         window.location.href="list.do";
+    };
+    
 	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#countInput').val();
+		window.location.href="itemInfor.do?code="+foodno;
 	}
-	 function goData(mode,foodno){
-		 var form = document.userinput;
+	 
+	 function goData(mode,foodno,obj){
 		if(mode=="섭취하기") {
-			console.log(mode);
-			 window.location.href = "insertfood.do?code="+foodno+"&count="+$('#countInput').val();
+			 window.location.href = "insertfood.do?code="+foodno+"&count="+obj;
 			//userinput.action ="insertfood.do";
 		 }
 		 else {
 			//userinput.action ="preferfood.do";
-			 window.location.href = "preferfood.do?code="+foodno+"&count="+$('#countInput').val();
-			console.log(mode);
+			 window.location.href = "preferfood.do?code="+foodno+"&count="+obj;
 		}
 	 }
 	</script>

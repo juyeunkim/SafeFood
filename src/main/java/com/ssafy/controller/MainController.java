@@ -176,22 +176,20 @@ public class MainController {
 		System.out.println("=======findPassword=======");
 		System.out.println(id+" "+phone);
 		
-		
 		Member member = mservice.search(id);
 		
 		Gson gson = new Gson();
 		return gson.toJson(member);
-		
 	}
-
 	@GetMapping("insertfood.do")
-	public String insertfood(@RequestParam String code,@RequestParam int count, HttpSession session, Model model) {
+	public String insertfood(@RequestParam String code,@RequestParam String count, HttpSession session, Model model) {
 		System.out.println("insertfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
 		String id_alergy[]= mservice.searchAllergy(id).split(" ");
 		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
+		StringBuilder danger = new StringBuilder();
 		for(int i=0; i<id_alergy.length; i++) {
 			for(int j=0; j<food_alergy.length; j++) {
 				if(id_alergy[i].equals(food_alergy[j])) {
@@ -199,30 +197,30 @@ public class MainController {
 				}
 			}
 		}
-		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), count);
-		
+		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), Integer.parseInt(count));
 		System.out.println(count + " " + id + " " + code);
 		if(danger_alergy.size() >0 ) {
-			model.addAttribute("msg",danger_alergy);
-			return "redirect:list.do";
+			for(int i=0; i<danger_alergy.size(); i++) {
+				danger.append(danger_alergy.get(i)+" ");
+			}
+			System.out.println(danger);
+			model.addAttribute("dangermsg",danger);
+			return "itemList";
 		}
 		else {
 			cservice.insert(eat);
 			return "redirect:list.do";
 		}
-
-		
 	}
 	@GetMapping("preferfood.do")
-	public String preferfood(@RequestParam String code, @RequestParam int count, HttpSession session, Model model) {
-		// session에서 id 가져오기
+	public String preferfood(@RequestParam String code, @RequestParam String count, HttpSession session, Model model) {
 		System.out.println("preferfood.do.......................");
-		System.out.println("count="+count);
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
 		String id_alergy[]= mservice.searchAllergy(id).split(" ");	
 		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
+		StringBuilder danger = new StringBuilder();
 		for(int i=0; i<id_alergy.length; i++) {
 			for(int j=0; j<food_alergy.length; j++) {
 				if(id_alergy[i].equals(food_alergy[j])) {
@@ -230,23 +228,19 @@ public class MainController {
 				}
 			} 
 		}
-		Prefer eat = new Prefer(id, Integer.parseInt(code), date.toString(), count);
-		System.out.println("danger_alergy의 사이즈"+danger_alergy.size());
-		System.out.println(count + " " + id + " " + code);
+		Prefer eat = new Prefer(id, Integer.parseInt(code), date.toString(), Integer.parseInt(count));
 		if(danger_alergy.size() >0 ) {
-			System.out.println("###");
 			for(int i=0; i<danger_alergy.size(); i++) {
-				System.out.printf(danger_alergy.get(i)+" ");
+				danger.append(danger_alergy.get(i)+" ");
 			}
-			model.addAttribute("msg",danger_alergy);
+			System.out.println(danger);
+			model.addAttribute("dangermsg",danger);
+			return "itemList";
 		}
 		else {
 			pservice.insert(eat);
 			return "redirect:list.do";
 		}
-		return id;
-
-		
 	}
 
 	@GetMapping("consumeList.do")
