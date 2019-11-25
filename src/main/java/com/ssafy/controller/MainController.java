@@ -2,7 +2,9 @@ package com.ssafy.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -29,7 +31,7 @@ import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
 import com.ssafy.vo.Prefer;
 
-@CrossOrigin(origins = {"*"}, maxAge = 6000)
+@CrossOrigin(origins = { "*" }, maxAge = 6000)
 @Controller
 public class MainController {
 	@Autowired
@@ -60,6 +62,23 @@ public class MainController {
 			session.setAttribute("id", id);
 		}
 		return "redirect:mainform.do";
+	}
+
+	// login.do
+	@GetMapping("getLoginInfo.do")
+	@ResponseBody
+	public Map getLoginInfo(HttpSession session) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String id = (String) session.getAttribute("id");
+		if (id != null) {
+			map.put("status", true);
+			map.put("id", id);
+		} else {
+			map.put("status", false);
+		}
+		
+		System.out.println(map);
+		return map;
 	}
 
 	@GetMapping("logout.do")
@@ -174,79 +193,75 @@ public class MainController {
 	@ResponseBody
 	public String findPassword(String id, String phone) {
 		System.out.println("=======findPassword=======");
-		System.out.println(id+" "+phone);
-		
-		
+		System.out.println(id + " " + phone);
+
 		Member member = mservice.search(id);
-		
+
 		Gson gson = new Gson();
 		return gson.toJson(member);
-		
+
 	}
 
 	@PostMapping("insertfood.do")
-	public String insertfood(String code,int count, HttpSession session, Model model) {
+	public String insertfood(String code, int count, HttpSession session, Model model) {
 		System.out.println("insertfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
-		String id_alergy[]= mservice.searchAllergy(id).split(" ");
-		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
+		String id_alergy[] = mservice.searchAllergy(id).split(" ");
+		String food_alergy[] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
-		for(int i=0; i<id_alergy.length; i++) {
-			for(int j=0; j<food_alergy.length; j++) {
-				if(id_alergy[i].equals(food_alergy[j])) {
+		for (int i = 0; i < id_alergy.length; i++) {
+			for (int j = 0; j < food_alergy.length; j++) {
+				if (id_alergy[i].equals(food_alergy[j])) {
 					danger_alergy.add(food_alergy[j]);
 				}
 			}
 		}
 		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), count);
-		
+
 		System.out.println(count + " " + id + " " + code);
-		if(danger_alergy.size() >0 ) {
-			model.addAttribute("msg",danger_alergy);
+		if (danger_alergy.size() > 0) {
+			model.addAttribute("msg", danger_alergy);
 			return "redirect:list.do";
-		}
-		else {
+		} else {
 			cservice.insert(eat);
 			return "redirect:list.do";
 		}
 
-		
 	}
+
 	@PostMapping("preferfood.do")
-	public String preferfood(String code,int count, HttpSession session, Model model) {
+	public String preferfood(String code, int count, HttpSession session, Model model) {
 		// session에서 id 가져오기
 		System.out.println("preferfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
-		String id_alergy[]= mservice.searchAllergy(id).split(" ");
-		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
+		String id_alergy[] = mservice.searchAllergy(id).split(" ");
+		String food_alergy[] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
-		for(int i=0; i<id_alergy.length; i++) {
-			for(int j=0; j<food_alergy.length; j++) {
-				if(id_alergy[i].equals(food_alergy[j])) {
+		for (int i = 0; i < id_alergy.length; i++) {
+			for (int j = 0; j < food_alergy.length; j++) {
+				if (id_alergy[i].equals(food_alergy[j])) {
 					danger_alergy.add(food_alergy[j]);
 				}
-			} 
-		}
-		
-		Prefer eat = new Prefer(id, Integer.parseInt(code), date.toString(), count);
-		
-		System.out.println(count + " " + id + " " + code);
-		if(danger_alergy.size() >0 ) {
-			System.out.println("###");
-			for(int i=0; i<danger_alergy.size(); i++) {
-				System.out.printf(danger_alergy.get(i)+" ");
 			}
-			model.addAttribute("msg",danger_alergy);
 		}
-		else {
+
+		Prefer eat = new Prefer(id, Integer.parseInt(code), date.toString(), count);
+
+		System.out.println(count + " " + id + " " + code);
+		if (danger_alergy.size() > 0) {
+			System.out.println("###");
+			for (int i = 0; i < danger_alergy.size(); i++) {
+				System.out.printf(danger_alergy.get(i) + " ");
+			}
+			model.addAttribute("msg", danger_alergy);
+		} else {
 			pservice.insert(eat);
 			return "redirect:list.do";
 		}
 		return id;
 
-		
 	}
 
 	@GetMapping("consumeList.do")
@@ -256,20 +271,21 @@ public class MainController {
 		// id가 먹은 foodlist 가져오기
 		List<Consume> list = cservice.searchAll(id);
 		List<Consume> toplist = cservice.count(id);
-		
+
 		model.addAttribute("myList", list);
 		model.addAttribute("topList", toplist);
 
 		return "consumeList";
 	}
+
 	@GetMapping("preferList.do")
 	public String preferList(Model model, HttpSession session) {
 		System.out.println("preferList.do.......................");
 		String id = (String) session.getAttribute("id");
-		System.out.println("id= "+id);
+		System.out.println("id= " + id);
 		List<Prefer> preferlist = pservice.searchAll(id);
 		List<Prefer> toplist = pservice.count(id);
-		for(int i=0; i<toplist.size(); i++) {
+		for (int i = 0; i < toplist.size(); i++) {
 			System.out.println(toplist.get(i));
 		}
 
