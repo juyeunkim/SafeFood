@@ -22,7 +22,7 @@ public class SearchEngineServiceImpl implements SearchEngineService {
 	}
 
 	@Override
-	public SearchEngine count() {
+	public List<SearchEngine> count() {
 		return sao.count();
 	}
 } 

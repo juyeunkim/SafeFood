@@ -156,6 +156,7 @@
 			<div class="row" id="serviceSection" style="float:left;" >
 
 				<div class='col-lg-12'>
+				<h2>검색 히스토리 Top 10</h2>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
 							<td width=100 align=center bgcolor="E6ECDE" height="22">검색 조건 </td>
@@ -172,8 +173,6 @@
 								<td width=100 align=center height="22">${search.search_value}</td>
 								<td width=100 align=center height="22">${search.cnt}</td>
 							</tr>
-
-
 						</c:forEach>
 
 					</table>
