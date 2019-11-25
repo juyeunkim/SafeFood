@@ -24,12 +24,14 @@ import com.ssafy.service.ConsumeService;
 import com.ssafy.service.FoodService;
 import com.ssafy.service.MemberService;
 import com.ssafy.service.PreferService;
+import com.ssafy.service.SearchEngineService;
 import com.ssafy.util.KMPFunction;
 import com.ssafy.vo.Consume;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Member;
 import com.ssafy.vo.Prefer;
+import com.ssafy.vo.SearchEngine;
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @Controller
@@ -42,7 +44,8 @@ public class MainController {
 	private MemberService mservice;
 	@Autowired
 	private PreferService pservice;
-
+	@Autowired
+	private SearchEngineService sservice;
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
 		ModelAndView mav = new ModelAndView("Error");
@@ -276,7 +279,16 @@ public class MainController {
 
 		return "consumeList";
 	}
+	@GetMapping("searchengineList.do")
+	public String searchengineList(Model model, HttpSession session) {
+		System.out.println("searchengineList.do.......................");
+		List<SearchEngine> list = sservice.searchAll();
+		
 
+		model.addAttribute("searchList", list);
+
+		return "consumeList";
+	}
 	@GetMapping("preferList.do")
 	public String preferList(Model model, HttpSession session) {
 		System.out.println("preferList.do.......................");
