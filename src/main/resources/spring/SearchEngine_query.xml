@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ssafy.dao.SearchEngineDao">
+
+	<select id="getSearchNo"   	resultType="int" >
+		select max(sno)+1 from search_engine
+	</select>
+	
+	<select id = "searchAll" resultType = "searchengine" >
+		select g1.search_key,(select search_value from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as val,(select count(search_value) from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as cnt from search_engine g1
+		group by search_key;
+	</select>
+	
+	
+	
+</mapper>
