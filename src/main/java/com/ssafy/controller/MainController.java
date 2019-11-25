@@ -311,10 +311,17 @@ public class MainController {
 	
 	@GetMapping("deletePrefer.do")
 	public String deletePrefer(@RequestParam int num) {
-		System.out.println("<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>");
 		System.out.println("deletePrefer.do......................."+num);
 		pservice.delete(num);
 
 		return "redirect:preferList.do";
-	}  
+	}
+	
+	@GetMapping("deleteConsume.do")
+	public String deleteConsume(@RequestParam int num) {
+		System.out.println("deleteConsume.do......................."+num);
+		cservice.delete(num);
+
+		return "redirect:preferList.do";
+	}
 }
