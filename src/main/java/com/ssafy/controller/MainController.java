@@ -202,8 +202,9 @@ public class MainController {
 
 	}
 
-	@PostMapping("insertfood.do")
-	public String insertfood(String code, int count, HttpSession session, Model model) {
+
+	@GetMapping("insertfood.do")
+	public String insertfood(@RequestParam String code,@RequestParam int count, HttpSession session, Model model) {
 		System.out.println("insertfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
@@ -230,22 +231,25 @@ public class MainController {
 
 	}
 
-	@PostMapping("preferfood.do")
-	public String preferfood(String code, int count, HttpSession session, Model model) {
+	@GetMapping("preferfood.do")
+	public String preferfood(@RequestParam String code, @RequestParam int count, HttpSession session, Model model) {
 		// session에서 id 가져오기
 		System.out.println("preferfood.do.......................");
+		System.out.println("count="+count);
 		Date date = new Date(System.currentTimeMillis());
 		String id = (String) session.getAttribute("id");
-		String id_alergy[] = mservice.searchAllergy(id).split(" ");
-		String food_alergy[] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
+
+		String id_alergy[]= mservice.searchAllergy(id).split(" ");	
+		String food_alergy [] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
 		for (int i = 0; i < id_alergy.length; i++) {
 			for (int j = 0; j < food_alergy.length; j++) {
 				if (id_alergy[i].equals(food_alergy[j])) {
 					danger_alergy.add(food_alergy[j]);
 				}
-			}
+			} 
 		}
+		
 
 		Prefer eat = new Prefer(id, Integer.parseInt(code), date.toString(), count);
 

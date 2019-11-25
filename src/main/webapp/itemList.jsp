@@ -96,7 +96,7 @@
 		</div>
 	</header>
 
-	<main id="main"> 
+	<main id="main">
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
@@ -115,10 +115,14 @@
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
-								<option value='all' <c:if test="${key.equals('all')}">selected</c:if>>검색조건</option>
-								<option value='name' <c:if test="${key.equals('name')}">selected</c:if>>상품명</option>
-								<option value='maker'<c:if test="${key.equals('maker')}">selected</c:if>>제조사</option>
-								<option value='material'<c:if test="${key.equals('material')}">selected</c:if>>첨가물</option>
+								<option value='all'
+									<c:if test="${key.equals('all')}">selected</c:if>>검색조건</option>
+								<option value='name'
+									<c:if test="${key.equals('name')}">selected</c:if>>상품명</option>
+								<option value='maker'
+									<c:if test="${key.equals('maker')}">selected</c:if>>제조사</option>
+								<option value='material'
+									<c:if test="${key.equals('material')}">selected</c:if>>첨가물</option>
 							</select>
 						</div>
 					</div>
@@ -129,7 +133,8 @@
 								<a href="">검색단어 &nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
-								name="word" value="${word }"onKeyPress="if (event.keyCode==13){searchItem();}">
+								name="word" value="${word }"
+								onKeyPress="if (event.keyCode==13){searchItem();}">
 						</div>
 					</div>
 
@@ -160,13 +165,11 @@
 
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
-						<form  method='post' name ="userinput">
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'>
 
 									<div class='col-lg-3'>
-										<img src='${food.img}' width='200px' 
-										style= 'cursor: pointer'
+										<img src='${food.img}' width='200px' style='cursor: pointer'
 											onclick="itemInfor(${food.code});">
 									</div>
 
@@ -178,16 +181,18 @@
 										<div class="row ">
 											<h4 class="col-lg-7"></h4>
 											<input type='hidden' name='code' value="${food.code}">
-											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="preferButton" value="찜하기" onClick="goData('prefer')"/>
+											<input type="submit"
+												class="form-control col-lg-2 btn btn-primary"
+												id="preferButton" value="찜하기" onClick="goData('prefer',${food.code})" />
 											<input type="number"
 												class="form-control col-lg-2 btn btn-default"
-												id="countInput" name = "count"> 
-											<input type="submit" class="form-control col-lg-2 btn btn-primary" id="eatButton" value="섭취하기" onClick="goData('eat')"/>
+												id="countInput" name="count"> <input type="submit"
+												class="form-control col-lg-2 btn btn-primary" id="eatButton"
+												value="섭취하기" onClick="goData('eat',${food.code})" />
 										</div>
 									</div>
 								</div>
 							</div>
-						</form>
 					</c:forEach>
 				</div>
 			</div>
@@ -241,13 +246,18 @@
 	 function itemInfor(foodno) {
 		window.location.href="itemInfor.do?code="+foodno+"&count="+$('#countInput').val();
 	}
-	 function goData(mode){
+	 function goData(mode,foodno){
 		 var form = document.userinput;
 		if(mode=="섭취하기") {
-			 userinput.action ="insertfood.do";
+			console.log(mode);
+			 window.location.href = "insertfood.do?code="+foodno+"&count="+$('#countInput').val();
+			//userinput.action ="insertfood.do";
 		 }
-		 else userinput.action ="preferfood.do";
-		
+		 else {
+			//userinput.action ="preferfood.do";
+			 window.location.href = "preferfood.do?code="+foodno+"&count="+$('#countInput').val();
+			console.log(mode);
+		}
 	 }
 	</script>
 </body>

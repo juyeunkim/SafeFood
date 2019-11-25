@@ -58,6 +58,7 @@ public class FoodServiceImpl implements FoodService{
 	}
 	@Override
 	public String searchAllergy(int code) {
+		System.out.println("음식 알러지성분: "+searchAllergy(code));
 		return dao.searchAllergy(code);
 	}
 }

@@ -22,7 +22,7 @@ public class PreferServiceImpl implements PreferService{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			throw new ConsumeException("섭취 정보 리스트 조회 중 에러 발생");
+			throw new ConsumeException("찜한 정보 리스트 조회 중 에러 발생");
 		}
 	} 
 	public void insert(Prefer prefer) {
@@ -30,7 +30,7 @@ public class PreferServiceImpl implements PreferService{
 			pao.insert(prefer);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ConsumeException("섭취 정보 추가 중 에러 발생");
+			throw new ConsumeException("찜한 정보 추가 중 에러 발생");
 		}
 	}
 	@Override
@@ -39,7 +39,7 @@ public class PreferServiceImpl implements PreferService{
 			pao.delete(num);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ConsumeException("섭취 정보 삭제 중 에러 발생");
+			throw new ConsumeException("찜한 정보 삭제 중 에러 발생");
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class PreferServiceImpl implements PreferService{
 			pao.update(prefer);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ConsumeException("섭취 정보 업데이트 중 에러 발생");
+			throw new ConsumeException("찜한 정보 업데이트 중 에러 발생");
 		}
 		
 	}
@@ -59,7 +59,7 @@ public class PreferServiceImpl implements PreferService{
 			return pao.count(id);			
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ConsumeException("섭취  top 5 중 에러 발생");
+			throw new ConsumeException("찜한 정보  top 5 중 에러 발생");
 		}
 	}
 	@Override
@@ -69,7 +69,7 @@ public class PreferServiceImpl implements PreferService{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			throw new ConsumeException("섭취 정보 리스트 조회 중 에러 발생");
+			throw new ConsumeException("찜한 정보 리스트 조회 중 에러 발생");
 		}
 	}
 }

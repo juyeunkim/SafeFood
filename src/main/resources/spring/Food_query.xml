@@ -60,7 +60,7 @@
 		select count(*) as cnt from food
 	</select>
 	
-	  <select id="searchAllergy"	parameterType="string">
+	  <select id="searchAllergy"	parameterType="string" resultType="string">
    		select allergy from food where code= #{code}
    		
    </select>
