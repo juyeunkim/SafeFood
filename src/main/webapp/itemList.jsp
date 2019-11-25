@@ -215,10 +215,10 @@
 											placeholder="수량 : " name="count_btn" />
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="preferButton" value="찜하기"
-											onClick="goData('prefer',${food.code},this.parentNode.children[3].value)">찜하기</button>
+											onClick="goData('prefer',${food.code},this.parentNode.children[2].value)">찜하기</button>
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="eatButton" value="섭취하기"
-											onClick="goData('eat',${food.code},this.parentNode.children[3].value)">섭취하기</button>
+											onClick="goData('eat',${food.code},this.parentNode.children[2].value)">섭취하기</button>
 									</div>
 								</div>
 							</div>
