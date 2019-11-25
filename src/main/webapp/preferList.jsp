@@ -141,7 +141,7 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님이 찜한 식품 정보</h2>
+			<h2>${id }님의 예상 식품 정보</h2>
 		</div>
 	</div>
 
@@ -152,9 +152,9 @@
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 식품</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 날짜</td>
-							<td width=100 align=center bgcolor="E6ECDE" height="22">찜한 수량</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">식품명</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">날짜</td>
+							<td width=100 align=center bgcolor="E6ECDE" height="22">수량</td>
 							<td width=100 align=center bgcolor="E6ECDE" height="22">삭제</td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
