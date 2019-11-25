@@ -319,11 +319,12 @@ Header
 					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="preferList.do">내가 찜한 정보</a></li>
+						<li><a href="preferList.do">예상 섭취  정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
+					<li><a href="consumeList.do">검색 히스토리</a></li>
 
 				</ul>
 			</nav>
