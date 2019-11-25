@@ -37,6 +37,6 @@
 	</select>
 	
 	<delete id="delete" parameterType="int">
-		delete from prefer where no=#{no}
+		delete from prefer where num=#{num}
 	</delete>
 </mapper>
