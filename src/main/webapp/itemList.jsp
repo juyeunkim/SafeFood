@@ -220,12 +220,13 @@
 
 
 				<div class='col-lg-12'>
+				<hr style="border:solid 1px #a0b1de; width: 100%"/>
 					<c:forEach items='${foodList}' var='food'>
 						<div class='col-lg-12'>
 							<div class=' box2 wow fadeInLeft row'>
 
 								<div class='col-lg-3'>
-									<img src='${food.img}' width='200px' style='cursor: pointer'
+									<img src='${food.img}' width='150px' style='cursor: pointer'
 										onclick="itemInfor(${food.code});">
 								</div>
 
@@ -258,8 +259,10 @@
 											onClick="goData('eat',${food.code},this.parentNode.children[2].value)">섭취하기</button>
 									</div>
 								</div>
+									<hr style="border:solid 1px #a0b1de; width: 100%"/>
 							</div>
 						</div>
+					
 					</c:forEach>
 				</div>
 			</div>

@@ -72,7 +72,12 @@
         ]);
 
         var options = {
-          title: '가장 많이 섭취한 식품 Top 5',
+        		 titleTextStyle: {
+     		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
+     		        fontSize: '22', // 12, 18 whatever you want (don't specify px)
+     		        bold: true    // true or false
+     		    },
+          title: '◆ 가장 많이 섭취한 식품 Top 5',
           colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
         width: 700,
         height: 600,

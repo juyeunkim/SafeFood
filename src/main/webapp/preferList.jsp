@@ -70,7 +70,12 @@
         ]);
 
         var options = {
-          title: '가장 많이 찜한 식품 Top 5',
+        		 titleTextStyle: {
+     		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
+     		        fontSize: '25', // 12, 18 whatever you want (don't specify px)
+     		        bold: true    // true or false
+     		    },
+          title: '◆ 가장 많이 찜한 식품 Top 5',
           colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
         width: 700,
         height: 400,
@@ -144,7 +149,7 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의예상식품정보</h2>
+			<h2>${id }님의 예상 식품 정보</h2>
 		</div>
 	</div>
 

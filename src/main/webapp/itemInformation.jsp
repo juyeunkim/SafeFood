@@ -35,9 +35,6 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/taemin.css" rel="stylesheet">
 
-<!-- Chart.js -->
-<script type="text/javascript" src="Chart/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="Chart/Chart.js"></script>
 
 </head>
 
@@ -76,7 +73,7 @@
 					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="preferList.do">예상 섭취  정보</a></li>
+						<li><a href="preferList.do">예상 섭취 정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
@@ -99,46 +96,46 @@
 				<h2>제품 상세 정보</h2>
 			</div>
 
-				<div class="col-lg-12">
-					<div class=" box3 wow fadeInLeft row" id="tableSection">
-						<div class="col-lg-4">
-							<img src="${item.img}" width="200px">
-						</div>
-						<div class="col-lg-8">
+			<div class="col-lg-12">
+				<div class=" box3 wow fadeInLeft row" id="tableSection">
+					<div class="col-lg-4">
+						<img src="${item.img}" width="200px">
+					</div>
+					<div class="col-lg-8">
 
-							<table class="table">
-								<tr>
-									<td width="30%" style="color: #0c2e84; font-weight: bold;">제품명</td>
-									<td style="color: #000000; font-weight: bold;">${item.name}</td>
-								</tr>
-								<tr>
-									<td width="30%" style="color: #0c2e84; font-weight: bold;">제조사</td>
-									<td>${item.maker}</td>
-								</tr>
-								<tr>
-									<td width="30%" style="color: #0c2e84; font-weight: bold;">원재료</td>
-									<td style="font-size: 10pt; line-height: 1.5; color: #000000">${item.material}</td>
-								</tr>
-								<tr>
-									<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기성분</td>
-									<td>${item.allergy}</td>
-								</tr>
-							</table>
-						</div>
+						<table class="table">
+							<tr>
+								<td width="30%" style="color: #0c2e84; font-weight: bold;">제품명</td>
+								<td style="color: #000000; font-weight: bold;">${item.name}</td>
+							</tr>
+							<tr>
+								<td width="30%" style="color: #0c2e84; font-weight: bold;">제조사</td>
+								<td>${item.maker}</td>
+							</tr>
+							<tr>
+								<td width="30%" style="color: #0c2e84; font-weight: bold;">원재료</td>
+								<td style="font-size: 10pt; line-height: 1.5; color: #000000">${item.material}</td>
+							</tr>
+							<tr>
+								<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기성분</td>
+								<td>${item.allergy}</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
+		</div>
 
 	</section>
 	<!-- #services --> </main>
 	<!-- #chart -->
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+	<br />
+	<br />
+	<br />
+	<br />
 	<div class="row">
 		<div class="col-lg-1"></div>
-		<canvas class="col-lg-6" id="myChart"></canvas>
+		<div class="col-lg-6" width="100px" id="myChart"></div>
 		<div class="col-lg-4" id="tableChart">
 			<table class="table">
 				<tr>
@@ -170,15 +167,18 @@
 					<td>${item.natrium}</td>
 				</tr>
 				<tr>
-					<td height="10" width="30%" style="color: #0c2e84; font-weight: bold;">콜레스테롤</td>
+					<td height="10" width="30%"
+						style="color: #0c2e84; font-weight: bold;">콜레스테롤</td>
 					<td height="10">${item.chole}</td>
 				</tr>
 				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;" height="10">포화지방산</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;"
+						height="10">포화지방산</td>
 					<td height=5>${item.fattyacid}</td>
 				</tr>
-				<tr height= 5>
-					<td  height=5% width="30%" style="color: #0c2e84; font-weight: bold;">트랜스지방</td>
+				<tr height=5>
+					<td height=5% width="30%"
+						style="color: #0c2e84; font-weight: bold;">트랜스지방</td>
 					<td height=5>${item.transfat}</td>
 				</tr>
 			</table>
@@ -187,10 +187,10 @@
 
 		</div>
 	</div>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+	<br />
+	<br />
+	<br />
+	<br />
 
 	<!--==========================
     Footer
@@ -232,45 +232,50 @@
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-	<script src="js/main.js"></script>
 
 
 
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+  	  var data = google.visualization.arrayToDataTable([
+        ['Name','Count'],
+        ['칼로리',     ${item.calory}],
+        ['당류',     ${item.sugar}],
+        ['탄수화물',     ${item.carbo}],
+        ['단백질',     ${item.protein}],
+        ['지방',     ${item.fat}],
+        ['나트륨',     ${item.natrium}],
+        ['콜레스테롤',     ${item.chole}],
+        ['포화지방산',     ${item.fattyacid}],
+        ['트랜스지방',     ${item.transfat}],
+       
+      ]);
+
+      var options = {
+    		  titleTextStyle: {
+    		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
+    		        fontSize: '25', // 12, 18 whatever you want (don't specify px)
+    		        bold: true    // true or false
+    		    },
+        title: '◆ 영양소 분석',
+        colors: [ "#6b96b5","#578eb5",
+			"#6987b5","#4c78ba","#4c69ba",
+			"#6265bd","#7162bd","#8d76b5",
+			"#7e54b0"],
+      width: 800,
+      height: 600,
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('myChart'));
+
+      chart.draw(data, options);
 
 
-
-$(function(){
-var ctx = document.getElementById("myChart");
-	
-	var myChart = new Chart(ctx,
-			{
-				type : "pie",
-				data : {
-					labels : [ "Carbo", "Protein", "Fat",  "Chole",
-							"TransFat" ],
-					datasets : [{
-						label : "#pieChart",
-						data : [ ${item.carbo}, ${item.protein}, ${item.fat},  ${item.chole}, ${item.transfat} ],
-						backgroundColor : [ "rgba(255, 99, 132, 0.2)",
-								"rgba(54, 162, 235, 0.2)",
-								"rgba(255, 206, 86, 0.2)",
-								"rgba(75, 192, 192, 0.2)",
-								"rgba(153, 102, 255, 0.2)"],
-						borderColor : [ "rgba(255, 99, 132, 1)",
-								"rgba(54, 162, 235, 1)",
-								"rgba(255, 206, 86, 1)",
-								"rgba(75, 192, 192, 1)",
-								"rgba(153, 102, 255, 1)"],
-						borderWidth : 1
-					}]
-				},
-				options : {
-
-				}
-			});
-
-})
+}
 	</script>
 </body>
 </html>
