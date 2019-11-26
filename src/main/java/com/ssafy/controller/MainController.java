@@ -156,7 +156,7 @@ public class MainController {
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
-
+		 
 		list = fservice.searchAll(new FoodPageBean());
 		if (!key.equals("all")) {
 			sservice.insert(new SearchEngine(key, word));
