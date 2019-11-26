@@ -3417,27 +3417,27 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary {
 	color: #fff;
-	background-color: #24459e;
-	border-color: #24459e
+	background-color: #0c2e83;
+	border-color: #0c2e83
 }
 
 .btn-primary.focus, .btn-primary:focus {
 	color: #fff;
-	background-color: #24459e;
-	border-color: #24459e
+	background-color: #0c2e83;
+	border-color: #0c2e83
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color:#24459e;
-	border-color: #24459e
+	background-color:#0c2e83;
+	border-color: #0c2e83
 }
 
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary
 	{
 	color: #fff;
-	background-color: #24459e;
-	border-color: #24459e
+	background-color: #0c2e83;
+	border-color: #0c2e83
 }
 
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover,
@@ -3445,8 +3445,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	.open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus,
 	.open>.dropdown-toggle.btn-primary:hover {
 	color: #fff;
-	background-color: #24459e;
-	border-color: #24459e
+	background-color: #0c2e83;
+	border-color: #0c2e83
 }
 
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary

@@ -349,27 +349,23 @@ Header
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
-				<br /> <br />
 				<h2>상품정보</h2>
-			</div>
-
-			<form action="foodList2.do" method="post">
 				<c:if test="${not empty dangermsg}">
-
 					<!-- Modal content -->
 					<div class="modal-content">
 						<p style="text-align: center;">
 							<span style="font-size: 14pt; color: #0c2e84"><b><span
-									style="font-size: 24pt;">주의 성분 안내</span></b></span>
+									style="font-size: 24pt;">※ 주의 성분 안내</span></b></span>
 						</p>
 						<p
 							style="text-align: center; font-size: 14pt; line-height: 1.5; color: #000000">
-							<br />:: 주의성분 ( <span
+							<br />   주의성분 ( <span
 								style="color: #ff0000; font-weight: bold; font-size: 15pt;">${dangermsg }</span>
 							) 때문에 <span style="color: #6b2103; font-weight: bold;">${foodname }
 							</span> 을(를) 섭취할 수 없습니다.</br> </br> <span
-								style="color: #000000; font-weight: bold;">주의 성분이 포함된 다른
-								음식 : </span> ${dangerfoodlist}
+								style="color: #0c2e84; font-weight: bold;">주의 성분이 포함된 다른
+								음식 : </span><br/> <span style="color: #000000;  font-size: 12pt;">${dangerfoodlist}
+							</span> 
 						</p>
 						<p>
 							<br />
@@ -382,13 +378,16 @@ Header
 					</div>
 
 				</c:if>
+			</div>
+
+			<form action="foodList2.do" method="post">
 				<div class="row">
 
 					<div class="searchCondition col-lg-3"></div>
 					<div class="searchCondition col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a>검색조건 &nbsp;&nbsp;</a>
+								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색조건 &nbsp;&nbsp;</a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
@@ -407,7 +406,7 @@ Header
 					<div class="searchWords col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a>검색단어 &nbsp;&nbsp;</a>
+								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색단어 &nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
 								name="word" value="${word }"
