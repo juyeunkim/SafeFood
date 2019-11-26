@@ -43,6 +43,11 @@
 <!-- Main Stylesheet File -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/taemin.css" rel="stylesheet">
+
+<link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+    />
 <!-- =======================================================
     Theme Name: Reveal
     Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -404,7 +409,7 @@
 								<td width=100 align=center height="15">${preferfood.preferdate}</td>
 								<td width=100 align=center height="15">${preferfood.count}</td>
 								<td width=100 align=center height="15"><button
-										onclick="deleteFood(${preferfood.num})">삭제</button></td>
+										onclick="deleteFood(${preferfood.num})"><i class="far fa-trash-alt"></i></button></td>
 							</tr>
 
 

@@ -45,6 +45,11 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
 <link rel="stylesheet" type="text/css" href="css/style2.css">
+
+<link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+    />
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
 
@@ -409,7 +414,7 @@ All the links in the footer should remain intact.
 	
 	</script>
  <script src=/js/chunk-vendors.fda157b2.js></script>
-        <script src=/js/app.2df12187.js></script>
+        <script src=/js/app.1b1ef165.js></script>
 
 </body>
 </html>
