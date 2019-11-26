@@ -149,7 +149,7 @@
 							 <span style="color: #6b2103; font-weight:bold; ">${foodname } </span> 을(를) 섭취할 수 없습니다.</br>
 							</br>
 							 <span style="color: #000000; font-weight:bold; ">주의 성분이 포함된 다른 음식 : </span>
-							 </br> ${dangerfoodlist}
+							 ${dangerfoodlist}
 						</p>
 						<p>
 							<br />

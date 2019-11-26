@@ -280,6 +280,7 @@ public class MainController {
 						dangerfoodlist.append(dangerfood.get(i)+" ");
 					}
 				}
+				System.out.println(dangerfoodlist.toString());
 				model.addAttribute("dangerfoodlist", dangerfoodlist);
 			}
 			
@@ -296,11 +297,15 @@ public class MainController {
 	public String preferfood(@RequestParam String code, @RequestParam String count, HttpSession session, Model model) {
 		System.out.println("preferfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
+		Food food = fservice.search(Integer.parseInt(code));
 		String id = (String) session.getAttribute("id");
 		String id_alergy[] = mservice.searchAllergy(id).split(" ");
 		String food_alergy[] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
+		List<String> dangerfood = new ArrayList<String>();
 		StringBuilder danger = new StringBuilder();
+		List<Food> foodlist = new ArrayList<>();
+		foodlist = fservice.searchAll(new FoodPageBean());
 		if (food_alergy.length != 0) {
 			for (int i = 0; i < id_alergy.length; i++) {
 				for (int j = 0; j < food_alergy.length; j++) {
@@ -315,7 +320,30 @@ public class MainController {
 			for (int i = 0; i < danger_alergy.size(); i++) {
 				danger.append(danger_alergy.get(i) + " ");
 			}
+			for(int i=0; i<foodlist.size(); i++) {
+				Food f = foodlist.get(i);
+				for(int j=0; j<danger_alergy.size(); j++) {
+					if(f.getAllergy().contains(danger_alergy.get(j))) {
+						dangerfood.add(f.getName());
+					}
+				}
+			}
+			if(dangerfood.size()>0) {
+				StringBuilder dangerfoodlist = new StringBuilder();
+				for(int i=0; i<dangerfood.size(); i++) {
+					if(i!= dangerfood.size()-1) {
+					dangerfoodlist.append(dangerfood.get(i)+", ");
+					}
+					else {
+						dangerfoodlist.append(dangerfood.get(i)+" ");
+					}
+				}
+				System.out.println(dangerfoodlist.toString());
+				model.addAttribute("dangerfoodlist", dangerfoodlist);
+			}
+			
 			model.addAttribute("dangermsg", danger);
+			model.addAttribute("foodname", food.getName());
 			return "itemList";
 		} else {
 			pservice.insert(eat);
