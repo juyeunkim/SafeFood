@@ -278,13 +278,33 @@ public class MainController {
 		List<Consume> list = cservice.searchAll(id);
 		List<Consume> toplist = cservice.count(id);
 		List<Consume> sevendaylist = cservice.searchAllseven(id);
-		int calory, carbo,protein,fat,sugar, natrium,chole,fattyacid,transfat =0;
+		int calory=0, carbo=0,protein=0,fat=0,sugar=0, natrium=0,chole=0,fattyacid=0,transfat =0;
 		for(int i=0; i<sevendaylist.size(); i++) {
-			System.out.println((i+1)+":" + sevendaylist.get(i));
+			Consume c = sevendaylist.get(i);
+			Food f = fservice.search(c.getCode());
+			calory += f.getCalory()*c.getCount();
+			carbo += f.getCarbo()*c.getCount();
+			protein += f.getProtein()*c.getCount();
+			fat += f.getFat()*c.getCount();
+			sugar+= f.getSugar()*c.getCount();
+			natrium += f.getNatrium()*c.getCount();
+			chole +=f.getChole()*c.getCount();
+			fattyacid+=f.getFattyacid()*c.getCount();
+			transfat+=f.getTransfat()*c.getCount();
 		}
 		model.addAttribute("myList", list);
 		model.addAttribute("topList", toplist);
 		model.addAttribute("sevendayList", sevendaylist);
+		model.addAttribute("calory", calory);
+		model.addAttribute("carbo", carbo);
+		model.addAttribute("protein", protein);
+		model.addAttribute("fat", fat);
+		model.addAttribute("sugar", sugar);
+		model.addAttribute("natrium", natrium);
+		model.addAttribute("chole", chole);
+		model.addAttribute("fattyacid", fattyacid);
+		model.addAttribute("transfat", transfat);
+		
 
 		return "consumeList";
 	}
