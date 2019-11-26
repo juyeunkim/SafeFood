@@ -73,7 +73,9 @@
 
         var options = {
           title: '가장 많이 섭취한 식품 Top 5',
-          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed']
+          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
+        width: 700,
+        height: 600,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -105,7 +107,7 @@
                              2]); */
             var options = {
               title: '일주일간 섭취한 식품 영양소별 정보',
-              width: 600,
+              width: 1000,
               height: 400,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
@@ -171,57 +173,60 @@
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
-	<main id="main"> <!--==========================
+	<div id="main">
+		<!--==========================
       Search Section
     ============================-->
-	<div class="container" class="text-center">
-		<div class="section-header">
-			<br /> <br />
-			<h2>${id }님의섭취정보</h2>
+		<div class="container" class="text-center">
+			<div class="section-header">
+				<br /> <br />
+				<h2>${id }님의 섭취 정보</h2>
+			</div>
 		</div>
-	</div>
 
-	<section id="services">
-		<div class="container">
-			<div class="row" id="serviceSection" style="float: left;">
-
-				<div class='col-lg-12'>
-					<table border="0" cellpadding="0" cellspacing="1" width="700">
-						<tr>
-
-							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취식품</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취날짜</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">섭취수량</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">삭제</td>
-						</tr>
-						<c:forEach items='${myList}' var='consume'>
-							<div class='col-lg-12'>
-								<div class=' box2 wow fadeInLeft row'></div>
-							</div>
-
+		<section id="services">
+			<div class="container">
+				<div class="col-lg-12">
+					<div class='col-lg-6'>
+						<table border="0" cellpadding="0" cellspacing="1" align=center
+							style="width: 500px;">
 							<tr>
-								<td width=100 align=center height="22">${consume.fname}</td>
-								<td width=100 align=center height="22">${consume.eatdate}</td>
-								<td width=100 align=center height="22">${consume.count}</td>
-								<td width=100 align=center height="22"><button
-										onclick="deleteFood(${consume.num})">삭제</button></td>
+								<td width=100 align=center bgcolor="#d5dae6" height="22">섭취식품</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="22">섭취날짜</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="22">섭취수량</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="22">삭제</td>
 							</tr>
+							<c:forEach items='${myList}' var='consume'>
 
+								<div class='col-lg-12'>
+									<div class=' box2 wow fadeInLeft row'></div>
+								</div>
 
-						</c:forEach>
-					</table>
+								<tr>
+									<td width=100 align=center height="22">${consume.fname}</td>
+									<td width=100 align=center height="22">${consume.eatdate}</td>
+									<td width=100 align=center height="22">${consume.count}</td>
+									<td width=100 align=center height="22"><button
+											onclick="deleteFood(${consume.num})">삭제</button></td>
+								</tr>
+
+							</c:forEach>
+						</table>
+					</div>
+
+					<div id="piechart" style="width: 40%; height: 500px; float: left;"
+						class='col-lg-5'>
 				</div>
-
+				</div>
+				<div class="col-lg-12">
+					<div id="barchart" style="" width=800px></div>
+				</div>
 			</div>
-			<div class='col-lg-12'>
-				<div id="piechart" style="width: 45%; height: 500px; float: left; margin-right: 5%;" class='col-lg-5'></div>
-				<div id="barchart" style="width: 45%; height: 500px; float: left;" class='col-lg-5'></div>
-			</div>
-		</div>
+		</section>
 
-	</section>
 
-	<!-- #services --> </main>
+	</div>
+	<!-- #services -->
 	<br />
 	<!--==========================
     Footer

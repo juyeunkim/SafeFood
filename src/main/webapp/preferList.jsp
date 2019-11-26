@@ -49,10 +49,11 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-  <style>
-  .row{
-  float :right;}
-  </style>
+<style>
+.row {
+	float: right;
+}
+</style>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -70,8 +71,9 @@
 
         var options = {
           title: '가장 많이 찜한 식품 Top 5',
-          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed']
-         
+          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
+        width: 700,
+        height: 400,
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -79,11 +81,11 @@
 
       }
     </script>
- 
+
 </head>
 <body id="body">
 
-	
+
 	<!--==========================
     Top Bar
   ============================-->
@@ -124,13 +126,13 @@
 					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="preferList.do">예상 섭취  정보</a></li>
+						<li><a href="preferList.do">예상 섭취 정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
 					<li><a href="searchengine.do">검색 히스토리</a></li>
-					
+
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -142,15 +144,14 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의 예상 식품 정보</h2>
+			<h2>${id }님의예상식품정보</h2>
 		</div>
 	</div>
 
 	<section id="services">
-		<div class="container" >
-			<div class="row" id="serviceSection" style="float:left;" >
-
-				<div class='col-lg-12'>
+		<div class="container">
+			<div class='col-lg-12'>
+				<div class='col-lg-6'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">식품명</td>
@@ -167,18 +168,17 @@
 								<td width=100 align=center height="22">${preferfood.fname}</td>
 								<td width=100 align=center height="22">${preferfood.preferdate}</td>
 								<td width=100 align=center height="22">${preferfood.count}</td>
-								<td width=100 align=center height="22"><button onclick="deleteFood(${preferfood.num})">삭제</button></td>
+								<td width=100 align=center height="22"><button
+										onclick="deleteFood(${preferfood.num})">삭제</button></td>
 							</tr>
 
 
 						</c:forEach>
 					</table>
 				</div>
-				
+				<div id="piechart" style="width: 40%; height: 500px; float: left;"
+					class='col-lg-5'>
 			</div>
-				<div id="piechart" style="width: 900px; height: 500px; float:left;"></div>
-		</div>
-	
 	</section>
 
 	<!-- #services --> </main>
