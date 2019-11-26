@@ -93,35 +93,34 @@
       Services Section
     ============================-->
 	<section id="services">
-		<div class="container" id="id_container">
+		<div class="container">
 			<div class="section-header">
 				</br> </br>
 				<h2>제품 상세 정보</h2>
 			</div>
-			<div class="row">
 
 				<div class="col-lg-12">
 					<div class=" box3 wow fadeInLeft row" id="tableSection">
 						<div class="col-lg-4">
-							<img src="${item.img}" width="300px">
+							<img src="${item.img}" width="200px">
 						</div>
 						<div class="col-lg-8">
 
 							<table class="table">
 								<tr>
-									<td width="30%">제품명</td>
-									<td>${item.name}</td>
+									<td width="30%" style="color: #0c2e84; font-weight: bold;">제품명</td>
+									<td style="color: #000000; font-weight: bold;">${item.name}</td>
 								</tr>
 								<tr>
-									<td width="30%">제조사</td>
+									<td width="30%" style="color: #0c2e84; font-weight: bold;">제조사</td>
 									<td>${item.maker}</td>
 								</tr>
 								<tr>
-									<td width="30%">원재료</td>
-									<td>${item.material}</td>
+									<td width="30%" style="color: #0c2e84; font-weight: bold;">원재료</td>
+									<td style="font-size: 10pt; line-height: 1.5; color: #000000">${item.material}</td>
 								</tr>
 								<tr>
-									<td width="30%">알레르기성분</td>
+									<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기성분</td>
 									<td>${item.allergy}</td>
 								</tr>
 							</table>
@@ -129,7 +128,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
 	</section>
 	<!-- #services --> </main>
@@ -142,47 +140,46 @@
 		<div class="col-lg-1"></div>
 		<canvas class="col-lg-6" id="myChart"></canvas>
 		<div class="col-lg-4" id="tableChart">
-
 			<table class="table">
 				<tr>
-					<td width="30%">일일제공량</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">일일제공량</td>
 					<td>${item.supportpereat}</td>
 				</tr>
 				<tr>
-					<td width="30%">칼로리</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">칼로리</td>
 					<td>${item.calory}</td>
 				</tr>
 				<tr>
-					<td width="30%">탄수화물</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">탄수화물</td>
 					<td>${item.carbo}</td>
 				</tr>
 				<tr>
-					<td width="30%">단백질</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">단백질</td>
 					<td>${item.protein}</td>
 				</tr>
 				<tr>
-					<td width="30%">지방</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">지방</td>
 					<td>${item.fat}</td>
 				</tr>
 				<tr>
-					<td width="30%">당류</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">당류</td>
 					<td>${item.sugar}</td>
 				</tr>
 				<tr>
-					<td width="30%">나트륨</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">나트륨</td>
 					<td>${item.natrium}</td>
 				</tr>
 				<tr>
-					<td width="30%">콜레스테롤</td>
-					<td>${item.chole}</td>
+					<td height="10" width="30%" style="color: #0c2e84; font-weight: bold;">콜레스테롤</td>
+					<td height="10">${item.chole}</td>
 				</tr>
 				<tr>
-					<td width="30%">포화지방산</td>
-					<td>${item.fattyacid}</td>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;" height="10">포화지방산</td>
+					<td height=5>${item.fattyacid}</td>
 				</tr>
-				<tr>
-					<td width="30%">트랜스지방</td>
-					<td>${item.transfat}</td>
+				<tr height= 5>
+					<td  height=5% width="30%" style="color: #0c2e84; font-weight: bold;">트랜스지방</td>
+					<td height=5>${item.transfat}</td>
 				</tr>
 			</table>
 

@@ -191,10 +191,10 @@
 						<table border="0" cellpadding="0" cellspacing="1" align=center
 							style="width: 500px;">
 							<tr>
-								<td width=100 align=center bgcolor="#d5dae6" height="22">섭취식품</td>
-								<td width=100 align=center bgcolor="#d5dae6" height="22">섭취날짜</td>
-								<td width=100 align=center bgcolor="#d5dae6" height="22">섭취수량</td>
-								<td width=100 align=center bgcolor="#d5dae6" height="22">삭제</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취식품</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취날짜</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취수량</td>
+								<td width=100 align=center bgcolor="#d5dae6" height="15">삭제</td>
 							</tr>
 							<c:forEach items='${myList}' var='consume'>
 
@@ -203,10 +203,10 @@
 								</div>
 
 								<tr>
-									<td width=100 align=center height="22">${consume.fname}</td>
-									<td width=100 align=center height="22">${consume.eatdate}</td>
-									<td width=100 align=center height="22">${consume.count}</td>
-									<td width=100 align=center height="22"><button
+									<td width=100 align=center height=15>${consume.fname}</td>
+									<td width=100 align=center height="15">${consume.eatdate}</td>
+									<td width=100 align=center height="15">${consume.count}</td>
+									<td width=100 align=center height="15"><button
 											onclick="deleteFood(${consume.num})">삭제</button></td>
 								</tr>
 

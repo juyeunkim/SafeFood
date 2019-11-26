@@ -139,17 +139,17 @@
 					<!-- Modal content -->
 					<div class="modal-content">
 						<p style="text-align: center;">
-							<span style="font-size: 14pt; color:#0c2e84 "><b><span
+							<span style="font-size: 14pt; color: #0c2e84"><b><span
 									style="font-size: 24pt;">주의 성분 안내</span></b></span>
 						</p>
-						<p style="text-align: center; font-size: 14pt; line-height: 1.5; color:#000000">
-							<br />:: 주의성분 (  
-							 <span style="color: #ff0000; font-weight:bold; font-size: 15pt;">${dangermsg }</span>
-							) 때문에
-							 <span style="color: #6b2103; font-weight:bold; ">${foodname } </span> 을(를) 섭취할 수 없습니다.</br>
-							</br>
-							 <span style="color: #000000; font-weight:bold; ">주의 성분이 포함된 다른 음식 : </span>
-							 ${dangerfoodlist}
+						<p
+							style="text-align: center; font-size: 14pt; line-height: 1.5; color: #000000">
+							<br />:: 주의성분 ( <span
+								style="color: #ff0000; font-weight: bold; font-size: 15pt;">${dangermsg }</span>
+							) 때문에 <span style="color: #6b2103; font-weight: bold;">${foodname }
+							</span> 을(를) 섭취할 수 없습니다.</br> </br> <span
+								style="color: #000000; font-weight: bold;">주의 성분이 포함된 다른
+								음식 : </span> ${dangerfoodlist}
 						</p>
 						<p>
 							<br />
@@ -231,9 +231,20 @@
 
 								<div class='col-lg-8'>
 									<h4 style='cursor: pointer'>
-										<a> ${food.name} </a>
+										<a
+											style="text-align: center; font-size: 16pt; line-height: 1.5; color: #0c2e84; font-weight: bold;">
+											▶ ${food.name} </a>
 									</h4>
-									<p>${food.material}</p>
+									<table>
+										<tr>
+											<td style="font-size: 10pt; line-height: 1.5; color: #000000">제조사:
+												<span style="color: #0c2e84; font-weight: bold;">${food.maker}
+											</span> </br> 하루 적정 섭취량: <span style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
+													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}
+												</span>
+											</td>
+										</tr>
+									</table>
 									<div class="row ">
 										<h4 class="col-lg-5"></h4>
 										<input type='hidden' name='code' value="${food.code}" /> <input

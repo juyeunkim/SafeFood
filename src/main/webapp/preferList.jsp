@@ -154,10 +154,10 @@
 				<div class='col-lg-6'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
 						<tr>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">식품명</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">날짜</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">수량</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">삭제</td>
+							<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="15">수량</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="15">삭제</td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>
@@ -165,10 +165,10 @@
 							</div>
 
 							<tr>
-								<td width=100 align=center height="22">${preferfood.fname}</td>
-								<td width=100 align=center height="22">${preferfood.preferdate}</td>
-								<td width=100 align=center height="22">${preferfood.count}</td>
-								<td width=100 align=center height="22"><button
+								<td width=100 align=center height="15">${preferfood.fname}</td>
+								<td width=100 align=center height="15">${preferfood.preferdate}</td>
+								<td width=100 align=center height="15">${preferfood.count}</td>
+								<td width=100 align=center height="15"><button
 										onclick="deleteFood(${preferfood.num})">삭제</button></td>
 							</tr>
 
