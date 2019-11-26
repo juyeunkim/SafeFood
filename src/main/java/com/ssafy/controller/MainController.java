@@ -330,6 +330,6 @@ public class MainController {
 		System.out.println("deleteConsume.do......................."+num);
 		cservice.delete(num);
 
-		return "redirect:preferList.do";
+		return "redirect:consumeList.do";
 	}
 }
