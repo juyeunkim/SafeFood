@@ -50,15 +50,17 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-  <style>
-  .row{
-  float :right;}
-  </style>
+<style>
+.row {
+	float: right;
+}
+</style>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart2);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Name','Count'],
@@ -77,12 +79,46 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
+        
+        
+      }
+      function drawChart2(){
+    	  var data = google.visualization.arrayToDataTable([
+              ['Name','Count',{ role: 'style' } ],
+              ['칼로리',    ${calory},'#f0533e'],
+              ['탄수화물',     ${carbo},'#f09c48'],
+              ['단백질',     ${protein},'#f0e73e'],
+              ['지방',     ${fat},'#b7f54c'],
+              ['당류',     ${sugar},'#5ad645'],
+              ['나트륨',     ${natrium},'#45b9d6'],
+              ['콜레스테롤',     ${chole},'#4291db'],
+              ['지방산',     ${fattyacid},'#4268db'],
+              ['트랜스지방',     ${transfat},'#7d42db'],
+             
+            ]);
+            var view = new google.visualization.DataView(data);
+        /*     view.setColumns([0, 1,
+                             { calc: "stringify",
+                               sourceColumn: 1,
+                               type: "string",
+                               role: "annotation" },
+                             2]); */
+            var options = {
+              title: '일주일간 섭취한 식품 영양소별 정보',
+              width: 600,
+              height: 400,
+              bar: {groupWidth: "95%"},
+              legend: { position: "none" },
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+            chart.draw(data, options);
       }
     </script>
 </head>
 <body id="body">
 
-	
+
 	<!--==========================
     Top Bar 
   ============================-->
@@ -129,7 +165,7 @@
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
 					<li><a href="searchengine.do">검색 히스토리</a></li>
-					
+
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -141,13 +177,13 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의 섭취정보</h2>
+			<h2>${id }님의섭취정보</h2>
 		</div>
 	</div>
 
 	<section id="services">
-		<div class="container" >
-			<div class="row" id="serviceSection" style="float:left;" >
+		<div class="container">
+			<div class="row" id="serviceSection" style="float: left;">
 
 				<div class='col-lg-12'>
 					<table border="0" cellpadding="0" cellspacing="1" width="700">
@@ -167,18 +203,22 @@
 								<td width=100 align=center height="22">${consume.fname}</td>
 								<td width=100 align=center height="22">${consume.eatdate}</td>
 								<td width=100 align=center height="22">${consume.count}</td>
-								<td width=100 align=center height="22"><button onclick="deleteFood(${consume.num})">삭제</button></td>
+								<td width=100 align=center height="22"><button
+										onclick="deleteFood(${consume.num})">삭제</button></td>
 							</tr>
 
 
 						</c:forEach>
 					</table>
 				</div>
-				
+
 			</div>
-				<div id="piechart" style="width: 900px; height: 500px; float:left;"></div>
+			<section>
+				<div id="piechart" style="width: 900px; height: 500px; float: left;"></div>
+				<div id="barchart" style="width: 900px; height: 500px; float: left;"></div>
+			</section>
 		</div>
-	 
+
 	</section>
 
 	<!-- #services --> </main>
