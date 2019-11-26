@@ -62,6 +62,17 @@ function findPW() {
 			}
 		}) 
 }
+function check(){
+	if($('#loginid').val()==""){
+		alert("ID를 입력하여 주세요.")
+		loginForm.loginid.focus();
+		return false;
+	}else if($('#loginpsw').val()==""){
+		alert("PassWord를 입력하여 주세요.")
+		loginForm.loginpsw.focus();
+		return false;
+	}else return true;
+}
 
 	
 	</script>
@@ -104,13 +115,13 @@ function findPW() {
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-								action="login.do">
+							<form id="loginForm" method="post" action="login.do"
+								name="loginForm" onsubmit="return check()">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
 									<input class="form-control" placeholder="Username" id="loginid"
-										type="text" autocomplete="off" name="id" /> <span
+										type="text" autocomplete="off" name="loginid" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginid"></span>
 									<!---Alredy exists ! -->
@@ -119,7 +130,7 @@ function findPW() {
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="pw" />
+										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
 									<span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
@@ -166,8 +177,7 @@ function findPW() {
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -237,8 +247,8 @@ function findPW() {
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -255,22 +265,24 @@ function findPW() {
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -280,8 +292,8 @@ function findPW() {
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--==========================
 Header
  ============================-->

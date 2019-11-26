@@ -47,7 +47,17 @@
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
-
+function check(){
+	if($('#loginid').val()==""){
+		alert("ID를 입력하여 주세요.")
+		loginForm.loginid.focus();
+		return false;
+	}else if($('#loginpsw').val()==""){
+		alert("PassWord를 입력하여 주세요.")
+		loginForm.loginpsw.focus();
+		return false;
+	}else return true;
+}
 function findPW() {
 	//window.location.href="findPassword.do?id="+$('#ffid').val()+"&email?"+$('#ffemail').val();
 	$.ajax({
@@ -127,12 +137,13 @@ Top Bar
 						</c:if>
 						<div class="form-group">
 							<form id="loginForm" method="post"
-								action="login.do">
+							name="loginForm"
+								action="login.do" onsubmit="return check()">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
 									<input class="form-control" placeholder="Username" id="loginid"
-										type="text" autocomplete="off" name="id" /> <span
+										type="text" autocomplete="off" name="loginid" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginid"></span>
 									<!---Alredy exists ! -->
@@ -141,7 +152,7 @@ Top Bar
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="pw" />
+										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
 									<span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>

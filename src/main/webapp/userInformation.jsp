@@ -71,7 +71,17 @@
 			}) 
 	}
 
-
+	function check(){
+		if($('#loginid').val()==""){
+			alert("ID를 입력하여 주세요.")
+			loginForm.loginid.focus();
+			return false;
+		}else if($('#loginpsw').val()==""){
+			alert("PassWord를 입력하여 주세요.")
+			loginForm.loginpsw.focus();
+			return false;
+		}else return true;
+	}
 	</script>
 </head>
 <c:if test="${not empty msg}">
