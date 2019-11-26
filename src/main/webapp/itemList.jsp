@@ -192,7 +192,7 @@
 		<div class="container">
 			<div class="row" id="serviceSection">
 
-				
+
 				<div class='col-lg-12'>
 					<c:forEach items='${foodList}' var='food'>
 						<div class='col-lg-12'>
@@ -210,10 +210,9 @@
 									<p>${food.material}</p>
 									<div class="row ">
 										<h4 class="col-lg-5"></h4>
-										<input type='hidden' name='code' value="${food.code}" />
-										<input type="number"
-											class="form-control col-lg-2 btn btn-default" id="countInput"
-											placeholder="수량 : " name="count_btn" />
+										<input type='hidden' name='code' value="${food.code}" /> <input
+											type="number" class="form-control col-lg-2 btn btn-default"
+											id="countInput" placeholder="수량 : " name="count_btn" />
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="preferButton" value="찜하기"
 											onClick="goData('prefer',${food.code},this.parentNode.children[2].value)">찜하기</button>
@@ -225,35 +224,35 @@
 							</div>
 						</div>
 					</c:forEach>
-					<c:if test="${not empty dangermsg}">
-					<div id="myModal" class="modal">
-						
-						<!-- Modal content -->
-						<div class="modal-content">
-							<p style="text-align: center;">
-								<span style="font-size: 14pt;"><b><span
-										style="font-size: 24pt;">주의 성분 안내</span></b></span>
-							</p>
-							<p style="text-align: center; line-height: 1.5;">
-								<br />${dangermsg }  :: 주의성분 때문에 섭취할 수 없습니다.
-							</p>
-							<p>
-								<br />
-							</p>
-							<div
-								style="cursor: pointer; background-color: #DDDDDD; text-align: center; padding-bottom: 10px; padding-top: 10px;"
-								onClick="close_pop();">
-								<span class="pop_bt" style="font-size: 13pt;"> 닫기 </span>
-							</div>
-						</div>
-
-					</div>
-
-
-				</c:if>
 				</div>
 			</div>
 		</div>
+		<c:if test="${not empty dangermsg}">
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<p style="text-align: center;">
+						<span style="font-size: 14pt;"><b><span
+								style="font-size: 24pt;">주의 성분 안내</span></b></span>
+					</p>
+					<p style="text-align: center; line-height: 1.5;">
+						<br />${dangermsg } :: 주의성분 때문에 섭취할 수 없습니다.
+					</p>
+					<p>
+						<br />
+					</p>
+					<div
+						style="cursor: pointer; background-color: #DDDDDD; text-align: center; padding-bottom: 10px; padding-top: 10px;"
+						onClick="close_pop();">
+						<span class="pop_bt" style="font-size: 13pt;"> 닫기 </span>
+					</div>
+				</div>
+
+			</div>
+
+
+		</c:if>
 	</section>
 	<!-- #services --> </main>
 	<br />
