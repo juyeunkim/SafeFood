@@ -61,7 +61,10 @@ function findPW() {
 			dataType : 'json', 
 			success : function(data, status, xhr){
 				console.log(data)
-				//alert(data.id+'님의 비밀번호는 '+data.password+'입니다');
+				if(data!=null)
+					alert(data.id+'님의 비밀번호는 '+data.password+'입니다');
+				else
+					alert('이메일이 일치하지않습니다.')
 			},
 			error : function(err){
 				console.log(err);

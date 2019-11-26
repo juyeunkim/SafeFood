@@ -6,13 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,17 +58,6 @@ public class MainController {
 	private SearchEngineService sservice;
 
 	
-	@Autowired
-	JavaMailSender javaMailSender;
-//	
-//	@RequestMapping(value="/mail", method=RequestMethod.POST)
-//	public String home3(HttpServletRequest req){
-//		EmailServiceImpl es=new EmailServiceImpl();
-//		es.setJavaMailSender(javaMailSender);
-//		es.sendSimpleMessage("메일주소","제목" , "내용");		
-//		return "index";
-//	}
-
 
 
 	@ExceptionHandler
@@ -218,21 +210,27 @@ public class MainController {
 		return "itemList";
 	}
 
+	
 	@PostMapping("findPassword.do")
 	@ResponseBody
-	public String findPassword(String id, String email) {
+	public String findPassword(String id, String email) throws Exception {
 		System.out.println("=======findPassword=======");
 		System.out.println(id + " " + email);
 
+		ModelAndView mav;
 		// id로 비밀번호 찾아서 - mail로 비밀번호 전송
 		Member member = mservice.search(id);
 		
-		EmailServiceImpl es=new EmailServiceImpl();
-		es.setJavaMailSender(javaMailSender);
-		es.sendSimpleMessage(member.getEmail(),"비밀번호 찾기" , member.getPassword());
+		if(email.equals(member.getEmail())) {
+			Gson gson = new Gson();
+			return gson.toJson(member);			
+		}else {
+			return "null";
+		}
+//		EmailServiceImpl es=new EmailServiceImpl();
+//		es.setJavaMailSender(javaMailSender);
+//		es.sendSimpleMessage(member.getEmail(),"비밀번호 찾기" , member.getPassword());
 		
-		Gson gson = new Gson();
-		return gson.toJson(member);
 	}
 
 	@GetMapping("insertfood.do")

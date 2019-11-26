@@ -391,7 +391,7 @@ All the links in the footer should remain intact.
 	
 	</script>
  <script src=/js/chunk-vendors.fda157b2.js></script>
-        <script src=/js/app.00da1da5.js></script>
+        <script src=/js/app.2df12187.js></script>
 
 </body>
 </html>
