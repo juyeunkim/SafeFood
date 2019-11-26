@@ -50,7 +50,6 @@
 
 function findPW() {
 	//window.location.href="findPassword.do?id="+$('#ffid').val()+"&email?"+$('#ffemail').val();
-	console.log($('#ffid').val());
 	$.ajax({
 		url : 'findPassword.do',
 			type : 'POST',
@@ -61,10 +60,12 @@ function findPW() {
 			dataType : 'json', 
 			success : function(data, status, xhr){
 				console.log(data)
-				if(data!=null)
-					alert(data.id+'님의 비밀번호는 '+data.password+'입니다');
-				else
+				if(data=='id')
+					alert('존재하지않는 회원입니다');
+				else if(data=='email')
 					alert('이메일이 일치하지않습니다.')
+				else
+					alert(data.id+'님의 비밀번호는 '+data.password+'입니다')
 			},
 			error : function(err){
 				console.log(err);
