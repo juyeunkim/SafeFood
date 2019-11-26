@@ -115,7 +115,7 @@
                           		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
                           		        fontSize: '22', // 12, 18 whatever you want (don't specify px)
                           		        bold: true    // true or false
-                          		      ◆ },
+                          		      },
               title: '◆ 일주일간 섭취한 식품 영양소별 정보',
               width: 1000,
               height: 400,
