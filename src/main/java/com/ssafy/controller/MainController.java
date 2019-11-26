@@ -6,13 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -21,7 +17,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +25,6 @@ import com.google.gson.Gson;
 import com.ssafy.email.Email;
 import com.ssafy.email.EmailSender;
 import com.ssafy.service.ConsumeService;
-import com.ssafy.service.EmailServiceImpl;
 import com.ssafy.service.FoodService;
 import com.ssafy.service.MemberService;
 import com.ssafy.service.PreferService;
@@ -57,8 +51,29 @@ public class MainController {
 	@Autowired
 	private SearchEngineService sservice;
 
-	
+	@Autowired
+	private EmailSender emailSender;
+	@Autowired
+	private Email mail;
 
+	@PostMapping("/sendpw.do")
+	public String sendEmailAction(String id,String email ) throws Exception {
+		
+		Member member = mservice.search(id);
+		String pw = member.getPassword();
+		System.out.println(pw);
+		Gson gson = new Gson();
+		if (pw != null && email.equals(member.getEmail())) {
+			mail.setContent("비밀번호는 " + pw + " 입니다.");
+			mail.setReceiver(email);
+			mail.setSubject(id + "님 비밀번호 찾기 메일입니다.");
+			emailSender.SendEmail(mail);
+			return gson.toJson(member);
+		} else if(pw==null){
+			return gson.toJson("id");
+		} else
+			return gson.toJson("email");
+	}
 
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
@@ -148,7 +163,7 @@ public class MainController {
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
-		 
+
 		list = fservice.searchAll(new FoodPageBean());
 		if (!key.equals("all")) {
 			sservice.insert(new SearchEngine(key, word));
@@ -210,7 +225,6 @@ public class MainController {
 		return "itemList";
 	}
 
-	
 	@PostMapping("findPassword.do")
 	@ResponseBody
 	public String findPassword(String id, String email) throws Exception {
@@ -220,17 +234,19 @@ public class MainController {
 		ModelAndView mav;
 		// id로 비밀번호 찾아서 - mail로 비밀번호 전송
 		Member member = mservice.search(id);
-		
-		if(email.equals(member.getEmail())) {
-			Gson gson = new Gson();
-			return gson.toJson(member);			
-		}else {
-			return "null";
+
+		Gson gson = new Gson();
+		if(member==null){
+			return gson.toJson("id");
+		}else if (!email.equals(member.getEmail())) {
+			return gson.toJson("email");
+		} else {
+			return gson.toJson(member);
 		}
 //		EmailServiceImpl es=new EmailServiceImpl();
 //		es.setJavaMailSender(javaMailSender);
 //		es.sendSimpleMessage(member.getEmail(),"비밀번호 찾기" , member.getPassword());
-		
+
 	}
 
 	@GetMapping("insertfood.do")
@@ -260,28 +276,27 @@ public class MainController {
 			for (int i = 0; i < danger_alergy.size(); i++) {
 				danger.append(danger_alergy.get(i) + " ");
 			}
-			for(int i=0; i<foodlist.size(); i++) {
+			for (int i = 0; i < foodlist.size(); i++) {
 				Food f = foodlist.get(i);
-				for(int j=0; j<danger_alergy.size(); j++) {
-					if(f.getAllergy().contains(danger_alergy.get(j))) {
+				for (int j = 0; j < danger_alergy.size(); j++) {
+					if (f.getAllergy().contains(danger_alergy.get(j))) {
 						dangerfood.add(f.getName());
 					}
 				}
 			}
-			if(dangerfood.size()>0) {
+			if (dangerfood.size() > 0) {
 				StringBuilder dangerfoodlist = new StringBuilder();
-				for(int i=0; i<dangerfood.size(); i++) {
-					if(i!= dangerfood.size()-1) {
-					dangerfoodlist.append(dangerfood.get(i)+", ");
-					}
-					else {
-						dangerfoodlist.append(dangerfood.get(i)+" ");
+				for (int i = 0; i < dangerfood.size(); i++) {
+					if (i != dangerfood.size() - 1) {
+						dangerfoodlist.append(dangerfood.get(i) + ", ");
+					} else {
+						dangerfoodlist.append(dangerfood.get(i) + " ");
 					}
 				}
 				System.out.println(dangerfoodlist.toString());
 				model.addAttribute("dangerfoodlist", dangerfoodlist);
 			}
-			
+
 			model.addAttribute("dangermsg", danger);
 			model.addAttribute("foodname", food.getName());
 			return "itemList";
@@ -318,28 +333,27 @@ public class MainController {
 			for (int i = 0; i < danger_alergy.size(); i++) {
 				danger.append(danger_alergy.get(i) + " ");
 			}
-			for(int i=0; i<foodlist.size(); i++) {
+			for (int i = 0; i < foodlist.size(); i++) {
 				Food f = foodlist.get(i);
-				for(int j=0; j<danger_alergy.size(); j++) {
-					if(f.getAllergy().contains(danger_alergy.get(j))) {
+				for (int j = 0; j < danger_alergy.size(); j++) {
+					if (f.getAllergy().contains(danger_alergy.get(j))) {
 						dangerfood.add(f.getName());
 					}
 				}
 			}
-			if(dangerfood.size()>0) {
+			if (dangerfood.size() > 0) {
 				StringBuilder dangerfoodlist = new StringBuilder();
-				for(int i=0; i<dangerfood.size(); i++) {
-					if(i!= dangerfood.size()-1) {
-					dangerfoodlist.append(dangerfood.get(i)+", ");
-					}
-					else {
-						dangerfoodlist.append(dangerfood.get(i)+" ");
+				for (int i = 0; i < dangerfood.size(); i++) {
+					if (i != dangerfood.size() - 1) {
+						dangerfoodlist.append(dangerfood.get(i) + ", ");
+					} else {
+						dangerfoodlist.append(dangerfood.get(i) + " ");
 					}
 				}
 				System.out.println(dangerfoodlist.toString());
 				model.addAttribute("dangerfoodlist", dangerfoodlist);
 			}
-			
+
 			model.addAttribute("dangermsg", danger);
 			model.addAttribute("foodname", food.getName());
 			return "itemList";
@@ -432,6 +446,5 @@ public class MainController {
 
 		return "redirect:consumeList.do";
 	}
-	
-	
+
 }
