@@ -73,7 +73,7 @@
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
 	border: 1px solid #888;
-	width: 100%; /* Could be more or less, depending on screen size */
+	width: 50%; /* Could be more or less, depending on screen size */
 }
 </style>
 
@@ -113,7 +113,7 @@
 					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="preferList.do">예상 섭취  정보</a></li>
+						<li><a href="preferList.do">예상 섭취 정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
@@ -134,13 +134,41 @@
 			</div>
 
 			<form action="foodList2.do" method="post">
+				<c:if test="${not empty dangermsg}">
+
+					<!-- Modal content -->
+					<div class="modal-content">
+						<p style="text-align: center;">
+							<span style="font-size: 14pt; color:#0c2e84 "><b><span
+									style="font-size: 24pt;">주의 성분 안내</span></b></span>
+						</p>
+						<p style="text-align: center; font-size: 14pt; line-height: 1.5; color:#000000">
+							<br />:: 주의성분 (  
+							 <span style="color: #ff0000; font-weight:bold; font-size: 15pt;">${dangermsg }</span>
+							) 때문에
+							 <span style="color: #6b2103; font-weight:bold; ">${foodname } </span> 을(를) 섭취할 수 없습니다.</br>
+							</br>
+							 <span style="color: #000000; font-weight:bold; ">주의 성분이 포함된 다른 음식 : </span>
+							 </br> ${dangerfoodlist}
+						</p>
+						<p>
+							<br />
+						</p>
+						<div
+							style="cursor: pointer; background-color: #DDDDDD; text-align: center; padding-bottom: 10px; padding-top: 10px;"
+							onClick="close_pop();">
+							<span class="pop_bt" style="font-size: 13pt;"> 닫기 </span>
+						</div>
+					</div>
+
+				</c:if>
 				<div class="row">
 
 					<div class="searchCondition col-lg-3"></div>
 					<div class="searchCondition col-lg-2">
 						<div align="center">
 							<h4 class="title">
-									<a>검색조건 &nbsp;&nbsp;</a>
+								<a>검색조건 &nbsp;&nbsp;</a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
@@ -177,9 +205,7 @@
 						</div>
 					</div>
 
-
 				</div>
-
 			</form>
 
 		</div>
@@ -227,33 +253,8 @@
 				</div>
 			</div>
 		</div>
-		<c:if test="${not empty dangermsg}">
-			<div id="myModal" class="modal">
-
-				<!-- Modal content -->
-				<div class="modal-content">
-					<p style="text-align: center;">
-						<span style="font-size: 14pt;"><b><span
-								style="font-size: 24pt;">주의 성분 안내</span></b></span>
-					</p>
-					<p style="text-align: center; line-height: 1.5;">
-						<br />${dangermsg } :: 주의성분 때문에 섭취할 수 없습니다.
-					</p>
-					<p>
-						<br />
-					</p>
-					<div
-						style="cursor: pointer; background-color: #DDDDDD; text-align: center; padding-bottom: 10px; padding-top: 10px;"
-						onClick="close_pop();">
-						<span class="pop_bt" style="font-size: 13pt;"> 닫기 </span>
-					</div>
-				</div>
-
-			</div>
-
-
-		</c:if>
 	</section>
+
 	<!-- #services --> </main>
 	<br />
 	<!--==========================

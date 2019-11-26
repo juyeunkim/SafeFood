@@ -47,6 +47,7 @@ public class MainController {
 	private PreferService pservice;
 	@Autowired
 	private SearchEngineService sservice;
+
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
 		ModelAndView mav = new ModelAndView("Error");
@@ -135,10 +136,10 @@ public class MainController {
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
-		
+
 		list = fservice.searchAll(new FoodPageBean());
-		if(!key.equals("all")) {
-			sservice.insert(new SearchEngine(key,word));
+		if (!key.equals("all")) {
+			sservice.insert(new SearchEngine(key, word));
 		}
 		switch (key) {
 		case "name":
@@ -213,11 +214,15 @@ public class MainController {
 	public String insertfood(@RequestParam String code, @RequestParam String count, HttpSession session, Model model) {
 		System.out.println("insertfood.do.......................");
 		Date date = new Date(System.currentTimeMillis());
+		Food food = fservice.search(Integer.parseInt(code));
 		String id = (String) session.getAttribute("id");
 		String id_alergy[] = mservice.searchAllergy(id).split(" ");
 		String food_alergy[] = fservice.searchAllergy(Integer.parseInt(code)).split(",");
 		List<String> danger_alergy = new ArrayList<String>();
+		List<String> dangerfood = new ArrayList<String>();
 		StringBuilder danger = new StringBuilder();
+		List<Food> foodlist = new ArrayList<>();
+		foodlist = fservice.searchAll(new FoodPageBean());
 		if (food_alergy.length != 0) {
 			for (int i = 0; i < id_alergy.length; i++) {
 				for (int j = 0; j < food_alergy.length; j++) {
@@ -232,7 +237,29 @@ public class MainController {
 			for (int i = 0; i < danger_alergy.size(); i++) {
 				danger.append(danger_alergy.get(i) + " ");
 			}
+			for(int i=0; i<foodlist.size(); i++) {
+				Food f = foodlist.get(i);
+				for(int j=0; j<danger_alergy.size(); j++) {
+					if(f.getAllergy().contains(danger_alergy.get(j))) {
+						dangerfood.add(f.getName());
+					}
+				}
+			}
+			if(dangerfood.size()>0) {
+				StringBuilder dangerfoodlist = new StringBuilder();
+				for(int i=0; i<dangerfood.size(); i++) {
+					if(i!= dangerfood.size()-1) {
+					dangerfoodlist.append(dangerfood.get(i)+", ");
+					}
+					else {
+						dangerfoodlist.append(dangerfood.get(i)+" ");
+					}
+				}
+				model.addAttribute("dangerfoodlist", dangerfoodlist);
+			}
+			
 			model.addAttribute("dangermsg", danger);
+			model.addAttribute("foodname", food.getName());
 			return "itemList";
 		} else {
 			cservice.insert(eat);
@@ -278,19 +305,19 @@ public class MainController {
 		List<Consume> list = cservice.searchAll(id);
 		List<Consume> toplist = cservice.count(id);
 		List<Consume> sevendaylist = cservice.searchAllseven(id);
-		int calory=0, carbo=0,protein=0,fat=0,sugar=0, natrium=0,chole=0,fattyacid=0,transfat =0;
-		for(int i=0; i<sevendaylist.size(); i++) {
+		int calory = 0, carbo = 0, protein = 0, fat = 0, sugar = 0, natrium = 0, chole = 0, fattyacid = 0, transfat = 0;
+		for (int i = 0; i < sevendaylist.size(); i++) {
 			Consume c = sevendaylist.get(i);
 			Food f = fservice.search(c.getCode());
-			calory += f.getCalory()*c.getCount();
-			carbo += f.getCarbo()*c.getCount();
-			protein += f.getProtein()*c.getCount();
-			fat += f.getFat()*c.getCount();
-			sugar+= f.getSugar()*c.getCount();
-			natrium += f.getNatrium()*c.getCount();
-			chole +=f.getChole()*c.getCount();
-			fattyacid+=f.getFattyacid()*c.getCount();
-			transfat+=f.getTransfat()*c.getCount();
+			calory += f.getCalory() * c.getCount();
+			carbo += f.getCarbo() * c.getCount();
+			protein += f.getProtein() * c.getCount();
+			fat += f.getFat() * c.getCount();
+			sugar += f.getSugar() * c.getCount();
+			natrium += f.getNatrium() * c.getCount();
+			chole += f.getChole() * c.getCount();
+			fattyacid += f.getFattyacid() * c.getCount();
+			transfat += f.getTransfat() * c.getCount();
 		}
 		model.addAttribute("myList", list);
 		model.addAttribute("topList", toplist);
@@ -304,25 +331,27 @@ public class MainController {
 		model.addAttribute("chole", chole);
 		model.addAttribute("fattyacid", fattyacid);
 		model.addAttribute("transfat", transfat);
-		
 
 		return "consumeList";
 	}
+
 	@GetMapping("searchengine.do")
 	public String searchengineList(Model model, HttpSession session) {
 		System.out.println("searchengineList.do.......................");
 		List<SearchEngine> list = sservice.searchAll();
 		List<SearchEngine> topsearchlist = sservice.count();
-		
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i).getSearch_key()+" " +list.get(i).getSearch_value()+" "+list.get(i).getCnt());
+
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(
+					list.get(i).getSearch_key() + " " + list.get(i).getSearch_value() + " " + list.get(i).getCnt());
 		}
-		System.out.println("검색리스트 목록"+topsearchlist.size());
+		System.out.println("검색리스트 목록" + topsearchlist.size());
 		model.addAttribute("searchList", list);
 		model.addAttribute("topsearchList", topsearchlist);
 
 		return "searchengineList";
 	}
+
 	@GetMapping("preferList.do")
 	public String preferList(Model model, HttpSession session) {
 		System.out.println("preferList.do.......................");
@@ -336,18 +365,18 @@ public class MainController {
 
 		return "preferList";
 	}
-	
+
 	@GetMapping("deletePrefer.do")
 	public String deletePrefer(@RequestParam int num) {
-		System.out.println("deletePrefer.do......................."+num);
+		System.out.println("deletePrefer.do......................." + num);
 		pservice.delete(num);
 
 		return "redirect:preferList.do";
 	}
-	
+
 	@GetMapping("deleteConsume.do")
 	public String deleteConsume(@RequestParam int num) {
-		System.out.println("deleteConsume.do......................."+num);
+		System.out.println("deleteConsume.do......................." + num);
 		cservice.delete(num);
 
 		return "redirect:consumeList.do";
