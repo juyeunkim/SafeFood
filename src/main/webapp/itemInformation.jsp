@@ -174,7 +174,7 @@ function findPW() {
 								</div>
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 비밀번호 </a> <input
-										type="text" class="form-control col-lg-6" name="password"
+										type="password" class="form-control col-lg-6" name="password"
 										placeholder="Password">
 								</div>
 								<div class="row marginbox">
