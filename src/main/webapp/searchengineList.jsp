@@ -58,12 +58,12 @@
   }
    tr {
     width: 100%;
-    border-top: 1px solid #444444;
+    border-top: 1px solid #2e2c2c;
     border-collapse: collapse;
   }
   td {
   	bgcolor :"E6ECDE";
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #2e2c2c;
     padding: 10px;
   }
   </style>

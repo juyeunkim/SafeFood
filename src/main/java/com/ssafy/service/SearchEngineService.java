@@ -8,4 +8,5 @@ public interface SearchEngineService {
 	public List<SearchEngine> searchAll();
 	public int getSearchNo();
 	public List<SearchEngine> count();
+	public void insert(SearchEngine searchengine);
 }

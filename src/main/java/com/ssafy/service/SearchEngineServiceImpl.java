@@ -25,4 +25,9 @@ public class SearchEngineServiceImpl implements SearchEngineService {
 	public List<SearchEngine> count() {
 		return sao.count();
 	}
+
+	@Override
+	public void insert(SearchEngine searchengine) {
+		sao.insert(searchengine);
+	}
 } 

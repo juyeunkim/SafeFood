@@ -169,7 +169,7 @@
 					<input type="submit"  class="form-control col-lg-1 btn btn-primary" id="editButton"
 						value="수정" >
 			</form>
-					<input type="button" class="form-control col-lg-1 btn btn-default"
+					<input type="submit" class="form-control col-lg-1 btn btn-primary"
 						id="submitButton" value="탈퇴" onclick="userdelete()">
 				
 				</div>

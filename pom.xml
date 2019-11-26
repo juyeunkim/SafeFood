@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.ssafy</groupId>
 	<artifactId>SpringSafeFood</artifactId>
-	<version>0.0.1-SNAPSHOT</version> 
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SpringSafeFood</name>
 	<description>Demo project for Spring Boot</description>
@@ -90,13 +90,10 @@
 			<version>2.8.5</version>
 		</dependency>
 		<dependency>
-        <groupId>javax.mail</groupId>
-        <artifactId>mail</artifactId>
-        <version>1.4</version>
-    </dependency>
-
-
-
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
 
 	</dependencies>
 

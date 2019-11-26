@@ -14,4 +14,5 @@ public interface ConsumeDao {
 	public List<Consume> searchAll(String id);
 	public void update(Consume consume);
 	public List<Consume> count(String id);
+	public List<Consume> searchAllseven(String id);
 }

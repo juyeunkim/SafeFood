@@ -11,4 +11,5 @@ public interface SearchEngineDao {
 	public List<SearchEngine> searchAll();
 	public int getSearchNo();
 	public List<SearchEngine> count();
+	public void insert(SearchEngine searchengine);
 }

@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:hover {
-	background: #0c2e8a;
+	background: #112a69;
 	color: #fff;
 }
 
@@ -949,7 +949,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form button[type="submit"]:hover {
-	background: #2dc899;
+	background: #112a69;
 }
 
 /*--------------------------------------------------------------

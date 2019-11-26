@@ -24,7 +24,11 @@
 		id = #{id}
 
 	</select>
+	<select id="searchAllseven" parameterType="string"
+		resultType="consume">
+		select * from consume where id=#{id} and eatdate>= (curdate()-interval 7 day) ;
 
+	</select>
 	<insert id="insert" parameterType="consume">
 		insert into consume (id, code,
 		eatdate, count)

@@ -140,7 +140,7 @@
 					<div class="searchCondition col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a href="">검색조건 &nbsp;&nbsp;&nbsp; </a>
+									<a>검색조건 &nbsp;&nbsp;</a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
@@ -159,7 +159,7 @@
 					<div class="searchWords col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a href="">검색단어 &nbsp;&nbsp;</a>
+								<a>검색단어 &nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
 								name="word" value="${word }"

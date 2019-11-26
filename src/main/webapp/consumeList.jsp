@@ -61,16 +61,17 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Name','Count',{ role: 'style' }],
-          ['${topList[0].fname}',    ${topList[0].count},'#8c9bc2'],
-          ['${topList[1].fname}',     ${topList[1].count},'#8c9bc2'],
-          ['${topList[2].fname}',     ${topList[2].count},'#8c9bc2'],
-          ['${topList[3].fname}',     ${topList[3].count},'#8c9bc2'],
-          ['${topList[4].fname}',     ${topList[4].count},'#8c9bc2']
+          ['Name','Count'],
+          ['${topList[0].fname}',    ${topList[0].count}],
+          ['${topList[1].fname}',     ${topList[1].count}],
+          ['${topList[2].fname}',     ${topList[2].count}],
+          ['${topList[3].fname}',     ${topList[3].count}],
+          ['${topList[4].fname}',     ${topList[4].count}]
         ]);
 
         var options = {
-          title: '가장 많이 섭취한 식품 Top 5'
+          title: '가장 많이 섭취한 식품 Top 5',
+          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -177,7 +178,7 @@
 			</div>
 				<div id="piechart" style="width: 900px; height: 500px; float:left;"></div>
 		</div>
-	
+	 
 	</section>
 
 	<!-- #services --> </main>

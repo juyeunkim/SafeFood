@@ -60,5 +60,14 @@ public class ConsumeServiceImpl implements ConsumeService{
 			throw new ConsumeException("섭취  top 5 중 에러 발생");
 		}
 	}
+	@Override
+	public List<Consume> searchAllseven(String id) {
+		try {
+			return cao.searchAllseven(id);			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ConsumeException("일주일간 섭취한 식품 조회 중 에러 발생");
+		}
+	}
 }
   

@@ -10,4 +10,5 @@ public interface ConsumeService {
 	public void delete(int num);
 	public void update(Consume consume);
 	public List<Consume> count(String id);
+	public List<Consume> searchAllseven(String id);
 }

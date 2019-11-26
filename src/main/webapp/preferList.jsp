@@ -70,6 +70,7 @@
 
         var options = {
           title: '가장 많이 찜한 식품 Top 5',
+          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed']
          
         };
         

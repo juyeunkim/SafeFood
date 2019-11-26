@@ -399,7 +399,7 @@ Search Section
 								<a> &nbsp;&nbsp;&nbsp;</a>
 							</h4>
 							<input type='submit' id='searchButton' value='검색하기'
-								class="btn btn-primary"></input>
+								class="btn btn-primary" ></input>
 						</div>
 					</div>
 

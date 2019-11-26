@@ -15,6 +15,12 @@ public class SearchEngine {
 		this.search_value = search_value;
 		this.cnt = cnt;
 	}
+	public SearchEngine( String search_key, String search_value) {
+		super();
+	
+		this.search_key = search_key;
+		this.search_value = search_value;
+	}
 	public int getCnt() {
 		return cnt;
 	}

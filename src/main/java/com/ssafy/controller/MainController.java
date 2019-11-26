@@ -135,8 +135,11 @@ public class MainController {
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
-
+		
 		list = fservice.searchAll(new FoodPageBean());
+		if(!key.equals("all")) {
+			sservice.insert(new SearchEngine(key,word));
+		}
 		switch (key) {
 		case "name":
 			for (Food food : list) {
@@ -274,9 +277,14 @@ public class MainController {
 		String id = (String) session.getAttribute("id");
 		List<Consume> list = cservice.searchAll(id);
 		List<Consume> toplist = cservice.count(id);
-
+		List<Consume> sevendaylist = cservice.searchAllseven(id);
+		int calory, carbo,protein,fat,sugar, natrium,chole,fattyacid,transfat =0;
+		for(int i=0; i<sevendaylist.size(); i++) {
+			System.out.println((i+1)+":" + sevendaylist.get(i));
+		}
 		model.addAttribute("myList", list);
 		model.addAttribute("topList", toplist);
+		model.addAttribute("sevendayList", sevendaylist);
 
 		return "consumeList";
 	}
