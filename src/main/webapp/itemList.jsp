@@ -470,7 +470,7 @@ Header
 
 								<div class='col-lg-8'>
 									<h4 style='cursor: pointer'>
-										<a
+										<a href="itemInfor.do?code=${food.code}"
 											style="text-align: center; font-size: 16pt; line-height: 1.5; color: #0c2e84; font-weight: bold;">
 											▶ ${food.name} </a>
 									</h4>
