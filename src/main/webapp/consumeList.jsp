@@ -62,7 +62,7 @@
       google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(drawChart2);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+    	  var data = google.visualization.arrayToDataTable([
           ['Name','Count'],
           ['${topList[0].fname}',    ${topList[0].count}],
           ['${topList[1].fname}',     ${topList[1].count}],
