@@ -347,12 +347,6 @@ Intro Section
 		<div id="intro-carousel" class="owl-carousel">
 			<div class="item"
 				style="background-image: url('http://image.chosun.com/sitedata/image/201903/06/2019030601012_0.jpg');"></div>
-			<div class="item"
-				style="background-image: url('http://static.myletter.net/20181102/6c59105b-1ea9-4e6d-bdd2-e5deafe499e3.jpg');"></div>
-			<div class="item"
-				style="background-image: url('https://www.skyscanner.co.kr/wp-content/uploads/2018/05/GettyImages-473146354.jpg?fit=1048,696');"></div>
-			<div class="item"
-				style="background-image: url('https://image.winudf.com/v2/image/Y29tLmVsZmFtLmFuZHJvaWQuYmVzdC5mb29kX3NjcmVlbnNob3RzXzE4Xzg2ZmUyNQ/screen-18.jpg?fakeurl=1&type=.jpg');"></div>
 		</div>
 
 	</section>

@@ -77,8 +77,9 @@
      		    },
           title: '◆ 가장 많이 찜한 식품 Top 5',
           colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
-        width: 700,
-        height: 400,
+        width: 600,
+        height:500,
+        
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -149,8 +150,7 @@
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-								action="login.do">
+							<form id="loginForm" method="post" action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -211,8 +211,7 @@
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -282,8 +281,8 @@
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -300,22 +299,24 @@
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -325,8 +326,8 @@
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--==========================
     Header
   ============================-->
@@ -362,15 +363,16 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의 예상 식품 정보</h2>
+			<h2>${id }님의예상 식품 정보</h2>
 		</div>
 	</div>
 
 	<section id="services">
 		<div class="container">
 			<div class='col-lg-12'>
-				<div class='col-lg-6'>
-					<table border="0" cellpadding="0" cellspacing="1" width="700">
+				<div class='col-lg-7'>
+					<table border="0" cellpadding="0" cellspacing="1" align=center
+						width="600px">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
@@ -395,8 +397,9 @@
 					</table>
 				</div>
 				<div id="piechart" style="width: 40%; height: 500px; float: left;"
-					class='col-lg-5'>
+					class='col-lg-5'></div>
 			</div>
+		</div>
 	</section>
 
 	<!-- #services --> </main>

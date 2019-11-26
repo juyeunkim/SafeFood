@@ -79,8 +79,8 @@
      		    },
           title: '◆ 가장 많이 섭취한 식품 Top 5',
           colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
-        width: 700,
-        height: 600,
+        width: 600,
+        height: 500,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -111,7 +111,12 @@
                                role: "annotation" },
                              2]); */
             var options = {
-              title: '일주일간 섭취한 식품 영양소별 정보',
+                            		 titleTextStyle: {
+                          		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
+                          		        fontSize: '22', // 12, 18 whatever you want (don't specify px)
+                          		        bold: true    // true or false
+                          		      ◆ },
+              title: '◆ 일주일간 섭취한 식품 영양소별 정보',
               width: 1000,
               height: 400,
               bar: {groupWidth: "95%"},
@@ -408,9 +413,9 @@
 		<section id="services">
 			<div class="container">
 				<div class="col-lg-12">
-					<div class='col-lg-6'>
+					<div class='col-lg-7'>
 						<table border="0" cellpadding="0" cellspacing="1" align=center
-							style="width: 500px;">
+							style="width:600px;">
 							<tr>
 								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취식품</td>
 								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취날짜</td>
@@ -436,9 +441,10 @@
 					</div>
 
 					<div id="piechart" style="width: 40%; height: 500px; float: left;"
-						class='col-lg-5'>
+						class='col-lg-5'></div>
 				</div>
-				</div>
+				<br/>
+				<br/>
 				<div class="col-lg-12">
 					<div id="barchart" style="" width=800px></div>
 				</div>

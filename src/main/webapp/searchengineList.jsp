@@ -50,23 +50,27 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-  <style>
-  .row{
-  float :right;}
-  table{
-  	border-collapse:collapse;
-  }
-   tr {
-    width: 100%;
-    border-top: 1px solid #2e2c2c;
-    border-collapse: collapse;
-  }
-  td {
-  	bgcolor :"E6ECDE";
-    border-bottom: 1px solid #2e2c2c;
-    padding: 10px;
-  }
-  </style>
+<style>
+.row {
+	float: right;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr {
+	width: 100%;
+	border-top: 1px solid #2e2c2c;
+	border-collapse: collapse;
+}
+
+td {
+	bgcolor: "E6ECDE";
+	border-bottom: 1px solid #2e2c2c;
+	padding: 10px;
+}
+</style>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -74,10 +78,10 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Name','Count',{ role: 'style' } ],
-          ['${searchList[0].search_value}',    ${searchList[0].cnt},'#8c9bc2'],
-          ['${searchList[1].search_value}',     ${searchList[1].cnt},'#af91c9'],
-          ['${searchList[2].search_value}',     ${searchList[2].cnt},'#c286b5'],
+          ['Name','Count',{ role: 'style' }, { role: 'annotation' } ],
+          [' ${searchList[0].search_value}',${searchList[0].cnt},'#8c9bc2','제조사'],
+          [' ${searchList[1].search_value}',${searchList[1].cnt},'#af91c9','식품명'],
+          [' ${searchList[2].search_value}',${searchList[2].cnt},'#c286b5','재료명']
          
         ]);
         var view = new google.visualization.DataView(data);
@@ -88,11 +92,37 @@
                            role: "annotation" },
                          2]); */
         var options = {
-          title: '검색 조건 별 가장 많이 검색한 단어 Top 3',
-          width: 600,
+		titleTextStyle: {
+ 		color: "#001c63",    // any HTML string color ('red', '#cc00cc')
+        fontSize: '22', // 12, 18 whatever you want (don't specify px)
+        bold: true    // true or false
+          },
+          
+          title: '◆ 검색 조건 별 가장 많이 검색한 단어 Top 3',
+          width: 800,
           height: 400,
           bar: {groupWidth: "95%"},
           legend: { position: "none" },
+          hAxis: {
+              textStyle: {
+            	  fontSize:'15',
+             bold: true, 
+             
+              }
+            },
+            vAxis: { 
+                textStyle: {
+              	  fontSize:'18',
+               bold: true, 
+                }
+              },
+          annotations: {
+              alwaysOutside: true,
+              textStyle: {
+                fontSize: '14',
+                color: '#001c63'
+              }
+            }
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('piechart'));
@@ -122,7 +152,7 @@
 </head>
 <body id="body">
 
-	
+
 	<!--==========================
     Top Bar
   ============================-->
@@ -161,8 +191,7 @@
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-								action="login.do">
+							<form id="loginForm" method="post" action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -223,8 +252,7 @@
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -294,8 +322,8 @@
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -312,22 +340,24 @@
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -340,7 +370,7 @@
 
 	<!--==========================
     Header
-  ============================--> 
+  ============================-->
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
@@ -359,7 +389,7 @@
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
 					</c:if>
 					<li><a href="searchengine.do">검색 히스토리</a></li>
-					
+
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -376,35 +406,39 @@
 	</div>
 
 	<section id="services">
-		<div class="container" >
-			<div class="row" id="serviceSection" style="float:left;" >
+		<div class="container">
 
-				<div class='col-lg-12'>
-					<table border="0" cellpadding="0" cellspacing="1" width="700">
+			<div class='col-lg-12'>
+				<div class='col-lg-5'>
+					<table border="0" cellpadding="0" cellspacing="1" width="400">
 						<tr>
-							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색 조건 </td>
-							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색어 </td>
-							<td  width=100 align=center bgcolor="#d5dae6" height="22">검색 횟수</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								조건</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색어
+							</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								횟수</td>
 						</tr>
-							<c:forEach items='${topsearchList}' var='search'>
+						<c:forEach items='${topsearchList}' var='search'>
 							<div class='col-lg-12'>
 								<div class=' box2 wow fadeInLeft row'></div>
 							</div>
 
 							<tr>
 								<td width=100 align=center height="22">${search.search_key}</td>
-								<td width=100 align=center  height="22">${search.search_value}</td>
-								<td  width=100 align=center  height="22">${search.cnt}</td>
+								<td width=100 align=center height="22">${search.search_value}</td>
+								<td width=100 align=center height="22">${search.cnt}</td>
 							</tr>
 						</c:forEach>
 
 					</table>
 				</div>
-				
+				<div class='col-lg-6' id="piechart"
+					style="width: 900px; height: 500px; float: left;"></div>
 			</div>
-				<div id="piechart" style="width: 900px; height: 500px; float:left;"></div>
+
 		</div>
-	
+
 	</section>
 
 	<!-- #services --> </main>
