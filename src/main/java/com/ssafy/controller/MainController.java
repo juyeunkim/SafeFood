@@ -88,10 +88,10 @@ public class MainController {
 	}
 
 	@PostMapping("login.do")
-	public String login(String id, String pw, HttpSession session) {
-		boolean result = mservice.login(id, pw);
+	public String login(String loginid, String loginpsw, HttpSession session) {
+		boolean result = mservice.login(loginid, loginpsw);
 		if (result) {
-			session.setAttribute("id", id);
+			session.setAttribute("id", loginid);
 		}
 		return "redirect:mainform.do";
 	}
