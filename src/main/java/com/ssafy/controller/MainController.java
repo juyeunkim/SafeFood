@@ -6,22 +6,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.ssafy.email.Email;
+import com.ssafy.email.EmailSender;
 import com.ssafy.service.ConsumeService;
+import com.ssafy.service.EmailServiceImpl;
 import com.ssafy.service.FoodService;
 import com.ssafy.service.MemberService;
 import com.ssafy.service.PreferService;
@@ -47,6 +53,20 @@ public class MainController {
 	private PreferService pservice;
 	@Autowired
 	private SearchEngineService sservice;
+	
+	@Autowired
+	JavaMailSender javaMailSender;
+	
+	@RequestMapping(value="/mail", method=RequestMethod.POST)
+	public String home3(HttpServletRequest req){
+		EmailServiceImpl es=new EmailServiceImpl();
+		es.setJavaMailSender(javaMailSender);
+		es.sendSimpleMessage("메일주소","제목" , "내용");		
+		return "index";
+	}
+
+
+
 	@ExceptionHandler
 	public ModelAndView handler(Exception e) {
 		ModelAndView mav = new ModelAndView("Error");
@@ -199,12 +219,17 @@ public class MainController {
 
 	@PostMapping("findPassword.do")
 	@ResponseBody
-	public String findPassword(String id, String phone) {
+	public String findPassword(String id, String email) {
 		System.out.println("=======findPassword=======");
-		System.out.println(id + " " + phone);
+		System.out.println(id + " " + email);
 
+		// id로 비밀번호 찾아서 - mail로 비밀번호 전송
 		Member member = mservice.search(id);
-
+		
+		EmailServiceImpl es=new EmailServiceImpl();
+		es.setJavaMailSender(javaMailSender);
+		es.sendSimpleMessage(member.getEmail(),"비밀번호 찾기" , member.getPassword());
+		
 		Gson gson = new Gson();
 		return gson.toJson(member);
 	}
@@ -352,4 +377,6 @@ public class MainController {
 
 		return "redirect:consumeList.do";
 	}
+	
+	
 }

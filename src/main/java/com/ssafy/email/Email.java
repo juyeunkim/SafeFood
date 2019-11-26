@@ -1,5 +1,8 @@
 package com.ssafy.email;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Email {
 	 
     private String subject;

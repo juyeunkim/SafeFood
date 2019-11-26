@@ -49,23 +49,24 @@
 <script type="text/javascript">
 
 function findPW() {
-	console.log($('#ffid').text());
+	//window.location.href="findPassword.do?id="+$('#ffid').val()+"&email?"+$('#ffemail').val();
+	console.log($('#ffid').val());
 	$.ajax({
 		url : 'findPassword.do',
 			type : 'POST',
 			data : {
 				id : $('#ffid').val(),
-				phone : $('#ffphone').val()
+				email : $('#ffemail').val()
 			},
 			dataType : 'json', 
 			success : function(data, status, xhr){
 				console.log(data)
-				alert(data.id+'님의 비밀번호는 '+data.password+'입니다');
+				//alert(data.id+'님의 비밀번호는 '+data.password+'입니다');
 			},
 			error : function(err){
 				console.log(err);
 			}
-		})
+		}) 
 }
 	
 	
@@ -279,13 +280,10 @@ Top Bar
 								</div>
 								
 								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 전화번호 </a> <input
-										type="text" class="form-control col-lg-6" id = "ffphone" name="phone"
-										placeholder="phoneNumber">
+									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
 								</div>
-								<div class="row">
-									<input type="hidden" id = "ffpw" name = "ffpw" value = "${ffpw}">
-								</div>
+								
 								<div class="col-lg-12">
 									<button 
 									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
