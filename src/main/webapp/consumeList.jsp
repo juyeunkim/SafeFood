@@ -213,10 +213,10 @@
 				</div>
 
 			</div>
-			<section>
-				<div id="piechart" style="width: 900px; height: 500px; float: left;"></div>
-				<div id="barchart" style="width: 900px; height: 500px; float: left;"></div>
-			</section>
+			<div class='col-lg-12'>
+				<div id="piechart" style="width: 45%; height: 500px; float: left; margin-right: 5%;" class='col-lg-5'></div>
+				<div id="barchart" style="width: 45%; height: 500px; float: left;" class='col-lg-5'></div>
+			</div>
 		</div>
 
 	</section>

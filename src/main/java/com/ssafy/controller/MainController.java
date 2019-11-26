@@ -57,14 +57,14 @@ public class MainController {
 	
 	@Autowired
 	JavaMailSender javaMailSender;
-	
-	@RequestMapping(value="/mail", method=RequestMethod.POST)
-	public String home3(HttpServletRequest req){
-		EmailServiceImpl es=new EmailServiceImpl();
-		es.setJavaMailSender(javaMailSender);
-		es.sendSimpleMessage("메일주소","제목" , "내용");		
-		return "index";
-	}
+//	
+//	@RequestMapping(value="/mail", method=RequestMethod.POST)
+//	public String home3(HttpServletRequest req){
+//		EmailServiceImpl es=new EmailServiceImpl();
+//		es.setJavaMailSender(javaMailSender);
+//		es.sendSimpleMessage("메일주소","제목" , "내용");		
+//		return "index";
+//	}
 
 
 
