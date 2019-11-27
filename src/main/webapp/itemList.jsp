@@ -422,7 +422,7 @@ Header
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
-			<h2>	<i class="fas fa-apple-alt"></i>상품정보</h2>
+			<h2>상품정보 <i class="fas fa-apple-alt"></i></h2>
 				<c:if test="${not empty dangermsg}">
 					<!-- Modal content -->
 					<div class="modal-content">
