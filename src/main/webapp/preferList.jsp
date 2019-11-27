@@ -75,12 +75,12 @@
         var options = {
         		 titleTextStyle: {
      		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
-     		        fontSize: '25', // 12, 18 whatever you want (don't specify px)
+     		        fontSize: '20', // 12, 18 whatever you want (don't specify px)
      		        bold: true    // true or false
      		    },
           title: '◆ 가장 많이 찜한 식품 Top 5',
           colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
-        width: 600,
+        width: 500,
         height:500,
         
         };
@@ -382,7 +382,9 @@
 		<div class="section-header">
 			<br /> <br />
 
-			<h2>${id }님의 예상 식품 정보 <i class="fas fa-utensils" style="color: black;"></i></h2>
+			<h2>${id }님의
+				예상 식품 정보 <i class="fas fa-utensils" style="color: black;"></i>
+			</h2>
 		</div>
 	</div>
 	<section id="services">
@@ -407,20 +409,21 @@
 								<td width=100 align=center height="15">${preferfood.preferdate}</td>
 								<td width=100 align=center height="15">${preferfood.count}</td>
 								<td width=100 align=center height="15">
-									<button onclick="insertFood(${preferfood.num})"><i class="fas fa-heart"></i></button>
+									<button onclick="insertFood(${preferfood.num})">
+										<i class="fas fa-heart"></i>
+									</button>
 									<button onclick="deleteFood(${preferfood.num})">
 										<i class="far fa-trash-alt"></i>
-										
 									</button>
 								</td>
 							</tr>
-
-
 						</c:forEach>
 					</table>
 				</div>
-				<div id="piechart" style="width: 40%; height: 500px; float: left;"
-					class='col-lg-5'></div>
+				<div class='col-lg-5'>
+					<div id="piechart" style="width: 40%; height: 500px;  ">
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

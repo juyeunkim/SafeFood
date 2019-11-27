@@ -44,10 +44,8 @@
 <!-- Main Stylesheet File -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/taemin.css" rel="stylesheet">
-<link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-    />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" />
 <!-- =======================================================
     Theme Name: Reveal
     Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -78,13 +76,13 @@
         var options = {
         		 titleTextStyle: {
      		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
-     		        fontSize: '22', // 12, 18 whatever you want (don't specify px)
+     		        fontSize: '18', // 12, 18 whatever you want (don't specify px)
      		        bold: true    // true or false
      		    },
           title: '◆ 가장 많이 섭취한 식품 Top 5',
-          colors: ['#2e498f', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
-        width: 600,
-        height: 500,
+          colors: ['#f0534e', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
+        width: 500,
+        height: 300,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -117,12 +115,12 @@
             var options = {
                             		 titleTextStyle: {
                           		        color: "#001c63",    // any HTML string color ('red', '#cc00cc')
-                          		        fontSize: '22', // 12, 18 whatever you want (don't specify px)
+                          		        fontSize: '18', // 12, 18 whatever you want (don't specify px)
                           		        bold: true    // true or false
                           		      },
               title: '◆ 일주일간 섭취한 식품 영양소별 정보',
-              width: 1000,
-              height: 400,
+              width: 600,
+              height: 350,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
             };
@@ -210,9 +208,8 @@
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-							name="loginForm" onsubmit="return check()"
-								action="login.do">
+							<form id="loginForm" method="post" name="loginForm"
+								onsubmit="return check()" action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -226,8 +223,8 @@
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
-									<span
+										id="loginpsw" type="password" autocomplete="off"
+										name="loginpsw" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
 									<!---Alredy exists ! -->
@@ -273,8 +270,7 @@
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -344,8 +340,8 @@
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -362,22 +358,24 @@
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -387,7 +385,7 @@
 
 	</div>
 	<!--/ Modal box-->
-	
+
 	<!--==========================
     Header
   ============================-->
@@ -423,8 +421,9 @@
     ============================-->
 		<div class="container" class="text-center">
 			<div class="section-header">
-				<br /> <br />
-				<h2>${id }님의 섭취 정보  <i class="fas fa-utensils" style="color: black;"></i></h2> 
+				<h2>${id }님의
+					섭취 정보 <i class="fas fa-utensils" style="color: black;"></i>
+				</h2>
 				<i class="far fa-utensil-fork"></i>
 			</div>
 		</div>
@@ -434,12 +433,12 @@
 				<div class="col-lg-12">
 					<div class='col-lg-7'>
 						<table border="0" cellpadding="0" cellspacing="1" align=center
-							style="width:600px;">
+							style="width: 500px; height: 100px;">
 							<tr>
-								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취식품</td>
-								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취날짜</td>
-								<td width=100 align=center bgcolor="#d5dae6" height="15">섭취수량</td>
-								<td width=100 align=center bgcolor="#d5dae6" height="15">삭제</td>
+								<td width=100 align=center bgcolor="#d5dae6" height=5>섭취식품</td>
+								<td width=60 align=center bgcolor="#d5dae6" height=5>섭취날짜</td>
+								<td width=50 align=center bgcolor="#d5dae6" height=5>섭취수량</td>
+								<td width=10 align=center bgcolor="#d5dae6" height=5>삭제</td>
 							</tr>
 							<c:forEach items='${myList}' var='consume'>
 
@@ -449,25 +448,21 @@
 
 								<tr>
 									<td width=100 align=center height=15>${consume.fname}</td>
-									<td width=100 align=center height="15">${consume.eatdate}</td>
-									<td width=100 align=center height="15">${consume.count}</td>
-									<td width=100 align=center height="15"><button
-											onclick="deleteFood(${consume.num})"><i class="far fa-trash-alt"></i></button></td>
+									<td width=60 align=center height="15">${consume.eatdate}</td>
+									<td width=50 align=center height="15">${consume.count}</td>
+									<td width=10 align=center height="15"><button
+											onclick="deleteFood(${consume.num})">
+											<i class="far fa-trash-alt"></i>
+										</button></td>
 								</tr>
 
 							</c:forEach>
 						</table>
 					</div>
-
-					<div id="piechart" style="width: 40%; height: 500px; float: left;"
-						class='col-lg-5'></div>
-				</div>
-				
-				<div><br/>
-				<br/></div>
-				<div class="col-lg-12">
-				<hr style="display:block; border-bottom: #cad1e0 2px solid; width: 100%;"/>
-					<div id="barchart" style="" width=800px></div>
+					<div class='col-lg-5'>
+						<div id="piechart" style="" width=300px></div>
+						<div id="barchart" style="" width=300px></div>
+					</div>
 				</div>
 			</div>
 		</section>
