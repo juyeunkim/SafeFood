@@ -181,12 +181,12 @@
 				<c:choose>
 					<c:when test="${not empty id}">
 						${id}
-						<a href="memberinfo.do" id="memberinfo">회원정보</a>
-						<a href="logout.do" id="logout">로그아웃</a>
+						<a href="memberinfo.do" id="memberinfo">회원정보 <i class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -450,10 +450,10 @@
 									<td width=100 align=center height=15>${consume.fname}</td>
 									<td width=60 align=center height="15">${consume.eatdate}</td>
 									<td width=50 align=center height="15">${consume.count}</td>
-									<td width=10 align=center height="15"><button
+									<td width=10 align=center height="15"><span
 											onclick="deleteFood(${consume.num})">
 											<i class="far fa-trash-alt"></i>
-										</button></td>
+										</span></td>
 								</tr>
 
 							</c:forEach>

@@ -45,6 +45,11 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
 <link rel="stylesheet" type="text/css" href="css/style2.css">
+
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" />
+	
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
 
@@ -108,12 +113,12 @@ Top Bar
 			<c:choose>
 					<c:when test="${not empty id}">
 						${id}
-						<a href="memberinfo.do" id="memberinfo">회원정보</a>
-						<a href="logout.do" id="logout">로그아웃</a>
+						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 			</c:choose>
 
