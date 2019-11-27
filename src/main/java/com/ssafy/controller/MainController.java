@@ -160,13 +160,14 @@ public class MainController {
 	@GetMapping("foodList.do")
 	public String foodList(String key, String word, Model model) {
 		System.out.println("foodList.do.......................");
+		Date date = new Date(System.currentTimeMillis());
 		System.out.println(key + " " + word);
 		List<Food> result = new ArrayList<>();
 		List<Food> list = new ArrayList<>();
 
 		list = fservice.searchAll(new FoodPageBean());
 		if (!key.equals("all")) {
-			sservice.insert(new SearchEngine(key, word));
+			sservice.insert(new SearchEngine(key, word,date.toString()));
 		}
 		switch (key) {
 		case "name":
@@ -214,6 +215,7 @@ public class MainController {
 // 검색어를 받아서 리스트에 보여주기
 	@PostMapping("foodList2.do")
 	public String foodList2(String key, String word, Model model) {
+		Date date = new Date(System.currentTimeMillis());
 		System.out.println("foodlist2.do.......................");
 		FoodPageBean bean = new FoodPageBean(key, word, "", 0);
 		model.addAttribute("bean", bean);
@@ -222,7 +224,7 @@ public class MainController {
 		List<Food> list = new ArrayList<>();
 		list = fservice.searchAll(bean);
 		if (!key.equals("all")) {
-			sservice.insert(new SearchEngine(key, word));
+			sservice.insert(new SearchEngine(key, word,date.toString()));
 		}
 		model.addAttribute("foodList", list);
 		return "itemList";
@@ -271,9 +273,8 @@ public class MainController {
 	
 	
 	@GetMapping("insertfood.do")
-	public String insertfood(@RequestParam String code, @RequestParam String count, HttpSession session, Model model) {
+	public String insertfood(@RequestParam String code, @RequestParam String count,@RequestParam String date, HttpSession session, Model model) {
 		System.out.println("insertfood.do.......................");
-		Date date = new Date(System.currentTimeMillis());
 		Food food = fservice.search(Integer.parseInt(code));
 		String id = (String) session.getAttribute("id");
 		String id_alergy[] = mservice.searchAllergy(id).split(" ");
@@ -292,6 +293,7 @@ public class MainController {
 				}
 			}
 		}
+		System.out.println(date.toString());
 		Consume eat = new Consume(id, Integer.parseInt(code), date.toString(), Integer.parseInt(count));
 		if (danger_alergy.size() > 0) {
 			for (int i = 0; i < danger_alergy.size(); i++) {

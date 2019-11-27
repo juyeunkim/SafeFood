@@ -2,12 +2,12 @@ package com.ssafy.vo;
 
 /** 섭취 정보 */
 public class Consume {
-	protected int num;
-	protected String id;
-	protected int code;
-	protected String fname;
-	protected String eatdate;
-	protected int count;
+	private int num;
+	private String id;
+	private int code;
+	private String fname;
+	private String eatdate;
+	private int count;
 	public Consume() {
 	}
 	

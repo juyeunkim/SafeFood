@@ -6,10 +6,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Reveal Bootstrap Template</title>
+<title>Safe Food</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
+
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 
 <!-- Favicons -->
 <link href="img/favicon.png" rel="icon">
@@ -33,6 +38,10 @@
 <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
 <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
 
+<!-- Main Stylesheet File -->
+<link href="css/style.css" rel="stylesheet">
+<link href="css/taemin.css" rel="stylesheet">
+
 <!-- Mentor CSS Files -->
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
@@ -40,12 +49,9 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
 <link rel="stylesheet" type="text/css" href="css/style2.css">
-
-<!-- Main Stylesheet File -->
-<link href="css/style.css" rel="stylesheet">
-<link href="css/taemin.css" rel="stylesheet">
-<script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
-<script type="text/javascript">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+<script>
 
 function findPW() {
 	//window.location.href="findPassword.do?id="+$('#ffid').val()+"&email?"+$('#ffemail').val();
@@ -95,6 +101,21 @@ function check(){
 </head>
 <style>
 /* The Modal (background) */
+.ui-datepicker {
+	font-size: 12px;
+	width: 220px;
+}
+
+.ui-datepicker select.ui-datepicker-month {
+	width: 30%;
+	font-size: 11px;
+}
+
+.ui-datepicker select.ui-datepicker-year {
+	width: 40%;
+	font-size: 11px;
+}
+
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -155,10 +176,8 @@ function check(){
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-							name="loginForm"
-onsubmit="return check()"
-								action="login.do">
+							<form id="loginForm" method="post" name="loginForm"
+								onsubmit="return check()" action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -172,8 +191,8 @@ onsubmit="return check()"
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
-									<span
+										id="loginpsw" type="password" autocomplete="off"
+										name="loginpsw" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
 									<!---Alredy exists ! -->
@@ -219,8 +238,7 @@ onsubmit="return check()"
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -290,8 +308,8 @@ onsubmit="return check()"
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -308,22 +326,24 @@ onsubmit="return check()"
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -333,8 +353,8 @@ onsubmit="return check()"
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--==========================
 Header
  ============================-->
@@ -378,13 +398,13 @@ Header
 						</p>
 						<p
 							style="text-align: center; font-size: 14pt; line-height: 1.5; color: #000000">
-							<br />   주의성분 ( <span
+							<br /> 주의성분 ( <span
 								style="color: #ff0000; font-weight: bold; font-size: 15pt;">${dangermsg }</span>
 							) 때문에 <span style="color: #6b2103; font-weight: bold;">${foodname }
 							</span> 을(를) 섭취할 수 없습니다.</br> </br> <span
 								style="color: #0c2e84; font-weight: bold;">주의 성분이 포함된 다른
-								음식 : </span><br/> <span style="color: #000000;  font-size: 12pt;">${dangerfoodlist}
-							</span> 
+								음식 : </span><br /> <span style="color: #000000; font-size: 12pt;">${dangerfoodlist}
+							</span>
 						</p>
 						<p>
 							<br />
@@ -406,7 +426,8 @@ Header
 					<div class="searchCondition col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색조건 &nbsp;&nbsp;</a>
+								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색조건
+									&nbsp;&nbsp;</a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
@@ -425,7 +446,8 @@ Header
 					<div class="searchWords col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색단어 &nbsp;&nbsp;</a>
+								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색단어
+									&nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
 								name="word" value="${word }"
@@ -458,8 +480,9 @@ Header
 
 
 				<div class='col-lg-12'>
-				<hr style="border:solid 1px #a0b1de; width: 100%"/>
-					<c:forEach items='${foodList}' var='food'>
+					<hr style="border: solid 1px #a0b1de; width: 100%" />
+					<c:forEach items='${foodList}' var='food' begin="1" end="20"
+						step="1" varStatus="status">
 						<div class='col-lg-12'>
 							<div class=' box2 wow fadeInLeft row'>
 
@@ -469,39 +492,47 @@ Header
 								</div>
 
 								<div class='col-lg-8'>
-									<h4 style='cursor: pointer'>
-										<a href="itemInfor.do?code=${food.code}"
-											style="text-align: center; font-size: 16pt; line-height: 1.5; color: #0c2e84; font-weight: bold;">
-											▶ ${food.name} </a>
-									</h4>
-									<table>
-										<tr>
-											<td style="font-size: 10pt; line-height: 1.5; color: #000000">제조사:
-												<span style="color: #0c2e84; font-weight: bold;">${food.maker}
-											</span> </br> 하루 적정 섭취량: <span style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
+									<div class='col-lg-4'>
+										<h4 style='cursor: pointer'>
+
+											<a href="itemInfor.do?code=${food.code}"
+												style="text-align: center; font-size: 16pt; line-height: 1.5; color: #0c2e84; font-weight: bold;">
+												▶ ${food.name} </a>
+										</h4>
+										<table>
+											<tr>
+												<td
+													style="font-size: 10pt; line-height: 1.5; color: #000000">제조사:
+													<span style="color: #0c2e84; font-weight: bold;">${food.maker}
+												</span> </br> 하루 적정 섭취량: <span
+													style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
 													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
-													</br>원산지 표시: <span style="color: #0c2e84; font-weight: bold;">여기에 표시할 예정</span>
-												</span>
-											</td>
-										</tr>
-									</table>
-									<div class="row ">
-										<h4 class="col-lg-5"></h4>
-										<input type='hidden' name='code' value="${food.code}" /> <input
+													</br>원산지 표시: <span style="color: #0c2e84; font-weight: bold;">여기에
+														표시할 예정</span> </span>
+												</td>
+											</tr>
+
+										</table>
+									</div>
+									<div class='col-lg-8'>
+										<input type='hidden' name='code' value="${food.code}" /> 날짜:
+										<input type="text" id="datepicker${status.count}" name="datepicker${status.count}" size="10"
+											onclick="getDate(${status.count})"> <input
 											type="number" class="form-control col-lg-2 btn btn-default"
-											id="countInput" placeholder="수량 : " name="count_btn" />
+											id="countInput" placeholder="n" name="count_btn" />
+
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="preferButton" value="찜하기"
-											onClick="goData('prefer',${food.code},this.parentNode.children[2].value)">찜하기</button>
+											onClick="goData('prefer',${food.code},this.parentNode.children[2].value,this.parentNode.children[1].value)">찜</button>
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="eatButton" value="섭취하기"
-											onClick="goData('eat',${food.code},this.parentNode.children[2].value)">섭취하기</button>
+											onClick="goData('eat',${food.code},this.parentNode.children[2].value,this.parentNode.children[1].value)">섭취</button>
 									</div>
 								</div>
-									<hr style="border:solid 1px #a0b1de; width: 100%"/>
+								<hr style="border: solid 1px #a0b1de; width: 100%" />
 							</div>
 						</div>
-					
+
 					</c:forEach>
 				</div>
 			</div>
@@ -534,7 +565,6 @@ Header
 	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
 	<!-- JavaScript Libraries -->
-	<script src="lib/jquery/jquery.min.js"></script>
 	<script src="lib/jquery/jquery-migrate.min.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="lib/easing/easing.min.js"></script>
@@ -550,13 +580,19 @@ Header
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
     
     jQuery(document).ready(function() {
           $('#myModal').show();
           //alert({dangermsg})
     });
+    function getDate(code){
+    	$("input[name='datepicker"+code+"']").datepicker({
+    		 dateFormat: 'yy-mm-dd'
+    	});
+    	console.log(code)
+    }
+    
     function open(flag) {
         $('#myModal').show();
    };
@@ -570,10 +606,10 @@ Header
 		window.location.href="itemInfor.do?code="+foodno;
 	}
 	 
-	 function goData(mode,foodno,obj){
+	 function goData(mode,foodno,obj,obj2){
 		if(mode=="eat") {
 			console.log(mode);
-			 window.location.href = "insertfood.do?code="+foodno+"&count="+obj;
+			 window.location.href = "insertfood.do?code="+foodno+"&count="+obj+"&date="+obj2;
 			//userinput.action ="insertfood.do";
 		 }
 		 else {

@@ -14,8 +14,7 @@
 
 	<select id="searchAll" parameterType="string"
 		resultType="consume">
-		select num,id, f.code,f.name as fname, date_format(eatdate,
-		'%y-%m-%d') as eatdate,count
+		select num,id, f.code,f.name as fname, date_format(eatdate, '%y-%m-%d') as eatdate,count
 		from
 		consume c
 		join food f
@@ -27,14 +26,13 @@
 	<select id="searchAllseven" parameterType="string"
 		resultType="consume">
 		select * from consume where id=#{id} and eatdate>= (curdate()-interval 7 day) ;
-
 	</select>
 	<insert id="insert" parameterType="consume">
 		insert into consume (id, code,
 		eatdate, count)
 		values (#{id:VARCHAR}
 		,#{code:INTEGER}
-		,now()
+		,#{eatdate:VARCHAR}
 		,#{count:INTEGER})
 	</insert>
 

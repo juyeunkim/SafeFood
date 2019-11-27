@@ -47,6 +47,7 @@
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
+
 function check(){
 	if($('#loginid').val()==""){
 		alert("ID를 입력하여 주세요.")
