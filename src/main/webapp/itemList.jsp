@@ -47,6 +47,45 @@
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
 
+window.onload = function() {
+	
+}
+
+
+
+function findCountry(code){
+	console.log(code)
+	var nations = ["가나","가봉","가이아나","감비아","과테말라","그레나다","그리스","기니","기니비사우",//ㄱ
+		"나미비아","나우루","나이지리아","남수단","남아프리카","네덜란드","네팔","노르웨이","뉴질랜드","니제르","니카라과","남오세티야",//ㄴ
+		"대만","덴마크","도미니카","독일","동티모르",//ㄷ
+		"라오스","라이베리아","라트비아","러시아","레바논","레소토","루마니아","룩셈부르크","르완다","리비아","리투아니아","리히텐슈타인",//ㄹ
+		"마다가스카르","마셜","말라위","말레이시아","말리","멕시코","모나코","모로코","모리셔스","모리타니","모잠비크","몬테네그로","몰도바","몰디브","몰타","몽골","미국","미얀마","미크로네시아",//ㅁ
+		"바누아투","바레인","바베이도스","바티칸","바하마","방글라데시","베냉","베네수엘라","베트남","벨기에","벨라루스","벨리즈","벨라루스","벨리즈","보스니아","보츠와나","볼리비아","부룬디","부르키나파소","부탄","북마케도니아","북키프로스","불가리아","브라질","브루나이",//ㅂ
+		"사모아","사우디아라비아","사하라 아랍 민주 공화국","산마리노","상투메 프린시페","세네갈","세르비아","세이셸","세인트루시아","소말리아","수단","스리랑카","스웨덴","스위스","스페인","슬로바키아","슬로베니아","시리아","싱가포르",//ㅅ
+		"아랍에미리트","아르헨티나","아이슬란드","아이티","아일랜드","아프가니스탄","알바니아","에스토니아","에콰도르","에티오피아","영국","예멘","오만","오스트레일리아","오스트리아","온두라스","요르단","우간다","우루과이","우즈베키스탄","우크라이나","이라크","이란","이스라엘","이집트","이탈리아","인도","인도네시아","일본",//ㅇ
+		"중국","자메이카","잠비아","북한","짐바브웨",//ㅈ
+		"체코","칠레",//ㅊ
+		"카메룬","카타르","캄보디아","캐나다","콜롬비아","콩고","쿠바","쿠웨이트","크로아티아",//ㅋ
+		"타이완","타지키스탄","탄자니아","태국","터키","토고","튀니지",//ㅌ
+		"파나마","파라과이","파키스탄","파푸아뉴기니","페루","포르투칼","폴란드","프랑스","피지","핀란드","필리핀",//ㅍ
+		"헝가리","호주","홍콩",//ㅎ
+		"외국산","수입산", "국내산"//번외
+	];
+
+	/* var tmp = "material" +code;
+	/* var a  = document.getElementById(tmp).value; 
+	console.log(a); */
+	//console.log($("#material:eq("+code+")").val());
+	//console.log(('input[name="material'+code+'"]').val());
+	var material =  $('input[name="material'+code+'"]').val();
+	console.log(material)
+	for(var i=0; i<nations.length; i++){
+		if(material.includes(nations[i])) {
+			console.log(nations[i])
+			$("#country"+code).append(nations[i]+" ")}
+	}
+}
+
 function findPW() {
 	//window.location.href="findPassword.do?id="+$('#ffid').val()+"&email?"+$('#ffemail').val();
 	$.ajax({
@@ -155,10 +194,8 @@ function check(){
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-							name="loginForm"
-onsubmit="return check()"
-								action="login.do">
+							<form id="loginForm" method="post" name="loginForm"
+								onsubmit="return check()" action="login.do">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -172,8 +209,8 @@ onsubmit="return check()"
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
-									<span
+										id="loginpsw" type="password" autocomplete="off"
+										name="loginpsw" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
 									<!---Alredy exists ! -->
@@ -219,8 +256,7 @@ onsubmit="return check()"
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -290,8 +326,8 @@ onsubmit="return check()"
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -308,22 +344,24 @@ onsubmit="return check()"
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -333,8 +371,8 @@ onsubmit="return check()"
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--==========================
 Header
  ============================-->
@@ -378,13 +416,13 @@ Header
 						</p>
 						<p
 							style="text-align: center; font-size: 14pt; line-height: 1.5; color: #000000">
-							<br />   주의성분 ( <span
+							<br /> 주의성분 ( <span
 								style="color: #ff0000; font-weight: bold; font-size: 15pt;">${dangermsg }</span>
 							) 때문에 <span style="color: #6b2103; font-weight: bold;">${foodname }
 							</span> 을(를) 섭취할 수 없습니다.</br> </br> <span
 								style="color: #0c2e84; font-weight: bold;">주의 성분이 포함된 다른
-								음식 : </span><br/> <span style="color: #000000;  font-size: 12pt;">${dangerfoodlist}
-							</span> 
+								음식 : </span><br /> <span style="color: #000000; font-size: 12pt;">${dangerfoodlist}
+							</span>
 						</p>
 						<p>
 							<br />
@@ -406,7 +444,8 @@ Header
 					<div class="searchCondition col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색조건 &nbsp;&nbsp;</a>
+								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색조건
+									&nbsp;&nbsp;</a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
 								name='key' value='asdfasdfasdf'>
@@ -425,7 +464,8 @@ Header
 					<div class="searchWords col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색단어 &nbsp;&nbsp;</a>
+								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색단어
+									&nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
 								name="word" value="${word }"
@@ -458,7 +498,7 @@ Header
 
 
 				<div class='col-lg-12'>
-				<hr style="border:solid 1px #a0b1de; width: 100%"/>
+					<hr style="border: solid 1px #a0b1de; width: 100%" />
 					<c:forEach items='${foodList}' var='food'>
 						<div class='col-lg-12'>
 							<div class=' box2 wow fadeInLeft row'>
@@ -479,9 +519,12 @@ Header
 											<td style="font-size: 10pt; line-height: 1.5; color: #000000">제조사:
 												<span style="color: #0c2e84; font-weight: bold;">${food.maker}
 											</span> </br> 하루 적정 섭취량: <span style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
-													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
-													</br>원산지 표시: <span style="color: #0c2e84; font-weight: bold;">여기에 표시할 예정</span>
-												</span>
+												</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
+												<input type="hidden" id="code" value="${food.code}">
+												<input type="hidden"
+												id="material" name="material" value="${food.material}" /> </br>원산지
+												표시: <span style="color: #0c2e84; font-weight: bold;"
+												id="country"></span> </span>
 											</td>
 										</tr>
 									</table>
@@ -498,10 +541,10 @@ Header
 											onClick="goData('eat',${food.code},this.parentNode.children[2].value)">섭취하기</button>
 									</div>
 								</div>
-									<hr style="border:solid 1px #a0b1de; width: 100%"/>
+								<hr style="border: solid 1px #a0b1de; width: 100%" />
 							</div>
 						</div>
-					
+
 					</c:forEach>
 				</div>
 			</div>

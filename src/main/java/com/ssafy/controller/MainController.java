@@ -258,8 +258,6 @@ public class MainController {
 		Prefer p = pservice.search(num);
 		cservice.insert(new Consume(p.getId(), p.getCode(), "", p.getCount()));
 		
-		System.out.println("<<<<<<<<<<<<<<<<<<<<<"+p.toString());
-		
 		// pservice에서 delete
 		pservice.delete(num);
 		
