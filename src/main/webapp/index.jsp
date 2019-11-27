@@ -418,12 +418,12 @@ Search Section
 			</form>
 
 
-		</div>a
+		</div>
 		<br /> <br />
 	</section>
 	<!--==========================
 Services Section
- ============================-->ds
+ ============================-->
 	<section id="services">
 		<div class="container">
 			<div class="row" id="serviceSection">
@@ -503,14 +503,6 @@ All the links in the footer should remain intact.
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-
-
-	<script type="text/javascript">
-	 function itemInfor(foodno) {
-		window.location.href="itemInfor.do&code="+foodno;
-	} 
-	
-	</script>
 
 
 </body>

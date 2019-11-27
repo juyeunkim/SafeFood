@@ -7,10 +7,10 @@
 body {
 	font-size: 15px;
 	line-height: 1.52;
-	color: #717f86;
+	color: #000000;
 	font-size: 18px;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
+	font-weight: 800;
 }
 
 ol, ul {
@@ -77,7 +77,7 @@ Navigation bar
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #717f86;
+	color: #0c2e84;
 	font-size: 14px;
 	font-weight: bold;
 }
