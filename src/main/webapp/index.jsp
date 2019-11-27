@@ -321,8 +321,9 @@ Header
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="mainform.do"><img
-					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png" width="300" height="350"
+				<a href="mainform.do">
+					 <img
+					src="http://edu.ssafy.com/asset/images/header-logo.jpg" width="300" height="350"
 					 /></a>
 			</div>
 

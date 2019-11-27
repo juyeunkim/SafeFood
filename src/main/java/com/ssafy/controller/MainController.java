@@ -221,6 +221,9 @@ public class MainController {
 		model.addAttribute("word", word);
 		List<Food> list = new ArrayList<>();
 		list = fservice.searchAll(bean);
+		if (!key.equals("all")) {
+			sservice.insert(new SearchEngine(key, word));
+		}
 		model.addAttribute("foodList", list);
 		return "itemList";
 	}
