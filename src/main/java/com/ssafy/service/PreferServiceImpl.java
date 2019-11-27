@@ -63,13 +63,13 @@ public class PreferServiceImpl implements PreferService{
 		}
 	}
 	@Override
-	public List<Prefer> search(String id) {
+	public Prefer search(int num) {
 		try{
-			return pao.search(id);
+			return pao.search(num);
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			throw new ConsumeException("찜한 정보 리스트 조회 중 에러 발생");
+			throw new ConsumeException("num으로 perfer 조회중 에러 발생");
 		}
 	}
 }

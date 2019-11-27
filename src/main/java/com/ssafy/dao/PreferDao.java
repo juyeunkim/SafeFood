@@ -9,7 +9,7 @@ import com.ssafy.vo.Prefer;
 
 @Mapper
 public interface PreferDao {
-	public List<Prefer> search(String id);
+	public Prefer search(int num);
 	public void insert(Prefer prefer);
 	public void delete(int num);
 	public List<Prefer> searchAll(String id);

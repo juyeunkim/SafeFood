@@ -44,10 +44,8 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/taemin.css" rel="stylesheet">
 
-<link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-    />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" />
 <!-- =======================================================
     Theme Name: Reveal
     Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -184,8 +182,8 @@
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
-									<span
+										id="loginpsw" type="password" autocomplete="off"
+										name="loginpsw" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
 									<!---Alredy exists ! -->
@@ -383,7 +381,7 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의예상 식품 정보</h2>
+			<h2>${id }님의예상식품정보</h2>
 		</div>
 	</div>
 
@@ -397,7 +395,7 @@
 							<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">수량</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="15">삭제</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="15"></td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>
@@ -408,8 +406,12 @@
 								<td width=100 align=center height="15">${preferfood.fname}</td>
 								<td width=100 align=center height="15">${preferfood.preferdate}</td>
 								<td width=100 align=center height="15">${preferfood.count}</td>
-								<td width=100 align=center height="15"><button
-										onclick="deleteFood(${preferfood.num})"><i class="far fa-trash-alt"></i></button></td>
+								<td width=100 align=center height="15">
+									<button onclick="insertFood(${preferfood.num})"><i class="fas fa-heart"></i></button>
+									<button onclick="deleteFood(${preferfood.num})">
+										<i class="far fa-trash-alt"></i>
+									</button>
+								</td>
 							</tr>
 
 
@@ -466,6 +468,11 @@
 	<script src="js/main.js"></script>
 
 	<script type="text/javascript">
+		function insertFood(num) {
+			
+			window.location.href = "insertconsume.do?num=" + num;
+    	}
+	
 		function deleteFood(num) {
 			/* console.log(num) */
 			window.location.href = "deletePrefer.do?num=" + num;

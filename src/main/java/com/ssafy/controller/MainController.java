@@ -248,7 +248,25 @@ public class MainController {
 //		es.sendSimpleMessage(member.getEmail(),"비밀번호 찾기" , member.getPassword());
 
 	}
-
+	
+	// prefer에서 consume으로 저장
+	@GetMapping("insertconsume.do")
+	public String insertconsume(@RequestParam int num) {
+		System.out.println("insertconsume.do.......................");
+		
+		// num을 통해서 id와 code count를 가져오기
+		Prefer p = pservice.search(num);
+		cservice.insert(new Consume(p.getId(), p.getCode(), "", p.getCount()));
+		
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<"+p.toString());
+		
+		// pservice에서 delete
+		pservice.delete(num);
+		
+		return "redirect:preferList.do";
+	}
+	
+	
 	@GetMapping("insertfood.do")
 	public String insertfood(@RequestParam String code, @RequestParam String count, HttpSession session, Model model) {
 		System.out.println("insertfood.do.......................");
