@@ -180,16 +180,17 @@
 
 				<c:choose>
 					<c:when test="${not empty id}">
-						<span style="
-    margin-right: 10px;
-">${id}</span>
-						<a href="memberinfo.do" id="memberinfo">회원정보 <i class="fas fa-user"></i></a>
-						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
+						<span style="margin-right: 10px;">${id}</span>
+						<a href="memberinfo.do" id="memberinfo">회원정보 <i
+							class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i
+							class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인 <i
 							class="fas fa-sign-out-alt"></i></a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i
+							class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -427,55 +428,52 @@
 				<h2>${id }님의
 					섭취 정보 <i class="fas fa-utensils" style="color: black;"></i>
 				</h2>
-				<i class="far fa-utensil-fork"></i>
 			</div>
 		</div>
-
 		<section id="services">
 			<div class="container">
 				<c:choose>
-				<c:when test="${empty myList}">
-							 <span>데이터가 존재하지 않아요 <br/>
-							 		새로운 상품을 등록해주세요 <br/>
-							 		<a href="list.do">상품 등록하러 가기</a>
-							 </span>
-							</c:when>
-							<c:otherwise>
-				<div class="col-lg-12">
-					<div class='col-lg-7'>
-						<table border="0" cellpadding="0" cellspacing="1" align=center
-							style="width: 500px; height: 100px;">
-							<tr>
-								<td width=100 align=center bgcolor="#d5dae6" height=5>섭취식품</td>
-								<td width=60 align=center bgcolor="#d5dae6" height=5>섭취날짜</td>
-								<td width=50 align=center bgcolor="#d5dae6" height=5>섭취수량</td>
-								<td width=10 align=center bgcolor="#d5dae6" height=5>삭제</td>
-							</tr>
-							<c:forEach items='${myList}' var='consume'>
+					<c:when test="${empty myList}">
+						<span>데이터가 존재하지 않아요 <br /> 새로운 상품을 등록해주세요 <br /> <a
+							href="list.do">상품 등록하러 가기</a>
+						</span>
+					</c:when>
+					<c:otherwise>
+						<div class="col-lg-12">
+							<div class='col-lg-7'>
+								<table border="0" cellpadding="0" cellspacing="1" align=center
+									style="width: 500px; height: 100px;">
+									<tr>
+										<td width=100 align=center bgcolor="#d5dae6" height=5>섭취식품</td>
+										<td width=60 align=center bgcolor="#d5dae6" height=5>섭취날짜</td>
+										<td width=50 align=center bgcolor="#d5dae6" height=5>섭취수량</td>
+										<td width=10 align=center bgcolor="#d5dae6" height=5>삭제</td>
+									</tr>
+									<c:forEach items='${myList}' var='consume'>
 
-								<div class='col-lg-12'>
-									<div class=' box2 wow fadeInLeft row'></div>
-								</div>
+										<div class='col-lg-12'>
+											<div class=' box2 wow fadeInLeft row'></div>
+										</div>
 
-								<tr>
-									<td width=100 align=center height=15>${consume.fname}</td>
-									<td width=60 align=center height="15">${consume.eatdate}</td>
-									<td width=50 align=center height="15">${consume.count}</td>
-									<td width=10 align=center height="15"><span
-											onclick="deleteFood(${consume.num})">
-											<i class="far fa-trash-alt"></i>
-										</span></td>
-								</tr>
+										<tr>
+											<td width=100 align=center height=15>${consume.fname}</td>
+											<td width=60 align=center height="15">${consume.eatdate}</td>
+											<td width=50 align=center height="15">${consume.count}</td>
+											<td width=10 align=center height="15"><span
+												onclick="deleteFood(${consume.num})"> <i
+													class="far fa-trash-alt"></i>
+											</span></td>
+										</tr>
 
-							</c:forEach>
-						</table>
-					</div>
-					<div class='col-lg-5'>
-						<div id="piechart" style="" width=300px></div>
-						<div id="barchart" style="" width=300px></div>
-					</div>
-				</div>
-				</c:otherwise>
+									</c:forEach>
+								</table>
+							</div>
+							<div class='col-lg-5'>
+								<div id="piechart" style="" width=300px></div>
+								<div id="barchart" style="" width=300px></div>
+							</div>
+						</div>
+					</c:otherwise>
 				</c:choose>
 			</div>
 		</section>

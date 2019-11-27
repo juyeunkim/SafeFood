@@ -140,9 +140,7 @@
 
 				<c:choose>
 					<c:when test="${not empty id}">
-						<span style="
-    margin-right: 10px;
-">${id}</span>
+						<span style="margin-right: 10px;">${id}</span>
 						<a href="memberinfo.do" id="memberinfo">회원정보 <i
 							class="fas fa-user"></i></a>
 						<a href="logout.do" id="logout">로그아웃 <i
@@ -386,8 +384,6 @@
     ============================-->
 	<div class="container" class="text-center">
 		<div class="section-header">
-			<br /> <br />
-
 			<h2>${id }님의
 				예상 식품 정보 <i class="fas fa-utensils" style="color: black;"></i>
 			</h2>
@@ -395,53 +391,55 @@
 	</div>
 	<section id="services">
 		<div class="container">
-			<div class='col-lg-12'>
-				<div class='col-lg-7'>
-					<table border="0" cellpadding="0" cellspacing="1" align=center
-						width="600px">
-						<c:choose>
-							
-							<c:when test="${empty myPreferList}">
-							 <span>데이터가 존재하지 않아요 <br/>
-							 		새로운 상품을 등록해주세요 <br/>
-							 		<a href="list.do">상품 등록하러 가기</a>
-							 </span>
-							</c:when>
-							
-						<c:otherwise>
-						<tr>
-							<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="15">수량</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="15">섭취/삭제</td>
-						</tr>
-						<c:forEach items='${myPreferList}' var='preferfood'>
-							<div class='col-lg-12'>
-								<div class=' box2 wow fadeInLeft row'></div>
-							</div>
 
-							<tr>
-								<td width=100 align=center height="15">${preferfood.fname}</td>
-								<td width=100 align=center height="15">${preferfood.preferdate}</td>
-								<td width=100 align=center height="15">${preferfood.count}</td>
-								<td width=100 align=center height="15"><span
-									style="margin-right: 20px;"
-									onclick="insertFood(${preferfood.num})"> <i
-										class="fas fa-heart" style="color:orange;"></i>
-								</span> <span onclick="deleteFood(${preferfood.num})"> <i
-										class="far fa-trash-alt"></i>
-								</span></td>
-							</tr>
-						</c:forEach>
-						</c:otherwise>
-						</c:choose>
-					</table>
-				</div>
-				<div class='col-lg-5'>
-					<div id="piechart" style="width: 40%; height: 500px;"></div>
-				</div>
-			</div>
+			<c:choose>
+				<c:when test="${empty myPreferList}">
+					<span>데이터가 존재하지 않아요 <br /> 새로운 상품을 등록해주세요 <br /> <a
+						href="list.do">상품 등록하러 가기</a>
+					</span>
+				</c:when>
+				<c:otherwise>
+					<div class='col-lg-12'>
+						<div class='col-lg-7'>
+							<table border="0" cellpadding="0" cellspacing="1" align=center
+								width="600px">
+								<tr>
+									<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
+									<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
+									<td width=100 align=center bgcolor="#d5dae6" height="15">수량</td>
+									<td width=100 align=center bgcolor="#d5dae6" height="15">섭취/삭제</td>
+								</tr>
+								<c:forEach items='${myPreferList}' var='preferfood'>
+									<div class='col-lg-12'>
+										<div class=' box2 wow fadeInLeft row'></div>
+									</div>
+
+									<tr>
+										<td width=100 align=center height="15">${preferfood.fname}</td>
+										<td width=100 align=center height="15">${preferfood.preferdate}</td>
+										<td width=100 align=center height="15">${preferfood.count}</td>
+										<td width=100 align=center height="15"><span
+											style="margin-right: 20px;"
+											onclick="insertFood(${preferfood.num})"> <i
+												class="fas fa-heart" style="color: orange;"></i>
+										</span> <span onclick="deleteFood(${preferfood.num})"> <i
+												class="far fa-trash-alt"></i>
+										</span></td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+
+						<div class='col-lg-5'>
+							<div id="piechart" style="width: 40%; height: 500px;"></div>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
 		</div>
+
+
 	</section>
 
 	<!-- #services --> </main>
