@@ -141,12 +141,15 @@
 				<c:choose>
 					<c:when test="${not empty id}">
 						${id}
-						<a href="memberinfo.do" id="memberinfo">회원정보</a>
-						<a href="logout.do" id="logout">로그아웃</a>
+						<a href="memberinfo.do" id="memberinfo">회원정보 <i
+							class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i
+							class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i
+							class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -408,21 +411,19 @@
 								<td width=100 align=center height="15">${preferfood.fname}</td>
 								<td width=100 align=center height="15">${preferfood.preferdate}</td>
 								<td width=100 align=center height="15">${preferfood.count}</td>
-								<td width=100 align=center height="15">
-									<button onclick="insertFood(${preferfood.num})">
-										<i class="fas fa-heart"></i>
-									</button>
-									<button onclick="deleteFood(${preferfood.num})">
-										<i class="far fa-trash-alt"></i>
-									</button>
-								</td>
+								<td width=100 align=center height="15"><span
+									style="margin-right: 20px;"
+									onclick="insertFood(${preferfood.num})"> <i
+										class="fas fa-heart"></i>
+								</span> <span onclick="deleteFood(${preferfood.num})"> <i
+										class="far fa-trash-alt"></i>
+								</span></td>
 							</tr>
 						</c:forEach>
 					</table>
 				</div>
 				<div class='col-lg-5'>
-					<div id="piechart" style="width: 40%; height: 500px;  ">
-					</div>
+					<div id="piechart" style="width: 40%; height: 500px;"></div>
 				</div>
 			</div>
 		</div>

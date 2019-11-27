@@ -51,11 +51,15 @@
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" />
+
 <script>
 
 
 function findCountry(code){
-	console.log(code)
+	//console.log(code)
 	var nations = ["가나","가봉","가이아나","감비아","과테말라","그레나다","그리스","기니","기니비사우",//ㄱ
 		"나미비아","나우루","나이지리아","남수단","남아프리카","네덜란드","네팔","노르웨이","뉴질랜드","니제르","니카라과","남오세티야",//ㄴ
 		"대만","덴마크","도미니카","독일","동티모르",//ㄷ
@@ -179,12 +183,12 @@ function check(){
 				<c:choose>
 					<c:when test="${not empty id}">
 						${id}
-						<a href="memberinfo.do" id="memberinfo">회원정보</a>
-						<a href="logout.do" id="logout">로그아웃</a>
+						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입</a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
