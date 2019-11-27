@@ -109,7 +109,7 @@
 						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
 						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
 					</c:when>
-					<c:otherwise>
+					<c:otherwise> 
 						<a href="#" data-target="#login" data-toggle="modal">로그인 <i
 							class="fas fa-sign-out-alt"></i></a>
 						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
@@ -118,7 +118,10 @@
 			</div>
 		</div>
 	</section>
-<!--Modal box-->
+<!--Modal box
+		커밋해줘서 고마워 그러니까 집에 보내지마
+		왜 지은이가 혼자 다하고 있어!!!!!!!!
+-->
 	<div class="modal fade" id="login" role="dialog" data-backdrop="static">
 		<div class="modal-dialog modal-sm">
 			<!-- Modal content no 1-->
@@ -388,8 +391,35 @@ onsubmit="return check()">
 				</tr>
 				<tr>
 					<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기</td>
-					<td><input type="text" class="form-control col-lg-8" name="allergy"
-						placeholder="Allergy" value="${member.allergy}"></td>
+					<td>
+						<!-- <fieldset class="col-lg-8" id="innerFiledSet">
+										<input class="from-control marginbox" type="checkbox"
+											name="allergy" value="대두"> 대두 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="땅콩"> 땅콩 <input class="from-control marginbox"
+											type="checkbox" name="allergy" value="우유"> 우유 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="새우"> 새우 <input class="from-control marginbox"
+											type="checkbox" name="allergy" value="참치"> 참치 <br/><input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="연어"> 연어 <input class="from-control marginbox"
+											type="checkbox" name="allergy" value="쑥"> 쑥 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="소고기"> 소고기 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="닭고기"> 닭고기 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="돼지고기"> 돼지고기 <br/><input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="복숭아"> 복숭아 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="민들레"> 민들레 <input
+											class="from-control marginbox" type="checkbox" name="allergy"
+											value="계란"> 계란
+									</fieldset> -->
+						<input type="text" class="form-control col-lg-8" name="allergy"
+						placeholder="Allergy" value=" ${member.allergy}"> 
+					</td>
 				</tr>
 			
 			</table>
