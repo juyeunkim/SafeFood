@@ -53,10 +53,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
 <script>
 
-window.onload = function() {
-}
-
-
 
 function findCountry(code){
 	console.log(code)
@@ -78,14 +74,12 @@ function findCountry(code){
 	];
 
 	
-	//console.log($('input[name="material5"]').val());
-	var material =  $("input[name='material"+(code-1)+"']").val();
-	console.log(material)
-	//console.log($('input[name="material2"]').val())
+	var material =  $("input[name='material"+(code)+"']").val();
+	//console.log(material)
 	for(var i=0; i<nations.length; i++){
 		if(material.includes(nations[i])) {
 			console.log(nations[i])
-			$("#country"+(code-1)).append(nations[i]+" ")}
+			$("#country"+(code)).append(nations[i]+" ")}
 	}
 }
 
@@ -544,12 +538,12 @@ Header
 												</span> </br> 하루 적정 섭취량: <span
 													style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
 													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
-													<script>findCountry(${status.count})</script>
 													<input type="hidden" id="material${status.count}" name="material${status.count}"
 														
 													value="${food.material}" /> </br>원산지 표시: <span
 													style="color: #0c2e84; font-weight: bold;" id="country${status.count}"></span>
 													</span>
+													<script>findCountry(${status.count})</script>
 
 												</td>
 											</tr>
