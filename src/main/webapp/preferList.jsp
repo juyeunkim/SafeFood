@@ -396,7 +396,7 @@
 							<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">수량</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="15"></td>
+							<td width=100 align=center bgcolor="#d5dae6" height="15">섭취/삭제</td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>
