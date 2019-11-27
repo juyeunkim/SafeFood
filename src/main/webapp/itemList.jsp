@@ -418,7 +418,7 @@ Header
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
-				<h2>상품정보</h2>
+			<h2>	<i class="fas fa-apple-alt"></i>상품정보</h2>
 				<c:if test="${not empty dangermsg}">
 					<!-- Modal content -->
 					<div class="modal-content">
@@ -456,7 +456,7 @@ Header
 					<div class="searchCondition col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색조건
+								<a style="color: #22659c; font-weight: bold; font-size: 15pt;">검색조건
 									&nbsp;&nbsp;</a>
 							</h4>
 							<select id='searchCondition' size='1' class="form-control"
@@ -476,7 +476,7 @@ Header
 					<div class="searchWords col-lg-2">
 						<div align="center">
 							<h4 class="title">
-								<a style="color: #0c2e84; font-weight: bold; font-size: 15pt;">검색단어
+								<a style="color: #22659c; font-weight: bold; font-size: 15pt;">검색단어
 									&nbsp;&nbsp;</a>
 							</h4>
 							<input type="text" class="form-control" id="searchWord"
@@ -491,7 +491,7 @@ Header
 								<a href="">&nbsp;&nbsp;&nbsp; </a>
 							</h4>
 							<input type='submit' id='searchButton' value='검색하기'
-								class="btn btn-primary"></input>
+								class="btn btn-primary" style=" font-weight: bold; background-color:#84b6d1; border-color: #84b6d1	; "></input>
 						</div>
 					</div>
 

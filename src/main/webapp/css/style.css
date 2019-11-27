@@ -467,10 +467,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 	content: '';
 	position: absolute;
 	display: block;
-	width: 50px;
-	height: 3px;
+	height: 2px;
 	background: #50d8af;
-	bottom: 0;
+	bottom: 0px;
 	left: 0;
 }
 
