@@ -182,12 +182,15 @@ function check(){
 
 				<c:choose>
 					<c:when test="${not empty id}">
-						${id}
+						<span style="
+    margin-right: 10px;
+">${id}</span>
 						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
 						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
-						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
+						<a href="#" data-target="#login" data-toggle="modal">로그인<i
+							class="fas fa-sign-out-alt"></i></a>
 						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
@@ -565,10 +568,10 @@ Header
 										<br />
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="preferButton" value="찜하기"
-											onClick="goData('prefer',${food.code},this.parentNode.children[2].value,this.parentNode.children[1].value)">찜</button>
+											onClick="goData('prefer',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">찜</button>
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="eatButton" value="섭취하기"
-											onClick="goData('eat',${food.code},this.parentNode.children[2].value,this.parentNode.children[1].value)">섭취</button>
+											onClick="goData('eat',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">섭취</button>
 									</div>
 								</div>
 								<hr style="border: solid 1px #a0b1de; width: 100%" />

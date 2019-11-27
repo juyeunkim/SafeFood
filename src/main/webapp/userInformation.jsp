@@ -103,12 +103,15 @@
 			<div class="social-links float-right">
 				<c:choose>
 					<c:when test="${not empty id}">
-						${id}
+						<span style="
+    margin-right: 10px;
+">${id}</span>
 						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
 						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
-						<a href="#" data-target="#login" data-toggle="modal">로그인</a>
+						<a href="#" data-target="#login" data-toggle="modal">로그인 <i
+							class="fas fa-sign-out-alt"></i></a>
 						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 			</c:choose>

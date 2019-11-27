@@ -261,7 +261,7 @@ public class MainController {
 		
 		// num을 통해서 id와 code count를 가져오기
 		Prefer p = pservice.search(num);
-		cservice.insert(new Consume(p.getId(), p.getCode(), "", p.getCount()));
+		cservice.insert(new Consume(p.getId(), p.getCode(), p.getPreferdate(), p.getCount()));
 		
 		// pservice에서 delete
 		pservice.delete(num);
