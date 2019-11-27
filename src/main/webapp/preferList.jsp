@@ -381,7 +381,8 @@
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>${id }님의예상식품정보</h2>
+
+			<h2>${id }님의 예상 식품 정보</h2>
 		</div>
 	</div>
 

@@ -479,7 +479,8 @@ Header
 											<td style="font-size: 10pt; line-height: 1.5; color: #000000">제조사:
 												<span style="color: #0c2e84; font-weight: bold;">${food.maker}
 											</span> </br> 하루 적정 섭취량: <span style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
-													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}
+													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
+													</br>원산지 표시: <span style="color: #0c2e84; font-weight: bold;">여기에 표시할 예정</span>
 												</span>
 											</td>
 										</tr>

@@ -369,6 +369,7 @@ Header
 	<!-- #chart -->
 	<br />
 	<br />
+	<hr style="display:block; border: #cad1e0 1px solid; width: 70%;"/>
 	<br />
 	<br />
 	<div class="row">
