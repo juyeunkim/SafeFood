@@ -82,7 +82,7 @@ function findCountry(code){
 	//console.log(material)
 	for(var i=0; i<nations.length; i++){
 		if(material.includes(nations[i])) {
-			console.log(nations[i])
+			//console.log(nations[i])
 			$("#country"+(code)).append(nations[i]+" ")}
 	}
 }
@@ -422,7 +422,7 @@ Header
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
-				<h2>상품정보</h2>
+				<h2>상품정보 <i class="fab fa-apple"></i></h2>
 				<c:if test="${not empty dangermsg}">
 					<!-- Modal content -->
 					<div class="modal-content">
