@@ -517,13 +517,13 @@ Header
 						<div class='col-lg-12'>
 							<div class=' box2 wow fadeInLeft row'>
 
-								<div class='col-lg-3'>
+								<div class='col-lg-2'>
 									<img src='${food.img}' width='150px' style='cursor: pointer'
 										onclick="itemInfor(${food.code});">
 								</div>
 
-								<div class='col-lg-8'>
-									<div class='col-lg-4'>
+								<div class='col-lg-9'>
+									<div class='col-lg-5'>
 										<h4 style='cursor: pointer'>
 
 											<a href="itemInfor.do?code=${food.code}"
@@ -545,19 +545,20 @@ Header
 													</span>
 													<script>findCountry(${status.count})</script>
 
+
 												</td>
 											</tr>
 
 										</table>
 									</div>
-									<div class='col-lg-8'>
-										<input type='hidden' name='code' value="${food.code}" /> 날짜:
-										<input type="text" id="datepicker${status.count}"
+									<div>
+										<input type='hidden' name='code' value="${food.code}" />
+										날짜: <input type="text" id="datepicker${status.count}"
 											name="datepicker${status.count}" size="10"
-											onclick="getDate(${status.count})"> <input
+											onclick="getDate(${status.count})"> <br/><input
 											type="number" class="form-control col-lg-2 btn btn-default"
-											id="countInput" placeholder="n" name="count_btn" />
-
+											id="countInput" placeholder="수량" name="count_btn"/><br />
+										<br />
 										<button class="form-control col-lg-2 btn btn-primary"
 											id="preferButton" value="찜하기"
 											onClick="goData('prefer',${food.code},this.parentNode.children[2].value,this.parentNode.children[1].value)">찜</button>
