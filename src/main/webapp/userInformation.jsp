@@ -351,49 +351,45 @@ onsubmit="return check()">
 			</div>
 
 			<form id="memberupdate" method="post" action="userupdate.do">
-
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">아이디</h4>
-					<input type="id" class="form-control col-lg-8" name="id"
-						placeholder="Id" value="${member.id}">
-				</div>
-				<hr>
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">비밀번호</h4>
-					<input type="password" class="form-control col-lg-8" name="password"
-						placeholder="Password" value="${member.password}">
-				</div>
-				<hr>
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">이름</h4>
-					<input type="text" class="form-control col-lg-8" name="name"
-						placeholder="Name" value="${member.name}">
-				</div>
-				<hr>
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">이메일</h4>
-					<input type="text" class="form-control col-lg-8" name="email"
-						placeholder="Email" value="${member.email}">
-				</div>
-				<hr>
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">전화번호</h4>
-					<input type="text" class="form-control col-lg-8" name="phone"
-						placeholder="phoneNumber" value="${member.phone}">
-				</div>
-				<hr>
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">주소</h4>
-					<input type="text" class="form-control col-lg-8" name="address"
-						placeholder="Address" value="${member.address}">
-				</div>
-				<hr>
-				<div class="row marginbox">
-					<h4 class="col-lg-4" align="center">알레르기</h4>
-					<input type="text" class="form-control col-lg-8" name="allergy"
-							placeholder="Allergy" value="${member.allergy}">
-				</div>
-				<hr>
+				<table class="table">
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">아이디</td>
+					<td><input type="text" class="form-control col-lg-8" name="id"
+						placeholder="Id" value="${member.id}"></td>
+				</tr>
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">비밀번호</td>
+					<td><input type="password" class="form-control col-lg-8" name="password"
+						placeholder="Password" value="${member.password}"></td>
+				</tr>
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">이름</td>
+					<td><input type="text" class="form-control col-lg-8" name="name"
+						placeholder="Name" value="${member.name}"></td>
+				</tr>
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">이메일</td>
+					<td><input type="text" class="form-control col-lg-8" name="email"
+						placeholder="Email" value="${member.email}"></td>
+				</tr>
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">전화번호</td>
+					<td><input type="text" class="form-control col-lg-8" name="phone"
+						placeholder="Phone" value="${member.phone}"></td>
+				</tr>
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">주소</td>
+					<td><input type="text" class="form-control col-lg-8" name="address"
+						placeholder="Address" value="${member.address}"></td>
+				</tr>
+				<tr>
+					<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기</td>
+					<td><input type="text" class="form-control col-lg-8" name="allergy"
+						placeholder="Allergy" value="${member.allergy}"></td>
+				</tr>
+			
+			</table>
+				
 				<div class="row marginbox">
 					<h4 class="col-lg-9"></h4>
 					<input type="submit"  class="form-control col-lg-1 btn btn-primary" id="editButton"

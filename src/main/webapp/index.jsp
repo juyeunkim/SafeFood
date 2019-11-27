@@ -322,8 +322,8 @@ Header
 		<div class="container">
 			<div id="logo" class="pull-left">
 				<a href="mainform.do"><img
-					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"
-					alt="" title="" /></a>
+					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png" width="300" height="350"
+					 /></a>
 			</div>
 
 			<nav id="nav-menu-container">
@@ -336,7 +336,7 @@ Header
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
-					</c:if>
+					</c:if>	
 					<li><a href="searchengine.do">검색 히스토리</a></li>
 
 				</ul>
