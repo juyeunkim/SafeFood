@@ -224,7 +224,6 @@ h1, h2, h3, h4, h5, h6 {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	transition-property: opacity;
 }
 
 /*--------------------------------------------------------------
@@ -299,8 +298,8 @@ h1, h2, h3, h4, h5, h6 {
 	display: inline-block;
 	color: #0c2e84;
 	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-	font-size: 14px;
+	font-weight: 900;
+	font-size: 15px;
 	outline: none;
 }
 
