@@ -54,7 +54,6 @@
 <script>
 
 window.onload = function() {
-	
 }
 
 
@@ -78,17 +77,15 @@ function findCountry(code){
 		"외국산","수입산", "국내산"//번외
 	];
 
-	/* var tmp = "material" +code;
-	/* var a  = document.getElementById(tmp).value; 
-	console.log(a); */
-	//console.log($("#material:eq("+code+")").val());
-	//console.log(('input[name="material'+code+'"]').val());
-	var material =  $('input[name="material'+code+'"]').val();
+	
+	//console.log($('input[name="material5"]').val());
+	var material =  $("input[name='material"+(code-1)+"']").val();
 	console.log(material)
+	//console.log($('input[name="material2"]').val())
 	for(var i=0; i<nations.length; i++){
 		if(material.includes(nations[i])) {
 			console.log(nations[i])
-			$("#country"+code).append(nations[i]+" ")}
+			$("#country"+(code-1)).append(nations[i]+" ")}
 	}
 }
 
@@ -521,7 +518,7 @@ Header
 				<div class='col-lg-12'>
 					<hr style="border: solid 1px #a0b1de; width: 100%" />
 
-					<c:forEach items='${foodList}' var='food' begin="1" end="20"
+					<c:forEach items='${foodList}' var='food' begin="0" end="20"
 						step="1" varStatus="status">
 						<div class='col-lg-12'>
 							<div class=' box2 wow fadeInLeft row'>
@@ -547,8 +544,13 @@ Header
 												</span> </br> 하루 적정 섭취량: <span
 													style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
 													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
-													</br>원산지 표시: <span style="color: #0c2e84; font-weight: bold;">여기에
-														표시할 예정</span> </span>
+													<script>findCountry(${status.count})</script>
+													<input type="hidden" id="material${status.count}" name="material${status.count}"
+														
+													value="${food.material}" /> </br>원산지 표시: <span
+													style="color: #0c2e84; font-weight: bold;" id="country${status.count}"></span>
+													</span>
+
 												</td>
 											</tr>
 
@@ -556,7 +558,8 @@ Header
 									</div>
 									<div class='col-lg-8'>
 										<input type='hidden' name='code' value="${food.code}" /> 날짜:
-										<input type="text" id="datepicker${status.count}" name="datepicker${status.count}" size="10"
+										<input type="text" id="datepicker${status.count}"
+											name="datepicker${status.count}" size="10"
 											onclick="getDate(${status.count})"> <input
 											type="number" class="form-control col-lg-2 btn btn-default"
 											id="countInput" placeholder="n" name="count_btn" />
