@@ -96,9 +96,7 @@
   ============================-->
 	<section id="topbar" class="d-none d-lg-block">
 		<div class="container clearfix">
-			<div class="contact-info float-left">
-				
-			</div>
+			<div class="contact-info float-left"></div>
 			<div class="social-links float-right">
 				<c:choose>
 					<c:when test="${not empty id}">

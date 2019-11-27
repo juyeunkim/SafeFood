@@ -4,7 +4,7 @@
 <mapper namespace="com.ssafy.dao.SearchEngineDao">
 
 	<insert id="insert" parameterType="searchengine">
-		insert into search_engine (search_key, search_value) values(#{search_key:VARCHAR},#{search_value:VARCHAR})
+		insert into search_engine (search_key, search_value, search_date) values(#{search_key:VARCHAR},#{search_value:VARCHAR},now())
 	</insert>
 	<select id="getSearchNo"   	resultType="int" >
 		select max(sno)+1 from search_engine

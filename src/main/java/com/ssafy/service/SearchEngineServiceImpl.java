@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ssafy.dao.SearchEngineDao;
+import com.ssafy.vo.ConsumeException;
 import com.ssafy.vo.SearchEngine;
 @Service
 public class SearchEngineServiceImpl implements SearchEngineService {
@@ -28,6 +29,12 @@ public class SearchEngineServiceImpl implements SearchEngineService {
 
 	@Override
 	public void insert(SearchEngine searchengine) {
-		sao.insert(searchengine);
+		try {
+			sao.insert(searchengine);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ConsumeException("검색한 정보 추가 중 에러 발생");
+		}
+		
 	}
 } 

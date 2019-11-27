@@ -14,7 +14,8 @@
 <!-- Favicons -->
 <link href="img/favicon.png" rel="icon">
 <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" />
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
@@ -423,7 +424,8 @@
 		<div class="container" class="text-center">
 			<div class="section-header">
 				<br /> <br />
-				<h2>${id }님의 섭취 정보</h2>
+				<h2>${id }님의 섭취 정보  <i class="fas fa-utensils" style="color: black;"></i></h2> 
+				<i class="far fa-utensil-fork"></i>
 			</div>
 		</div>
 
@@ -460,9 +462,11 @@
 					<div id="piechart" style="width: 40%; height: 500px; float: left;"
 						class='col-lg-5'></div>
 				</div>
-				<br/>
-				<br/>
+				
+				<div><br/>
+				<br/></div>
 				<div class="col-lg-12">
+				<hr style="display:block; border-bottom: #cad1e0 2px solid; width: 100%;"/>
 					<div id="barchart" style="" width=800px></div>
 				</div>
 			</div>

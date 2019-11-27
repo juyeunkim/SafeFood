@@ -47,6 +47,7 @@
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <script type="text/javascript" src='./js/jquery-3.3.1.js'></script>
 <script type="text/javascript">
+
 function check(){
 	if($('#loginid').val()==""){
 		alert("ID를 입력하여 주세요.")
@@ -321,8 +322,9 @@ Header
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="mainform.do"><img
-					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png" width="300" height="350"
+				<a href="mainform.do">
+					 <img
+					src="http://edu.ssafy.com/asset/images/header-logo.jpg" width="300" height="350"
 					 /></a>
 			</div>
 

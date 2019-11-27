@@ -382,10 +382,9 @@
 		<div class="section-header">
 			<br /> <br />
 
-			<h2>${id }님의 예상 식품 정보</h2>
+			<h2>${id }님의 예상 식품 정보 <i class="fas fa-utensils" style="color: black;"></i></h2>
 		</div>
 	</div>
-
 	<section id="services">
 		<div class="container">
 			<div class='col-lg-12'>
@@ -396,7 +395,7 @@
 							<td width=100 align=center bgcolor="#d5dae6" height=15">식품명</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">날짜</td>
 							<td width=100 align=center bgcolor="#d5dae6" height="15">수량</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="15"></td>
+							<td width=100 align=center bgcolor="#d5dae6" height="15">섭취/삭제</td>
 						</tr>
 						<c:forEach items='${myPreferList}' var='preferfood'>
 							<div class='col-lg-12'>
@@ -411,6 +410,7 @@
 									<button onclick="insertFood(${preferfood.num})"><i class="fas fa-heart"></i></button>
 									<button onclick="deleteFood(${preferfood.num})">
 										<i class="far fa-trash-alt"></i>
+										
 									</button>
 								</td>
 							</tr>
