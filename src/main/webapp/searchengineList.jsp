@@ -79,7 +79,7 @@ td {
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 $(document).ready(function() { 
-	
+	var a = 10;
 });
 
       google.charts.load('current', {'packages':['corechart']});
