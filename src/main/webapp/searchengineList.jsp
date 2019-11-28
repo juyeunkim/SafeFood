@@ -78,9 +78,7 @@ td {
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-$(document).ready(function() { 
-	var a = 10;
-});
+
 
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -172,6 +170,7 @@ $(document).ready(function() {
     			return false;
     		}else return true;
     	}
+    
     </script>
 </head>
 <body id="body">
@@ -513,11 +512,15 @@ $(document).ready(function() {
 						</c:forEach>
 					</table>
 				</div>
+				<div class='col-lg-12'>
+					<hr />
+				</div>
 				<div class='col-lg-6' id="piechart"
 					style="width: 900px; height: 500px; float: left;"></div>
 			</div>
 
 		</div>
+				
 
 	</section>
 
