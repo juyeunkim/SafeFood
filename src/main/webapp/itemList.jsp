@@ -562,17 +562,17 @@ Header
 										</table>
 									</div>
 									<div class='col-lg-6'
-										style="padding-right: 0px; padding-left: 00px;">
+										style="padding-right: 0px;padding-left: 00px;margin-left: 50px;">
 										
 										<input type='hidden' name='code' value="${food.code}" /> 
-										<div>
+										
 											<button class="form-control col-lg-2 btn btn-primary"
 												id="preferButton" value="찜하기"
-												onClick="goData('prefer',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">찜</button>
+												onClick="goData('prefer',${food.code},this.parentNode.children[5].value,this.parentNode.children[8].value)">찜</button>
 											<button class="form-control col-lg-2 btn btn-primary"
 												id="eatButton" value="섭취하기"
-												onClick="goData('eat',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">섭취</button>
-										</div>
+												onClick="goData('eat',${food.code},this.parentNode.children[5].value,this.parentNode.children[8].value)">섭취</button>
+									
 										<br /> <br />
 										<input type="number"
 											class="form-control col-lg-2 btn btn-default" id="countInput"
@@ -665,7 +665,11 @@ Header
 	}
 	 
 	 function goData(mode,foodno,obj,obj2){
-		if(mode=="eat") {
+		console.log('!!!!!!!')
+		 console.log(obj)
+		console.log(obj2)
+		
+		 if(mode=="eat") {
 			console.log(mode);
 			 window.location.href = "insertfood.do?code="+foodno+"&count="+obj+"&date="+obj2;
 			//userinput.action ="insertfood.do";
