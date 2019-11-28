@@ -80,7 +80,7 @@
      		        bold: true    // true or false
      		    },
           title: '◆ 가장 많이 섭취한 식품 Top 5',
-          colors: ['#f0534e', '#445b96', '#6d81b5', '#8ea1d1', '#b7c6ed'],
+          colors: ['#f0534e', '#f09c48', '#498c58', '#5a99f2', '#9359f0'],
         width: 500,
         height: 300,
         };
