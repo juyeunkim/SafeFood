@@ -78,6 +78,10 @@ td {
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
+$(document).ready(function() { 
+	
+});
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -436,6 +440,7 @@ td {
 			<div class='col-lg-12'>
 				<div class='col-lg-4'>
 					- 하루
+					<span id="today"></span>
 					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
@@ -460,6 +465,7 @@ td {
 				</div>
 				<div class='col-lg-4'>
 					- 일주일
+					<span id="week"></span>
 					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
@@ -484,6 +490,7 @@ td {
 				</div>
 				<div class='col-lg-4'>
 					- 한달
+					<span id="month"></span>
 					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
