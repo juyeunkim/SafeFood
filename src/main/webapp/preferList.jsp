@@ -356,10 +356,8 @@
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="mainform.do">
-					 <img
-					src="img/ssafy.JPG" width="200" height="250" border="10px"
-					 /></a>
+				<a href="mainform.do"> <img src="img/ssafy.JPG" width="200"
+					height="250" border="10px" /></a>
 			</div>
 
 			<nav id="nav-menu-container">
@@ -400,8 +398,8 @@
 					</span>
 				</c:when>
 				<c:otherwise>
-					<div class='col-lg-12'>
-						<div class='col-lg-7'>
+					<div class='col-lg-12' style="margin-top: 50px;">
+						<div class='col-lg-7' style="margin-top: 50px;">
 							<table border="0" cellpadding="0" cellspacing="1" align=center
 								width="600px">
 								<tr>
