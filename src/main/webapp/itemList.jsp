@@ -182,16 +182,17 @@ function check(){
 
 				<c:choose>
 					<c:when test="${not empty id}">
-						<span style="
-    margin-right: 10px;
-">${id}</span>
-						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
-						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
+						<span style="margin-right: 10px;">${id}</span>
+						<a href="memberinfo.do" id="memberinfo">회원정보 <i
+							class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i
+							class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인<i
 							class="fas fa-sign-out-alt"></i></a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i
+							class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -425,7 +426,9 @@ Header
 	<section>
 		<div class="container" class="text-center">
 			<div class="section-header">
-				<h2> <i class="fas fa-list"></i> 상품정보 </h2>
+				<h2>
+					<i class="fas fa-list"></i> 상품정보
+				</h2>
 				<c:if test="${not empty dangermsg}">
 					<!-- Modal content -->
 					<div class="modal-content">
@@ -498,7 +501,8 @@ Header
 								<a href="">&nbsp;&nbsp;&nbsp; </a>
 							</h4>
 							<input type='submit' id='searchButton' value='검색하기'
-								class="btn btn-primary" style=" font-weight: bold; background-color:#84b6d1; border-color: #84b6d1	; "></input>
+								class="btn btn-primary"
+								style="font-weight: bold; background-color: #84b6d1; border-color: #84b6d1;"></input>
 						</div>
 					</div>
 
@@ -545,12 +549,10 @@ Header
 												</span> </br> 하루 적정 섭취량: <span
 													style="color: #0c2e84; font-weight: bold;">${food.supportpereat}</span>
 													</br> 알러지성분: <span style="color: #0c2e84; font-weight: bold;">${food.allergy}</span>
-													<input type="hidden" id="material${status.count}" name="material${status.count}"
-														
-													value="${food.material}" /> </br>원산지 표시: <span
-													style="color: red; font-weight: bold;" id="country${status.count}"></span>
-													</span>
-													<script>findCountry(${status.count})</script>
+													<input type="hidden" id="material${status.count}"
+													name="material${status.count}" value="${food.material}" />
+													</br>원산지 표시: <span style="color: red; font-weight: bold;"
+													id="country${status.count}"></span> </span> <script>findCountry(${status.count})</script>
 
 
 												</td>
@@ -558,20 +560,30 @@ Header
 
 										</table>
 									</div>
-									<div>
-										<input type='hidden' name='code' value="${food.code}" />
-										날짜: <input type="text" id="datepicker${status.count}"
+									<div class='col-lg-6'
+										style="padding-right: 0px; padding-left: 00px;">
+										
+										<input type='hidden' name='code' value="${food.code}" /> 
+										<div>
+											<button class="form-control col-lg-2 btn btn-primary"
+												id="preferButton" value="찜하기"
+												onClick="goData('prefer',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">찜</button>
+											<button class="form-control col-lg-2 btn btn-primary"
+												id="eatButton" value="섭취하기"
+												onClick="goData('eat',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">섭취</button>
+										</div>
+										<br /> <br />
+										<input type="number"
+											class="form-control col-lg-2 btn btn-default" id="countInput"
+											placeholder="수량" style="padding-right: 0px;" /><br /> <br />
+										<input
+											style="width: 154px;" type="text"
+											id="datepicker${status.count}"
 											name="datepicker${status.count}" size="10"
-											onclick="getDate(${status.count})"> <br/><input
-											type="number" class="form-control col-lg-2 btn btn-default"
-											id="countInput" placeholder="수량" name="count_btn"/><br />
-										<br />
-										<button class="form-control col-lg-2 btn btn-primary"
-											id="preferButton" value="찜하기"
-											onClick="goData('prefer',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">찜</button>
-										<button class="form-control col-lg-2 btn btn-primary"
-											id="eatButton" value="섭취하기"
-											onClick="goData('eat',${food.code},this.parentNode.children[3].value,this.parentNode.children[1].value)">섭취</button>
+											onclick="getDate(${status.count})" placeholder=" 날짜를선택하세요 " >
+										
+										<br /> 
+										
 									</div>
 								</div>
 								<hr style="border: solid 1px #a0b1de; width: 100%" />
