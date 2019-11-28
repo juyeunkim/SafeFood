@@ -366,9 +366,9 @@ Intro Section
 			<h4>자연의 맛 그대로 바른먹거리를 전하다.</h4>
 		</div>
 
-		<div id="intro-carousel" class="owl-carousel">
+		<div id="intro-carousel" >
 			<div class="item"
-				style="background-image: url('http://image.chosun.com/sitedata/image/201903/06/2019030601012_0.jpg');"></div>
+				style="background-image: url(../img/mainimage.JPG); width: 100%"></div>
 		</div>
 
 	</section>
