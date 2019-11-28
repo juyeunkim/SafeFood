@@ -46,8 +46,8 @@
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" />
-	
-	
+
+
 <!-- =======================================================
     Theme Name: Reveal
     Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -183,16 +183,17 @@ td {
 
 				<c:choose>
 					<c:when test="${not empty id}">
-						<span style="
-    margin-right: 10px;
-">${id}</span>
-						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
-						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
+						<span style="margin-right: 10px;">${id}</span>
+						<a href="memberinfo.do" id="memberinfo">회원정보 <i
+							class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i
+							class="fas fa-sign-out-alt"></i></a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인<i
 							class="fas fa-sign-out-alt"></i></a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i
+							class="fas fa-user-plus"></i></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -214,10 +215,8 @@ td {
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-								action="login.do"
-								name="loginForm"
-onsubmit="return check()">
+							<form id="loginForm" method="post" action="login.do"
+								name="loginForm" onsubmit="return check()">
 
 
 								<div class="form-group has-feedback">
@@ -232,8 +231,8 @@ onsubmit="return check()">
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
-									<span
+										id="loginpsw" type="password" autocomplete="off"
+										name="loginpsw" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
 									<!---Alredy exists ! -->
@@ -434,11 +433,10 @@ onsubmit="return check()">
 
 	<section id="services">
 		<div class="container">
-
 			<div class='col-lg-12'>
-				<div class='col-lg-5'>
-					하루
-					<table border="0" cellpadding="0" cellspacing="1" width="400">
+				<div class='col-lg-4'>
+					- 하루
+					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
 								조건</td>
@@ -459,9 +457,10 @@ onsubmit="return check()">
 							</tr>
 						</c:forEach>
 					</table>
-					
-					일주일
-					<table border="0" cellpadding="0" cellspacing="1" width="400">
+				</div>
+				<div class='col-lg-4'>
+					- 일주일
+					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
 								조건</td>
@@ -482,9 +481,10 @@ onsubmit="return check()">
 							</tr>
 						</c:forEach>
 					</table>
-					
-					한달
-					<table border="0" cellpadding="0" cellspacing="1" width="400">
+				</div>
+				<div class='col-lg-4'>
+					- 한달
+					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
 								조건</td>
@@ -505,29 +505,6 @@ onsubmit="return check()">
 							</tr>
 						</c:forEach>
 					</table>
-					
-					<%-- <table border="0" cellpadding="0" cellspacing="1" width="400">
-						<tr>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
-								조건</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">검색어
-							</td>
-							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
-								횟수</td>
-						</tr>
-						<c:forEach items='${topsearchList}' var='search'>
-							<div class='col-lg-12'>
-								<div class=' box2 wow fadeInLeft row'></div>
-							</div>
-
-							<tr>
-								<td width=100 align=center height="22">${search.search_key}</td>
-								<td width=100 align=center height="22">${search.search_value}</td>
-								<td width=100 align=center height="22">${search.cnt}</td>
-							</tr>
-						</c:forEach>
-
-					</table> --%>
 				</div>
 				<div class='col-lg-6' id="piechart"
 					style="width: 900px; height: 500px; float: left;"></div>
