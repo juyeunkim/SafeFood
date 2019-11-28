@@ -46,15 +46,5 @@ public class FoodFromServiceImpl implements FoodFromService {
 		}
 	}
 	
-	public static void main(String[] args) {
-		// 기존에 있는 food의 원산지 추가
-		FoodService fservice = null;
-		FoodFromService oservice = null;
-		
-		List<Food> list = fservice.searchAll(new FoodPageBean());
-		
-		
-		
-	}
 
 }
