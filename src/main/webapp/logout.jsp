@@ -329,9 +329,10 @@ onsubmit="return check()">
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				<a href="#body"><img
-					src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"
-					alt="" title="" /></a>
+				<a href="mainform.do">
+					 <img
+					src="img/ssafy.JPG" width="200" height="250" border="10px"
+					 /></a>
 			</div>
 
 			<nav id="nav-menu-container">

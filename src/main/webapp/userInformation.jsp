@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,47 +45,48 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-  <script type="text/javascript">
-	function userdelete(){
-		window.location.href="userdelete.do"
+<script type="text/javascript">
+	function userdelete() {
+		window.location.href = "userdelete.do"
 	}
 	function findPW() {
 		//window.location.href="findPassword.do?id="+$('#ffid').val()+"&email?"+$('#ffemail').val();
 		$.ajax({
 			url : 'findPassword.do',
-				type : 'POST',
-				data : {
-					id : $('#ffid').val(),
-					email : $('#ffemail').val()
-				},
-				dataType : 'json', 
-				success : function(data, status, xhr){
-					console.log(data)
-					if(data=='id')
-						alert('존재하지않는 회원입니다');
-					else if(data=='email')
-						alert('이메일이 일치하지않습니다.')
-					else
-						alert(data.id+'님의 비밀번호는 '+data.password+'입니다')
-				},
-				error : function(err){
-					console.log(err);
-				}
-			}) 
+			type : 'POST',
+			data : {
+				id : $('#ffid').val(),
+				email : $('#ffemail').val()
+			},
+			dataType : 'json',
+			success : function(data, status, xhr) {
+				console.log(data)
+				if (data == 'id')
+					alert('존재하지않는 회원입니다');
+				else if (data == 'email')
+					alert('이메일이 일치하지않습니다.')
+				else
+					alert(data.id + '님의 비밀번호는 ' + data.password + '입니다')
+			},
+			error : function(err) {
+				console.log(err);
+			}
+		})
 	}
 
-	function check(){
-		if($('#loginid').val()==""){
+	function check() {
+		if ($('#loginid').val() == "") {
 			alert("ID를 입력하여 주세요.")
 			loginForm.loginid.focus();
 			return false;
-		}else if($('#loginpsw').val()==""){
+		} else if ($('#loginpsw').val() == "") {
 			alert("PassWord를 입력하여 주세요.")
 			loginForm.loginpsw.focus();
 			return false;
-		}else return true;
+		} else
+			return true;
 	}
-	</script>
+</script>
 </head>
 <c:if test="${not empty msg}">
 	<script>
@@ -103,22 +104,23 @@
 			<div class="social-links float-right">
 				<c:choose>
 					<c:when test="${not empty id}">
-						<span style="
-    margin-right: 10px;
-">${id}</span>
-						<a href="memberinfo.do" id="memberinfo">회원정보  <i class="fas fa-user"></i></a>
-						<a href="logout.do" id="logout">로그아웃 <i class="fas fa-sign-out-alt"></i></a>
+						<span style="margin-right: 10px;">${id}</span>
+						<a href="memberinfo.do" id="memberinfo">회원정보 <i
+							class="fas fa-user"></i></a>
+						<a href="logout.do" id="logout">로그아웃 <i
+							class="fas fa-sign-out-alt"></i></a>
 					</c:when>
-					<c:otherwise> 
+					<c:otherwise>
 						<a href="#" data-target="#login" data-toggle="modal">로그인 <i
 							class="fas fa-sign-out-alt"></i></a>
-						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i class="fas fa-user-plus"></i></a>
+						<a href="#" data-target="#signup" data-toggle="modal">회원가입 <i
+							class="fas fa-user-plus"></i></a>
 					</c:otherwise>
-			</c:choose>
+				</c:choose>
 			</div>
 		</div>
 	</section>
-<!--Modal box
+	<!--Modal box
 		커밋해줘서 고마워 그러니까 집에 보내지마
 		왜 지은이가 혼자 다하고 있어!!!!!!!!
 -->
@@ -137,10 +139,8 @@
 							<p class="login-box-msg">${msg}</p>
 						</c:if>
 						<div class="form-group">
-							<form id="loginForm" method="post"
-								action="login.do"
-								name="loginForm"
-onsubmit="return check()">
+							<form id="loginForm" method="post" action="login.do"
+								name="loginForm" onsubmit="return check()">
 
 								<div class="form-group has-feedback">
 									<!----- username -------------->
@@ -154,8 +154,8 @@ onsubmit="return check()">
 								<div class="form-group has-feedback">
 									<!----- password -------------->
 									<input class="form-control" placeholder="Password"
-										id="loginpsw" type="password" autocomplete="off" name="loginpsw" />
-									<span
+										id="loginpsw" type="password" autocomplete="off"
+										name="loginpsw" /> <span
 										style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;"
 										id="span_loginpsw"></span>
 									<!---Alredy exists ! -->
@@ -201,8 +201,7 @@ onsubmit="return check()">
 					<div class="signup-box-body">
 						<div class="form-group">
 
-							<form id="memberinsert" method="post"
-								action="memberinsert.do">
+							<form id="memberinsert" method="post" action="memberinsert.do">
 								<div class="row marginbox">
 									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
 										class="form-control col-lg-6" name="id" placeholder="id">
@@ -272,8 +271,8 @@ onsubmit="return check()">
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--Modal box-->
 	<div class="modal fade" id="findPassword" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -290,22 +289,24 @@ onsubmit="return check()">
 					<div class="findPassword-box-body">
 						<div class="form-group">
 
-							
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffid" name="id" placeholder="id">
-								</div>
-								
-								<div class="row marginbox">
-									<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
-										class="form-control col-lg-6" id = "ffemail" name="email" placeholder="Email">
-								</div>
-								
-								<div class="col-lg-12">
-									<button 
-									onclick="findPW()" id = "fidbtn" class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
-								</div>
-							
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 아이디 </a> <input type="text"
+									class="form-control col-lg-6" id="ffid" name="id"
+									placeholder="id">
+							</div>
+
+							<div class="row marginbox">
+								<a class="col-lg-4" align="center"> 이메일 </a> <input type="text"
+									class="form-control col-lg-6" id="ffemail" name="email"
+									placeholder="Email">
+							</div>
+
+							<div class="col-lg-12">
+								<button onclick="findPW()" id="fidbtn"
+									class="btn btn-green btn-block btn-flat">비밀번호 찾기</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -315,15 +316,18 @@ onsubmit="return check()">
 
 	</div>
 	<!--/ Modal box-->
-	
-	
+
+
 	<!--==========================
     Header
   ============================-->
 	<header id="header">
 		<div class="container">
 			<div id="logo" class="pull-left">
-				 <a href="mainform.do"><img src="https://lab.ssafy.com/uploads/-/system/appearance/header_logo/1/ssafy_logo.png"  alt="" title="" /></a>
+				<a href="mainform.do">
+					 <img
+					src="img/ssafy.JPG" width="200" height="250" border="10px"
+					 /></a>
 			</div>
 
 			<nav id="nav-menu-container">
@@ -331,7 +335,7 @@ onsubmit="return check()">
 					<li><a href="./qna.jsp">QnA</a></li>
 					<li><a href="list.do">상품 정보</a></li>
 					<c:if test="${not empty id}">
-						<li><a href="preferList.do">예상 섭취  정보</a></li>
+						<li><a href="preferList.do">예상 섭취 정보</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 						<li><a href="consumeList.do">내 섭취 정보</a></li>
@@ -359,40 +363,40 @@ onsubmit="return check()">
 
 			<form id="memberupdate" method="post" action="userupdate.do">
 				<table class="table">
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">아이디</td>
-					<td><input type="text" class="form-control col-lg-8" name="id"
-						placeholder="Id" value="${member.id}"></td>
-				</tr>
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">비밀번호</td>
-					<td><input type="password" class="form-control col-lg-8" name="password"
-						placeholder="Password" value="${member.password}"></td>
-				</tr>
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">이름</td>
-					<td><input type="text" class="form-control col-lg-8" name="name"
-						placeholder="Name" value="${member.name}"></td>
-				</tr>
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">이메일</td>
-					<td><input type="text" class="form-control col-lg-8" name="email"
-						placeholder="Email" value="${member.email}"></td>
-				</tr>
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">전화번호</td>
-					<td><input type="text" class="form-control col-lg-8" name="phone"
-						placeholder="Phone" value="${member.phone}"></td>
-				</tr>
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">주소</td>
-					<td><input type="text" class="form-control col-lg-8" name="address"
-						placeholder="Address" value="${member.address}"></td>
-				</tr>
-				<tr>
-					<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기</td>
-					<td>
-						<!-- <fieldset class="col-lg-8" id="innerFiledSet">
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">아이디</td>
+						<td><input type="text" class="form-control col-lg-8"
+							name="id" placeholder="Id" value="${member.id}"></td>
+					</tr>
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">비밀번호</td>
+						<td><input type="password" class="form-control col-lg-8"
+							name="password" placeholder="Password" value="${member.password}"></td>
+					</tr>
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">이름</td>
+						<td><input type="text" class="form-control col-lg-8"
+							name="name" placeholder="Name" value="${member.name}"></td>
+					</tr>
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">이메일</td>
+						<td><input type="text" class="form-control col-lg-8"
+							name="email" placeholder="Email" value="${member.email}"></td>
+					</tr>
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">전화번호</td>
+						<td><input type="text" class="form-control col-lg-8"
+							name="phone" placeholder="Phone" value="${member.phone}"></td>
+					</tr>
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">주소</td>
+						<td><input type="text" class="form-control col-lg-8"
+							name="address" placeholder="Address" value="${member.address}"></td>
+					</tr>
+					<tr>
+						<td width="30%" style="color: #0c2e84; font-weight: bold;">알레르기</td>
+						<td>
+							<!-- <fieldset class="col-lg-8" id="innerFiledSet">
 										<input class="from-control marginbox" type="checkbox"
 											name="allergy" value="대두"> 대두 <input
 											class="from-control marginbox" type="checkbox" name="allergy"
@@ -416,24 +420,24 @@ onsubmit="return check()">
 											value="민들레"> 민들레 <input
 											class="from-control marginbox" type="checkbox" name="allergy"
 											value="계란"> 계란
-									</fieldset> -->
-						<input type="text" class="form-control col-lg-8" name="allergy"
-						placeholder="Allergy" value=" ${member.allergy}"> 
-					</td>
-				</tr>
-			
-			</table>
-				
+									</fieldset> --> <input type="text"
+							class="form-control col-lg-8" name="allergy"
+							placeholder="Allergy" value=" ${member.allergy}">
+						</td>
+					</tr>
+
+				</table>
+
 				<div class="row marginbox">
 					<h4 class="col-lg-9"></h4>
-					<input type="submit"  class="form-control col-lg-1 btn btn-primary" id="editButton"
-						value="수정" >
-			</form>
 					<input type="submit" class="form-control col-lg-1 btn btn-primary"
-						id="submitButton" value="탈퇴" onclick="userdelete()">
-				
-				</div>
-						
+						id="editButton" value="수정">
+			</form>
+			<input type="submit" class="form-control col-lg-1 btn btn-primary"
+				id="submitButton" value="탈퇴" onclick="userdelete()">
+
+		</div>
+
 
 
 		</div>
@@ -483,6 +487,6 @@ onsubmit="return check()">
 
 	<!-- Template Main Javascript File -->
 	<script src="js/main.js"></script>
-	
+
 </body>
 </html>
