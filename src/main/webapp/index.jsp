@@ -332,7 +332,7 @@ Header
 			<div id="logo" class="pull-left">
 				<a href="mainform.do">
 					 <img
-					src="http://edu.ssafy.com/asset/images/header-logo.jpg" width="300" height="350"
+					src="img/ssafy.JPG" width="200" height="250" border="10px"
 					 /></a>
 			</div>
 
