@@ -64,18 +64,7 @@
    		select allergy from food where code= #{code}
    </select>
    
-   <insert id="insertOrigin" parameterType="foodfrom">
-   		insert into food_from (ccode, fcode) values( #{ccode}, #{fcode})
-   </insert>
    
-   <select id="searchOrigin" parameterType="int" resultType="foodfrom">
-   	select ccode, fcode from food_from where fcode = #{fcode}
-   </select>
-   
-   <select id="searchCountry" parameterType="string" resultType="foodfrom">
-   	select code as ccode, name as country from country
-   	where country like concat('%',#{country},'%')
-   </select>
    
    
 </mapper>

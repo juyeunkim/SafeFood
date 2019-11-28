@@ -12,7 +12,6 @@
 		<typeAlias type="com.ssafy.vo.Comment"   		alias="comment"/>
 		<typeAlias type="com.ssafy.vo.Prefer"   		alias="prefer"/>
 		<typeAlias type="com.ssafy.vo.SearchEngine"   		alias="searchengine"/>
-		<typeAlias type="com.ssafy.vo.FoodFrom"   		alias="foodfrom"/>
   </typeAliases>
   
   <mappers>
