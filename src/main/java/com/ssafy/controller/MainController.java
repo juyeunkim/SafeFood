@@ -389,8 +389,9 @@ public class MainController {
 		System.out.println("consumeList.do.......................");
 		String id = (String) session.getAttribute("id");
 		List<Consume> list = cservice.searchAll(id);
-		List<Consume> toplist = cservice.count(id);
-		List<Consume> sevendaylist = cservice.searchAllseven(id);
+		List<Consume> toplist = cservice.count(id);		
+		List<Consume> sevendaylist = cservice.searchAllweek(id);
+		
 		int calory = 0, carbo = 0, protein = 0, fat = 0, sugar = 0, natrium = 0, chole = 0, fattyacid = 0, transfat = 0;
 		for (int i = 0; i < sevendaylist.size(); i++) {
 			Consume c = sevendaylist.get(i);
@@ -426,14 +427,16 @@ public class MainController {
 		System.out.println("searchengineList.do.......................");
 		List<SearchEngine> list = sservice.searchAll();
 		List<SearchEngine> topsearchlist = sservice.count();
+		List<SearchEngine> daylist = sservice.searchAllday();
+		List<SearchEngine> weeklist = sservice.searchAllweek();
+		List<SearchEngine> monthlist = sservice.searchAllmonth();
 
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(
-					list.get(i).getSearch_key() + " " + list.get(i).getSearch_value() + " " + list.get(i).getCnt());
-		}
 		System.out.println("검색리스트 목록" + topsearchlist.size());
 		model.addAttribute("searchList", list);
 		model.addAttribute("topsearchList", topsearchlist);
+		model.addAttribute("daylist", daylist);
+		model.addAttribute("weeklist", weeklist);
+		model.addAttribute("monthlist", monthlist);
 
 		return "searchengineList";
 	}

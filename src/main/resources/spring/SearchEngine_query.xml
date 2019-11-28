@@ -1,23 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.dao.SearchEngineDao">
 
 	<insert id="insert" parameterType="searchengine">
-		insert into search_engine (search_key, search_value, search_date) values(#{search_key:VARCHAR},#{search_value:VARCHAR},now())
+		insert into search_engine
+		(search_key, search_value, search_date)
+		values(#{search_key:VARCHAR},#{search_value:VARCHAR},now())
 	</insert>
-	<select id="getSearchNo"   	resultType="int" >
-		select max(sno)+1 from search_engine
+	<select id="getSearchNo" resultType="int">
+		select max(sno)+1 from
+		search_engine
 	</select>
-	
-	<select id = "searchAll" resultType = "searchengine" >
-		select g1.search_key,(select search_value from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as search_value,(select count(search_value) from search_engine where search_key = g1.search_key group by search_value order by  count(search_value) desc limit 1) as cnt from search_engine g1
-		group by search_key;
+
+	<select id="searchAll" resultType="searchengine">
+		select
+		g1.search_key,(select
+		search_value from search_engine where search_key
+		= g1.search_key group
+		by search_value order by count(search_value)
+		desc limit 1) as
+		search_value,(select count(search_value) from
+		search_engine where
+		search_key = g1.search_key group by search_value
+		order by
+		count(search_value) desc limit 1) as cnt from search_engine
+		g1
+		group by
+		search_key;
 	</select>
-	
-	<select id="count" resultType = "searchengine">
-		select *, count(*) as cnt from search_engine group by search_value order by cnt desc limit 10;
+
+	<select id="count" resultType="searchengine">
+		select *, count(*) as cnt from
+		search_engine group by search_value order by cnt desc limit 10;
 	</select>
-	
-	
+
+	<select id="searchAllday" resultType="searchengine">
+		select
+		if(search_key='maker',
+		'제조사', if(search_key='name', '식품명',
+		if(search_key='material',
+		'재료명',''))) as search_key
+		, search_value,
+		search_date,
+		count(search_date) as cnt from
+		search_engine
+		group by
+		search_date
+		having
+		search_date = (curdate())
+		order by cnt desc limit 5
+	</select>
+
+	<select id="searchAllweek" resultType="searchengine">
+		select
+		if(search_key='maker',
+		'제조사', if(search_key='name', '식품명',
+		if(search_key='material',
+		'재료명',''))) as search_key
+		, search_value,
+		search_date,
+		count(search_date) as cnt from
+		search_engine
+		group by
+		search_date
+		having
+		search_date >=
+		(curdate()-interval 7 day)
+		order by cnt
+		desc limit 5
+	</select>
+
+	<select id="searchAllmonth" resultType="searchengine">
+		select
+		if(search_key='maker',
+		'제조사', if(search_key='name', '식품명',
+		if(search_key='material',
+		'재료명',''))) as search_key
+		, search_value,
+		search_date, count(search_date) as cnt from
+		search_engine
+		group by
+		search_date
+		having
+		search_date >=
+		(curdate()-interval 30 day)
+		order by cnt
+		desc limit 5
+	</select>
+
 </mapper>

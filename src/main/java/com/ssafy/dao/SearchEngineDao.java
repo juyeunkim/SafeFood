@@ -12,4 +12,7 @@ public interface SearchEngineDao {
 	public int getSearchNo();
 	public List<SearchEngine> count();
 	public void insert(SearchEngine searchengine);
+	public List<SearchEngine> searchAllday();
+	public List<SearchEngine> searchAllweek();
+	public List<SearchEngine> searchAllmonth();
 }

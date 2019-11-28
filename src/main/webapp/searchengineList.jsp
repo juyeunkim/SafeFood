@@ -428,7 +428,7 @@ onsubmit="return check()">
 	<div class="container" class="text-center">
 		<div class="section-header">
 			<br /> <br />
-			<h2>검색 히스토리 Top 10</h2>
+			<h2>검색 히스토리 Top 5</h2>
 		</div>
 	</div>
 
@@ -437,7 +437,76 @@ onsubmit="return check()">
 
 			<div class='col-lg-12'>
 				<div class='col-lg-5'>
+					하루
 					<table border="0" cellpadding="0" cellspacing="1" width="400">
+						<tr>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								조건</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색어
+							</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								횟수</td>
+						</tr>
+						<c:forEach items='${daylist}' var='search'>
+							<div class='col-lg-12'>
+								<div class=' box2 wow fadeInLeft row'></div>
+							</div>
+
+							<tr>
+								<td width=100 align=center height="22">${search.search_key}</td>
+								<td width=100 align=center height="22">${search.search_value}</td>
+								<td width=100 align=center height="22">${search.cnt}</td>
+							</tr>
+						</c:forEach>
+					</table>
+					
+					일주일
+					<table border="0" cellpadding="0" cellspacing="1" width="400">
+						<tr>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								조건</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색어
+							</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								횟수</td>
+						</tr>
+						<c:forEach items='${weeklist}' var='search'>
+							<div class='col-lg-12'>
+								<div class=' box2 wow fadeInLeft row'></div>
+							</div>
+
+							<tr>
+								<td width=100 align=center height="22">${search.search_key}</td>
+								<td width=100 align=center height="22">${search.search_value}</td>
+								<td width=100 align=center height="22">${search.cnt}</td>
+							</tr>
+						</c:forEach>
+					</table>
+					
+					한달
+					<table border="0" cellpadding="0" cellspacing="1" width="400">
+						<tr>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								조건</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색어
+							</td>
+							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
+								횟수</td>
+						</tr>
+						<c:forEach items='${monthlist}' var='search'>
+							<div class='col-lg-12'>
+								<div class=' box2 wow fadeInLeft row'></div>
+							</div>
+
+							<tr>
+								<td width=100 align=center height="22">${search.search_key}</td>
+								<td width=100 align=center height="22">${search.search_value}</td>
+								<td width=100 align=center height="22">${search.cnt}</td>
+							</tr>
+						</c:forEach>
+					</table>
+					
+					<%-- <table border="0" cellpadding="0" cellspacing="1" width="400">
 						<tr>
 							<td width=100 align=center bgcolor="#d5dae6" height="22">검색
 								조건</td>
@@ -458,7 +527,7 @@ onsubmit="return check()">
 							</tr>
 						</c:forEach>
 
-					</table>
+					</table> --%>
 				</div>
 				<div class='col-lg-6' id="piechart"
 					style="width: 900px; height: 500px; float: left;"></div>
