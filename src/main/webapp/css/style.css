@@ -534,6 +534,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 #services {
 	padding: 0px 0 0 0;
+	background: #ffffff;
 }
 
 #services .box {
