@@ -362,13 +362,13 @@ Intro Section
 	<section id="intro">
 
 		<div class="intro-content">
-			<h2>SafeFood</h2>
-			<h4>자연의 맛 그대로 바른먹거리를 전하다.</h4>
+			<h2 style="color: black">SafeFood</h2>
+			<h4 style="color: black">자연의 맛 그대로 바른먹거리를 전하다.</h4>
 		</div>
 
 		<div id="intro-carousel" >
 			<div class="item"
-				style="background-image: url(../img/mainimage.JPG); width: 100%"></div>
+				style="background-image: url(../img/mainimage.JPG); width: 100%; opacity: 0.8" ></div>
 		</div>
 
 	</section>
