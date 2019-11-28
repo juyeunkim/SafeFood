@@ -170,6 +170,11 @@ td {
     			return false;
     		}else return true;
     	}
+      function date(){
+    	  const date =  Date().now;
+    	  console.log(date)
+
+      }
     
     </script>
 </head>
@@ -439,6 +444,7 @@ td {
 			<div class='col-lg-12'>
 				<div class='col-lg-4'>
 					- 하루
+					<script>date() </script>
 					<span id="today"></span>
 					<table border="0" cellpadding="0" cellspacing="1" width="300">
 						<tr>

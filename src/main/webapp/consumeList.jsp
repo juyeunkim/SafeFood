@@ -425,7 +425,7 @@
     ============================-->
 		<div class="container" class="text-center">
 			<div class="section-header">
-				<h2>${id }님의
+				<h2 style="margin-top: 20px;">${id }님의
 					섭취 정보 <i class="fas fa-utensils" style="color: black;"></i>
 				</h2>
 			</div>

@@ -548,7 +548,7 @@ Header
 													<input type="hidden" id="material${status.count}" name="material${status.count}"
 														
 													value="${food.material}" /> </br>원산지 표시: <span
-													style="color: #0c2e84; font-weight: bold;" id="country${status.count}"></span>
+													style="color: red; font-weight: bold;" id="country${status.count}"></span>
 													</span>
 													<script>findCountry(${status.count})</script>
 

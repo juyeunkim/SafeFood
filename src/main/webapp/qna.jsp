@@ -147,7 +147,7 @@ Top Bar
 						</c:if>
 						<div class="form-group">
 							<form id="loginForm" method="post"
-								action="login.do"
+								action="/login.do"
 								name="loginForm"
 onsubmit="return check()">
 
@@ -417,7 +417,7 @@ All the links in the footer should remain intact.
 	
 	</script>
  <script src=/js/chunk-vendors.fda157b2.js></script>
-        <script src=/js/app.a07680a6.js></script>
+        <script src=/js/app.d544b129.js></script>
 
 </body>
 </html>
